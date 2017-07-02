@@ -2,7 +2,7 @@ import { EnthusiasmAction } from '../actions';
 import { StoreState } from '../types/index';
 import * as types from '../actions/actionTypes';
 
-export function enthusiasmReducer(state: StoreState, action: EnthusiasmAction): StoreState {
+const enthusiasmReducer = (state: StoreState = {languageName: 'TS', enthusiasmLevel: 5}, action: EnthusiasmAction): StoreState => {
     switch (action.type) {
         case types.INCREMENT_ENTHUSIASM:
             return { ...state, enthusiasmLevel: state.enthusiasmLevel + 1 };
@@ -11,4 +11,6 @@ export function enthusiasmReducer(state: StoreState, action: EnthusiasmAction): 
         default:
             return state;
     }
-}
+};
+
+export default enthusiasmReducer;

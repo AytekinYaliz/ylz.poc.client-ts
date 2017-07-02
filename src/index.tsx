@@ -13,9 +13,10 @@ import './index.less';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { StoreState } from './types/index';
-import { enthusiasmReducer } from './reducers/index';
+import enthusiasmReducer from './reducers/index';
 
 
+// TODO: the second parameter will be removed and initial values will be put in reducers
 const store = createStore<StoreState>(enthusiasmReducer, {
     enthusiasmLevel: 1,
     languageName: 'TypeScript',
