@@ -1,16 +1,15 @@
 import { connect, Dispatch } from 'react-redux';
 
-import * as actions from '../actions/';
-import { StoreState } from '../types/index';
+import * as actions from '../actions/enthusiasmActions';
+import { IStoreState } from '../store/IStoreState';
 
-import {HelloComponent2} from './HelloComponent';
+import {HelloComponent} from './HelloComponent';
 
 
-
-export function mapStateToProps(state: StoreState) {
+export function mapStateToProps(state: IStoreState) {
     return {
-        enthusiasmLevel: state.enthusiasmReducer.enthusiasmLevel,
-        name: state.enthusiasmReducer.languageName,
+        enthusiasmLevel: state.enthusiasmState.enthusiasmLevel,
+        name: state.enthusiasmState.languageName,
     };
 }
 
@@ -24,4 +23,4 @@ export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>)
 export default connect(
     mapStateToProps, 
     mapDispatchToProps
-)(HelloComponent2);
+)(HelloComponent);

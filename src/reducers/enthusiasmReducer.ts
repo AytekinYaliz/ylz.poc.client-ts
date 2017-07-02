@@ -1,8 +1,12 @@
-import { EnthusiasmAction } from '../actions';
-import { EnthusiasmReducer } from '../types/index';
+import { EnthusiasmAction } from '../actions/enthusiasmActions';
+import { IEnthusiasmState } from '../store/IStoreState';
+import initialStates from './initialStates';
 import * as types from '../actions/actionTypes';
 
-export default function enthusiasmReducer (state: EnthusiasmReducer = {languageName: 'TS', enthusiasmLevel: 4}, action: EnthusiasmAction): EnthusiasmReducer {
+export default function enthusiasmReducer (
+    state: IEnthusiasmState = initialStates.enthusiasm, 
+    action: EnthusiasmAction
+): IEnthusiasmState {
     switch (action.type) {
         case types.INCREMENT_ENTHUSIASM:
             return { ...state, enthusiasmLevel: state.enthusiasmLevel + 1 };

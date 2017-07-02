@@ -1,12 +1,13 @@
 import {combineReducers}    from 'redux';
 //import {routerReducer}      from 'react-router-redux';
 
-import enthusiasmReducer from './enthusiasmReducer';
+import enthusiasmState from './enthusiasmReducer';
+import citiesState from './cityReducer';
 
 const rootReducer = combineReducers({
     //routing: routerReducer,
-    enthusiasmReducer,
-    // cityReducer,
+    enthusiasmState,
+    citiesState,
     // customersRootReducer,
     // customersAddEditReducer,
 });
