@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-//import {Provider} from 'react-redux';
+// import {Provider} from 'react-redux';
 
 // import Routes from './routes';
 // import configureStore   from './store/configureStore';
@@ -16,8 +16,6 @@ ReactDOM.render(
 );
 registerServiceWorker();
 
-
-
 // import './index.less';
 // //import '../node_modules/toastr/build/toastr.min.css';
 
@@ -32,4 +30,3 @@ registerServiceWorker();
 // );
 
 // registerServiceWorker();
-
