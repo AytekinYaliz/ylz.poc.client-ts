@@ -1,20 +1,36 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-// import {Provider} from 'react-redux';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 // import Routes from './routes';
 // import configureStore   from './store/configureStore';
 // import registerServiceWorker from './registerServiceWorker';
 
+import './index.less';
+//import '../node_modules/toastr/build/toastr.min.css';
+
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import './index.less';
+import { StoreState } from './types/index';
+import { enthusiasmReducer } from './reducers/index';
+
+
+const store = createStore<StoreState>(enthusiasmReducer, {
+    enthusiasmLevel: 1,
+    languageName: 'TypeScript',
+});
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('app') as HTMLElement
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('app') as HTMLElement
 );
+
 registerServiceWorker();
+
+
 
 // import './index.less';
 // //import '../node_modules/toastr/build/toastr.min.css';
