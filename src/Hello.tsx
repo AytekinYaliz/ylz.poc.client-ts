@@ -23,6 +23,18 @@ export const Hello2 = ({ name, enthusiasmLevel = 1 }: HelloProps) => {
 };
 
 export class Hello3 extends React.Component<HelloProps, object> {
+    state = {
+        count: 0
+    };
+
+    constructor(props: any) {
+        super(props);
+
+        setTimeout(() => {
+            this.setState({count: 1});
+        }, 1000);
+    }
+
     render() {
         const { name, enthusiasmLevel = 1 } = this.props;
 
@@ -33,7 +45,7 @@ export class Hello3 extends React.Component<HelloProps, object> {
         return (
             <div className="hello">
                 <div className="greeting">
-                    Hello {name + ' ' + getExclamationMarks(enthusiasmLevel)}
+                    Hello {`${name} ${getExclamationMarks(enthusiasmLevel)} [${this.state.count}]`}
                 </div>
             </div>
         );

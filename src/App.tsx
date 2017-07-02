@@ -17,9 +17,9 @@ class App extends React.Component<{}, {}> {
                     To get started, edit <code>src/App.tsx</code> and save to reload.<br />
                 </p>
                 <div>
-                    <Hello.Hello1 name="aytekin1" enthusiasmLevel={1} />
-                    <Hello.Hello2 name="aytekin2" enthusiasmLevel={2} />
-                    <Hello.Hello3 name="aytekin3" enthusiasmLevel={3} />
+                    <Hello.Hello1 name="ayt1" enthusiasmLevel={1} />
+                    <Hello.Hello2 name="ayt2" enthusiasmLevel={2} />
+                    <Hello.Hello3 name="ayt3" enthusiasmLevel={3} />
                 </div>
             </div>
         );
