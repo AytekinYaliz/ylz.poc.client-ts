@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+//import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 // import Routes from './routes';
@@ -12,15 +12,24 @@ import './index.less';
 
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { StoreState } from './types/index';
-import enthusiasmReducer from './reducers/index';
+import configureStore from './store/configureStore.dev';
+
+// import { StoreState } from './types/index';
+// import enthusiasmReducer from './reducers/index';
 
 
 // TODO: the second parameter will be removed and initial values will be put in reducers
-const store = createStore<StoreState>(enthusiasmReducer, {
-    enthusiasmLevel: 1,
-    languageName: 'TypeScript',
-});
+const store = configureStore({});
+// const store = configureStore({
+//     enthusiasmLevel: 1,
+//     languageName: 'TypeScript',
+// });
+
+
+// const store = createStore<StoreState>(enthusiasmReducer, {
+//     enthusiasmLevel: 1,
+//     languageName: 'TypeScript',
+// });
 
 ReactDOM.render(
     <Provider store={store}>

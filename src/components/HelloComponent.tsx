@@ -68,7 +68,7 @@ export class HelloComponent3 extends React.Component<HelloProps, HelloState> {
 }
 
 // helpers
-
-function getExclamationMarks(numChars?: number) {
-    return Array(numChars ? numChars + 1 : 1).join('!');
+function getExclamationMarks(numChars?: number): String {
+    //return Array(numChars ? numChars + 1 : 1).join('!');
+    return `[${numChars}]`;
 }

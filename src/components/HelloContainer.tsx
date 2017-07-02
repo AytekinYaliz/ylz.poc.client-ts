@@ -7,10 +7,10 @@ import {HelloComponent2} from './HelloComponent';
 
 
 
-export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
+export function mapStateToProps(state: StoreState) {
     return {
-        enthusiasmLevel,
-        name: languageName,
+        enthusiasmLevel: state.enthusiasmReducer.enthusiasmLevel,
+        name: state.enthusiasmReducer.languageName,
     };
 }
 
