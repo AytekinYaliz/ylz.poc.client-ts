@@ -1,30 +1,34 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-//import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux';
+import createBrowserHistory from 'history/createBrowserHistory';
+import {Route} from 'react-router-dom';
 
-// import Routes from './routes';
-// import configureStore   from './store/configureStore';
-// import registerServiceWorker from './registerServiceWorker';
 
 import './index.less';
 //import '../node_modules/toastr/build/toastr.min.css';
 
-import App from './App';
+//import App from './App';
+//import Routes from './Routes';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './store/configureStore.dev';
 import {getCities} from './actions/cityActions';
 
-// import { StoreState } from './types/index';
-// import enthusiasmReducer from './reducers/index';
-
-
 const store = configureStore();
 store.dispatch(getCities());
 
+const history = createBrowserHistory();
+
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        {/*<App />*/}
+
+        <ConnectedRouter history={history}>
+            <div>
+                <Route path="/" render={() => ( <div>dddd</div> )} />
+            </div>            
+        </ConnectedRouter>
     </Provider>,
     document.getElementById('app') as HTMLElement
 );
