@@ -34,13 +34,10 @@ export default function cityReducer (
 ): City[] {
     switch (action.type) {
         case types.GET_CITIES: {
-            return {
-                ...state,
-                cities: [
-                    new City({id: 6, text: 'Ankara'}),
-                    new City({id: 7, text: 'Antalya'})
-                ]
-            };
+            return [
+                new City({id: 6, text: 'Ankara'}),
+                new City({id: 7, text: 'Antalya'})
+            ];
         }
         // case types.GET_CITIES_SUCCESS: {
         //     let cities = action.data.map(city => {
