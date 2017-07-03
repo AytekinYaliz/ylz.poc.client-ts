@@ -30,7 +30,7 @@ export interface IGetCities {
     type: constants.GET_CITIES;
 }
 
-export type CityAction = IGetCities;
+export type CityActionType = IGetCities;
 
 export function getCities(): IGetCities {
     return {

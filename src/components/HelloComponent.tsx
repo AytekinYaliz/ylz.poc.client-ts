@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import './HelloComponent.less';
 
-interface IHelloProps {
+type PropType = {
     name: string;
     enthusiasmLevel?: number;
     onIncrement?: () => void;
     onDecrement?: () => void;
-}
+};
 // interface IHelloState {
 //     count: number;
 // }
@@ -15,7 +15,7 @@ interface IHelloProps {
 // export const Hello1 = (props: HelloProps) =>
 //     <h1>Hello from {props.name} {getExclamationMarks(props.enthusiasmLevel)}!</h1>;
 
-export const HelloComponent = ({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: IHelloProps) => {
+export const HelloComponent = ({name, enthusiasmLevel = 1, onIncrement, onDecrement}: PropType) => {
     if (enthusiasmLevel <= 0) {
         throw new Error('You could be a little more enthusiastic. :D');
     }

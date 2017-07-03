@@ -23,14 +23,14 @@
 
 
 
-import { CityAction } from '../actions/cityActions';
+import { CityActionType } from '../actions/cityActions';
 import initialStates from './initialStates';
 import * as types from '../actions/actionTypes';
 import City from '../models/City';
 
 export default function cityReducer (
     state: City[] = initialStates.cities, 
-    action: CityAction
+    action: CityActionType
 ): City[] {
     switch (action.type) {
         case types.GET_CITIES: {
