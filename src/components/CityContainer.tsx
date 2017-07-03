@@ -9,6 +9,8 @@ import City from '../models/City';
 
 type PropType = {
     cities: City[];
+    name: string;
+    onClick?: () => void;
 };
 type StateType = {
     count: number;
@@ -31,23 +33,26 @@ class CityContainer extends React.Component<PropType, StateType> {
         return (
             <div className="hello">
                 <div className="greeting">
-                    {`Total cities: ${this.props.cities.length} [${this.state.count}]`}
+                    {`Total cities for ${this.props.name}: ${this.props.cities.length} [${this.state.count}]`}
+                    <button onClick={this.props.onClick}>#</button>
                 </div>
             </div>
         );
     }
 }
 
-function mapStateToProps(state: IStoreState) {
+const mapStateToProps = (state: IStoreState) => {
     return {
-        cities: state.citiesState
+        cities: state.citiesState,
+        name: 'aytek',
+        onClick: () => { alert(`Thanks`); }
     };
-}
-function mapDispatchToProps(dispatch: Dispatch<actions.CityActionType>) {
+};
+const mapDispatchToProps = (dispatch: Dispatch<actions.CityActionType>) => {
     return {
         getCities: () => dispatch(actions.getCities())
     };
-}
+};
 
 export default connect<{}, PropType, {}>(
     mapStateToProps,

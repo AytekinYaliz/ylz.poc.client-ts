@@ -37,6 +37,5 @@ export const HelloComponent = ({name, enthusiasmLevel = 1, onIncrement, onDecrem
 
 // helpers
 function getExclamationMarks(numChars?: number): String {
-    //return Array(numChars ? numChars + 1 : 1).join('!');
     return `[${numChars}]`;
 }
