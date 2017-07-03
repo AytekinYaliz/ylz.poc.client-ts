@@ -1,8 +1,10 @@
 {
-  "main.js": "static/js/main.7b260124.js",
-  "main.js.map": "static/js/main.7b260124.js.map",
-  "static\\media\\App.less": "static/media/App.c8e67407.less",
-  "static\\media\\HelloComponent.less": "static/media/HelloComponent.c63cb518.less",
-  "static\\media\\index.less": "static/media/index.4f4da81d.less",
+  "main.css": "main.css",
+  "main.css.map": "main.css.map",
+  "main.js": "static/js/main.3e0988cd.js",
+  "main.js.map": "static/js/main.3e0988cd.js.map",
+  "static\\media\\App.less": "static/media/App.b2328beb.less",
+  "static\\media\\HelloComponent.less": "static/media/HelloComponent.b2328beb.less",
+  "static\\media\\index.less": "static/media/index.b2328beb.less",
   "static\\media\\logo.svg": "static/media/logo.5d5d9eef.svg"
 }
