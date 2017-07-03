@@ -25,7 +25,7 @@ class CityContainer extends React.Component<PropType, StateType> {
         super(props);
 
         setTimeout(() => {
-            this.setState({ count: 8888 });
+            this.setState({ count: 88889 });
         }, 2000);
     }
 
