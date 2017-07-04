@@ -2,16 +2,12 @@
 
 // import App from './App';
 
-// // function Routes() {
-// //     return
-// //         <Router>
-// //             <Route path="/" render={() => ( <div>dddd</div> )} />
-// //         </Router>;
-// // }
+// const routes = () => {
+//     return (
+//         <Router>
+//             <Route path="/" render= {() => (<div>dddd < /div> )} / >
+//         </Router>
+//     );
+// }
 
-// export const Routes = () => 
-//     <Router>
-//         <Route path="/" render={() => ( <div>dddd</div> )} />
-//     </Router>
-
-// export default Routes;
+// export default routes;
