@@ -1,9 +1,13 @@
+interface ICity {
+    id: number;
+    text: string;
+}
 export default class City {
     id: number;
     text: string;
 
-    constructor({id = 0, text = ''}) {
-        this.id = id;
-        this.text = text;
+    constructor(city: ICity) {
+        this.id = city.id;
+        this.text = city.text;
     }
 }

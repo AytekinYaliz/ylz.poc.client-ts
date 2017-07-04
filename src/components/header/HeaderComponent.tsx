@@ -9,7 +9,7 @@ import Logout from '../logout/LogoutContainer';
 
 const HeaderComponent = (props: {}) => {
     return (
-        <Navbar inverse collapseOnSelect>
+        <Navbar inverse={true} collapseOnSelect={true}>
             <Navbar.Header>
                 <Navbar.Brand>
                     <Link to="/"><img src="/logo_32x30.jpg" /></Link>
@@ -18,12 +18,12 @@ const HeaderComponent = (props: {}) => {
             </Navbar.Header>
             <Navbar.Collapse>
                 <Nav>
-                    <LinkContainer exact to="/"><NavItem eventKey={1}>Home</NavItem></LinkContainer>
+                    <LinkContainer exact={true} to="/"><NavItem eventKey={1}>Home</NavItem></LinkContainer>
                     <LinkContainer to="/customers"><NavItem eventKey={2}>Customers</NavItem></LinkContainer>
                     <LinkContainer to="/receipts"><NavItem eventKey={3}>Receipts</NavItem></LinkContainer>
                     <LinkContainer to="/invoices"><NavItem eventKey={4}>Invoices</NavItem></LinkContainer>
                 </Nav>
-                <Nav pullRight>
+                <Nav pullRight={true}>
                     <NavItem eventKey={1}><Logout /></NavItem>
                 </Nav>
             </Navbar.Collapse>

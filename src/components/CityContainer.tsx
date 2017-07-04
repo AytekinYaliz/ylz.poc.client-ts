@@ -17,7 +17,7 @@ interface DispatchProps {
 interface OwnProps {
     onClick?: (val: String) => void;
 }
-type HomeProps = StateProps & DispatchProps & OwnProps;
+type Props = StateProps & DispatchProps & OwnProps;
 
 interface State {
     count: number;
@@ -26,11 +26,11 @@ interface State {
 
 
 //@connect<StateProps, DispatchProps, OwnProps>(mapStateToProps, mapDispatchToProps)
-class CityContainer extends React.Component<HomeProps, State> {
+class CityContainer extends React.Component<Props, State> {
     state = {
         count: 33
     };
-    constructor(props: HomeProps) {
+    constructor(props: Props) {
         super(props);
         
         setTimeout(() => {

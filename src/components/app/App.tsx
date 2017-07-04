@@ -1,34 +1,56 @@
 import * as React from 'react';
+import { connect, Dispatch } from 'react-redux';
+import { Route /*, Switch*/ } from 'react-router-dom';
+
+import { IStoreState, ICurrentUserState } from '../../store/IStoreState';
 
 import './App.less';
-import HelloContainer from '..//HelloContainer';
-import CityContainer from '../CityContainer';
+import HomePage from '../../pages/home/HomePage';
+import HeaderComponent from '../header/HeaderComponent';
+import FooterComponent from '../footer/FooterComponent';
 
-const logo = require('./logo.svg');
 
-class App extends React.Component<{}, {}> {
-    onClickHandle = (val: string) => {
-        console.log(`Hello from app: ${val}`);  //tslint:disable-line
-    }
-    
+interface StateProps {
+    currentUser: ICurrentUserState;
+}
+interface DispatchProps {
+}
+interface OwnProps {
+}
+type Props = StateProps & DispatchProps & OwnProps;
+
+// interface State {
+//     count: number;
+//     count2?: number;
+// }
+
+class App extends React.Component<Props, {}> {
     render() {
         return (
-            <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h2>Welcome to React</h2>
-                </div>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.tsx</code> and save to reload.<br />
-                </p>
-                <div>
-                    <HelloContainer />
-                    <CityContainer onClick={this.onClickHandle} />
-                    <HelloContainer />
-                </div>
+            <div className="container">
+                <HeaderComponent />
+                {this.props.currentUser ? (
+                    <Route exact={true} path="/" component={HomePage as any} />
+                ) : (
+                    <Route exact={true} path="/" component={HomePage as any} />
+                )}
+                <FooterComponent />
             </div>
         );
     }
 }
+const mapStateToProps = (state: IStoreState) => {
+    return {
+        currentUser: state.currentUserState
+    };
+};
+const mapDispatchToProps = (dispatch: Dispatch<{}>) => {
+    return {
+        //logout: () => {}  //dispatch(currentUserActions.logout())
+    };
+};
 
-export default App;
+export default connect<StateProps, DispatchProps, OwnProps>(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);

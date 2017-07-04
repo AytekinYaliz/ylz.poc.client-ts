@@ -9,20 +9,21 @@ import * as currentUserActions from '../../actions/currentUserActions';
 
 interface StateProps {
     currentUser: ICurrentUserState;
+    enthusiasmLevelCount: number;
 }
 interface DispatchProps {
     logout: () => void;
 }
 interface OwnProps {
 }
-type HomeProps = StateProps & DispatchProps;    // & OwnProps;
+type Props = StateProps & DispatchProps & OwnProps;
 
 // interface State {
 //     count: number;
 //     count2?: number;
 // }
 
-class LogoutContainer extends React.Component<HomeProps, {}> {
+class LogoutContainer extends React.Component<Props, {}> {
 //     // static propTypes = {
 //     //     actions:    PropTypes.object.isRequired,
 //     //     currentUser:    PropTypes.object.isRequired
@@ -48,7 +49,7 @@ class LogoutContainer extends React.Component<HomeProps, {}> {
 
     render() {
         return (
-            <div>Logout</div>
+            <div>Logout({this.props.enthusiasmLevelCount})</div>
             // this.props.currentUser
             //     ? <Redirect to={'/login'} />
             //     : <a onClick={this.logout}>Logout</a>
@@ -57,7 +58,8 @@ class LogoutContainer extends React.Component<HomeProps, {}> {
 }
 const mapStateToProps = (state: IStoreState) => {
     return {
-        currentUser: state.currentUserState
+        currentUser: state.currentUserState,
+        enthusiasmLevelCount: state.enthusiasmState.enthusiasmLevel
     };
 };
 const mapDispatchToProps = (dispatch: Dispatch<currentUserActions.CurrentUserActionType>) => {
