@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import './App.less';
-import HelloContainer from './components/HelloContainer';
-import CityContainer from './components/CityContainer';
+import HelloContainer from '..//HelloContainer';
+import CityContainer from '../CityContainer';
 
 const logo = require('./logo.svg');
 

@@ -8,7 +8,7 @@ import { Router } from 'react-router-dom';
 import './index.less';
 //import '../node_modules/toastr/build/toastr.min.css';
 
-import App from './App';
+import App from './components/app/App';
 //import Routes from './Routes';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './store/configureStore.dev';
