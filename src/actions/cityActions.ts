@@ -29,12 +29,20 @@ import * as constants from './actionTypes';
 export interface IGetCities {
     type: constants.GET_CITIES;
 }
+export interface ILogCityName {
+    type: constants.LOG_CITYNAME;
+}
 
-export type CityActionType = IGetCities;
+export type CityActionType = IGetCities | ILogCityName;
 
 export function getCities(): IGetCities {
     return {
         type: constants.GET_CITIES
+    };
+}
+export function logCityName(): ILogCityName {
+    return {
+        type: constants.LOG_CITYNAME
     };
 }
 
