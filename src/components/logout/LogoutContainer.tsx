@@ -1,22 +1,28 @@
-// import * as React from 'react';
+import * as React from 'react';
 // import { Redirect } from 'react-router';
-// import { connect, Dispatch } from 'react-redux';
+import { connect, Dispatch } from 'react-redux';
 
-// import { IStoreState } from '../store/IStoreState';
-// import * as actions from '../../actions/currentUserActions';
+import { IStoreState, ICurrentUserState } from '../../store/IStoreState';
+import * as currentUserActions from '../../actions/currentUserActions';
 
 
 
-// type PropType = {
-//     actions: {};
-//     currentUser: {};
-//     //onClick?: () => void;
-// };
-// // type StateType = {
-// //     count: number;
-// // };
+interface StateProps {
+    currentUser: ICurrentUserState;
+}
+interface DispatchProps {
+    logout: () => void;
+}
+interface OwnProps {
+}
+type HomeProps = StateProps & DispatchProps;    // & OwnProps;
 
-// class LogoutContainer extends React.Component<PropType, {}> {
+// interface State {
+//     count: number;
+//     count2?: number;
+// }
+
+class LogoutContainer extends React.Component<HomeProps, {}> {
 //     // static propTypes = {
 //     //     actions:    PropTypes.object.isRequired,
 //     //     currentUser:    PropTypes.object.isRequired
@@ -40,38 +46,27 @@
 //             });
 //     };
 
-//     render() {
-//         return (
-//             this.props.currentUser
-//                 ? <Redirect to={'/login'} />
-//                 : <a onClick={this.logout}>Logout</a>
-//         );
-//     }
-// }
-// const mapStateToProps = (state: IStoreState) => {
-//     return {
-//         currentUser: state.currentUserState.currentUser
-//     };
-// };
-// const mapDispatchToProps = (dispatch: Dispatch<actions.CurrentUserActionType>) => {
-//     return {
-//         logout: () => dispatch(actions.logout())
-//     };
-// };
+    render() {
+        return (
+            <div>Logout</div>
+            // this.props.currentUser
+            //     ? <Redirect to={'/login'} />
+            //     : <a onClick={this.logout}>Logout</a>
+        );
+    }
+}
+const mapStateToProps = (state: IStoreState) => {
+    return {
+        currentUser: state.currentUserState
+    };
+};
+const mapDispatchToProps = (dispatch: Dispatch<currentUserActions.CurrentUserActionType>) => {
+    return {
+        logout: () => {}  //dispatch(currentUserActions.logout())
+    };
+};
 
-
-// // function mapStateToProps(state) {
-// //     return {
-// //         currentUser: state.currentUserReducer.currentUser
-// //     };
-// // }
-// // function mapDispatchToProps(dispatch) {
-// //     return {
-// //         actions: bindActionCreators(currentUserActions, dispatch)
-// //     };
-// // }
-
-// export default connect<{}, PropType, {}>(
-//     mapStateToProps,
-//     mapDispatchToProps
-// )(LogoutContainer);
+export default connect<StateProps, DispatchProps, OwnProps>(
+    mapStateToProps,
+    mapDispatchToProps
+)(LogoutContainer);

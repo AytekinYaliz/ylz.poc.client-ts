@@ -4,7 +4,7 @@ import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 import './HeaderComponent.less';
-//import Logout from '../logout/LogoutContainer';
+import Logout from '../logout/LogoutContainer';
 
 
 const HeaderComponent = (props: {}) => {
@@ -24,7 +24,7 @@ const HeaderComponent = (props: {}) => {
                     <LinkContainer to="/invoices"><NavItem eventKey={4}>Invoices</NavItem></LinkContainer>
                 </Nav>
                 <Nav pullRight>
-                    {/*<NavItem eventKey={1}><Logout /></NavItem>*/}
+                    <NavItem eventKey={1}><Logout /></NavItem>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
