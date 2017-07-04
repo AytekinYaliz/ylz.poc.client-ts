@@ -1,4 +1,4 @@
-import * as React from 'react';
+//import * as React from 'react';
 
 import './HelloComponent.less';
 
@@ -8,9 +8,9 @@ type PropType = {
     onIncrement?: () => void;
     onDecrement?: () => void;
 };
-// interface IHelloState {
+// type StateType = {
 //     count: number;
-// }
+// };
 
 // export const Hello1 = (props: HelloProps) =>
 //     <h1>Hello from {props.name} {getExclamationMarks(props.enthusiasmLevel)}!</h1>;
