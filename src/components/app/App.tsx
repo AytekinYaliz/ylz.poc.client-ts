@@ -8,7 +8,7 @@ const logo = require('./logo.svg');
 
 class App extends React.Component<{}, {}> {
     onClickHandle = (val: string) => {
-        console.log(`Hello from app: ${val}`);  //eslint-disable-line
+        console.log(`Hello from app: ${val}`);  //tslint:disable-line
     }
     
     render() {

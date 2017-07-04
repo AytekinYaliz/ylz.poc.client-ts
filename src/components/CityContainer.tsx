@@ -45,7 +45,7 @@ class CityContainer extends React.Component<HomeProps, State> {
         if (this.props.onClick) {
             this.props.onClick(String(this.state.count));
         } else {
-            console.log(`Hello from CityContainer: ${this.state.count}`);   // tslint-disable-line
+            console.log(`Hello from CityContainer: ${this.state.count}`);   // tslint:disable-line
         }
     }
 

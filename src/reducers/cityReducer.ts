@@ -15,7 +15,7 @@ export default function cityReducer (
             ];
         }
         case types.LOG_CITYNAME: {
-            console.log(`City count: ${state.length}`);
+            console.log(`City count: ${state.length}`); //tslint:disable-line
             
             return state;
         }
