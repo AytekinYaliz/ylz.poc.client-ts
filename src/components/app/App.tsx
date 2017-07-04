@@ -7,6 +7,10 @@ import CityContainer from '../CityContainer';
 const logo = require('./logo.svg');
 
 class App extends React.Component<{}, {}> {
+    onClickHandle = (val: string) => {
+        console.log(`Hello from app: ${val}`);  //eslint-disable-line
+    }
+    
     render() {
         return (
             <div className="App">
@@ -19,7 +23,7 @@ class App extends React.Component<{}, {}> {
                 </p>
                 <div>
                     <HelloContainer />
-                    <CityContainer />
+                    <CityContainer onClick={this.onClickHandle} />
                     <HelloContainer />
                 </div>
             </div>
