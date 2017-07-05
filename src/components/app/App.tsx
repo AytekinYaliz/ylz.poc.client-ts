@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
-import { Route /*, Switch*/ } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import { IStoreState, ICurrentUserState } from '../../store/IStoreState';
 
@@ -8,6 +8,7 @@ import './App.less';
 import HomePage from '../../pages/home/HomePage';
 import HeaderComponent from '../header/HeaderComponent';
 import FooterComponent from '../footer/FooterComponent';
+import CustomersPage from '../../pages/customers/CustomersPage';
 
 
 type StateProps = {
@@ -30,9 +31,15 @@ class App extends React.Component<Props, {}> {
             <div className="container">
                 <HeaderComponent />
                 {this.props.currentUser ? (
-                    <Route exact={true} path="/" component={HomePage as any} />
+                    <Switch>
+                        <Route exact={true} path="/" component={HomePage as any} />
+                        <Route exact={true} path="/customers" component={CustomersPage as any} />
+                    </Switch>
                 ) : (
-                    <Route exact={true} path="/" component={HomePage as any} />
+                    <Switch>
+                        <Route exact={true} path="/" component={HomePage as any} />
+                        <Route exact={true} path="/customers" component={CustomersPage as any} />
+                    </Switch>
                 )}
                 <FooterComponent />
             </div>
