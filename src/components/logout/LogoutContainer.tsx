@@ -7,21 +7,21 @@ import * as currentUserActions from '../../actions/currentUserActions';
 
 
 
-interface StateProps {
+type StateProps = {
     currentUser: ICurrentUserState;
     enthusiasmLevelCount: number;
-}
-interface DispatchProps {
+};
+type DispatchProps = {
     logout: () => void;
-}
-interface OwnProps {
-}
+};
+type OwnProps = {
+};
 type Props = StateProps & DispatchProps & OwnProps;
 
-// interface State {
+// type State = {
 //     count: number;
 //     count2?: number;
-// }
+// };
 
 class LogoutContainer extends React.Component<Props, {}> {
 //     // static propTypes = {
