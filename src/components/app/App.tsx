@@ -10,19 +10,19 @@ import HeaderComponent from '../header/HeaderComponent';
 import FooterComponent from '../footer/FooterComponent';
 
 
-interface StateProps {
+type StateProps = {
     currentUser: ICurrentUserState;
-}
-interface DispatchProps {
-}
-interface OwnProps {
-}
+};
+type DispatchProps = {
+};
+type OwnProps = {
+};
 type Props = StateProps & DispatchProps & OwnProps;
 
-// interface State {
+// type State = {
 //     count: number;
 //     count2?: number;
-// }
+// };
 
 class App extends React.Component<Props, {}> {
     render() {
