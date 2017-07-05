@@ -7,22 +7,22 @@ import * as cityActions from '../actions/cityActions';
 
 import City from '../models/City';
 
-interface StateProps {
+type StateProps = {
     cities: City[];
     name: string;
-}
-interface DispatchProps {
+};
+type DispatchProps = {
     logCityName: () => void;
-}
-interface OwnProps {
+};
+type OwnProps = {
     onClick?: (val: String) => void;
-}
+};
 type Props = StateProps & DispatchProps & OwnProps;
 
-interface State {
+type State = {
     count: number;
     count2?: number;
-}
+};
 
 
 //@connect<StateProps, DispatchProps, OwnProps>(mapStateToProps, mapDispatchToProps)
