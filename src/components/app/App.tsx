@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 
 import { IStoreState, ICurrentUserState } from '../../store/IStoreState';
 
@@ -14,10 +14,8 @@ import CustomersPage from '../../pages/customers/CustomersPage';
 type StateProps = {
     currentUser: ICurrentUserState;
 };
-type DispatchProps = {
-};
-type OwnProps = {
-};
+type DispatchProps = {};
+type OwnProps = {};
 type Props = StateProps & DispatchProps & OwnProps;
 
 // type State = {
@@ -57,7 +55,7 @@ const mapDispatchToProps = (dispatch: Dispatch<{}>) => {
     };
 };
 
-export default connect<StateProps, DispatchProps, OwnProps>(
+export default withRouter(connect<StateProps, DispatchProps, any>(
     mapStateToProps,
     mapDispatchToProps
-)(App);
+)(App));
