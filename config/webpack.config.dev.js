@@ -209,10 +209,10 @@ module.exports = {
             // "less" loader for less processing to css
             {
                 test: /\.less$/,
-                use: ExtractTextPlugin.extract({
+                use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: ['css-loader', 'less-loader']
-                })
+                }))
             }
             // ** STOP ** Are you adding a new loader?
             // Remember to add the new extension(s) to the "url" loader exclusion list.
