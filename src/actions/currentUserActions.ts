@@ -4,10 +4,10 @@ export interface IGetCurrentUser {
     type: constants.GET_CURRENTUSER;
 }
 export interface ILogout {
-    type: constants.LOGOUT_CURRENTUSER;
+    type: constants.LOGOUT;
 }
 
-export type CurrentUserActionType = IGetCurrentUser | ILogout;
+export type CurrentUserAction = IGetCurrentUser | ILogout;
 
 export function getCurrentUser(): IGetCurrentUser {
     return {
@@ -16,6 +16,6 @@ export function getCurrentUser(): IGetCurrentUser {
 }
 export function logout(): ILogout {
     return {
-        type: constants.LOGOUT_CURRENTUSER
+        type: constants.LOGOUT
     };
 }
