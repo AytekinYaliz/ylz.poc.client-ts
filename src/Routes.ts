@@ -1,13 +1,17 @@
-// //import {Route} from 'react-router-dom';
+import * as React from 'react';
+import { Router } from 'react-router-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
 
-// import App from './App';
+import App from './components/app/App';
 
-// const routes = () => {
-//     return (
-//         <Router>
-//             <Route path="/" render= {() => (<div>dddd < /div> )} / >
-//         </Router>
-//     );
-// }
+const history = createBrowserHistory();
 
-// export default routes;
+const RoutesComponent = (props: {}) => {
+    return (
+        <Router history={history}>
+            <App />
+        </Router>
+    );
+};
+
+export default RoutesComponent;
