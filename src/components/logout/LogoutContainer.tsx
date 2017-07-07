@@ -1,10 +1,9 @@
 import * as React from 'react';
-// import { Redirect } from 'react-router';
+import { Redirect } from 'react-router';
 import { connect, Dispatch } from 'react-redux';
 
 import { IStoreState, ICurrentUserState } from '../../store/IStoreState';
 import * as currentUserActions from '../../actions/currentUserActions';
-
 
 
 type StateProps = {
@@ -14,8 +13,7 @@ type StateProps = {
 type DispatchProps = {
     logout: () => void;
 };
-type OwnProps = {
-};
+type OwnProps = {};
 type Props = StateProps & DispatchProps & OwnProps;
 
 // type State = {
@@ -24,32 +22,29 @@ type Props = StateProps & DispatchProps & OwnProps;
 // };
 
 class LogoutContainer extends React.Component<Props, {}> {
-//     // static propTypes = {
-//     //     actions:    PropTypes.object.isRequired,
-//     //     currentUser:    PropTypes.object.isRequired
-//     // };
-//     // static defaultProps = {
-//     //     currentUser: null
-//     // };
-
-//     constructor(props: PropType) {
-//         super(props);
-//     }
-//     logout = () => {
-//         this.props.actions
-//             .logout()
-//             .then(() => {
-//                 //this.setState({shouldRedirect: true});
-//                 console.log('loged out'); //eslint-disable-line
-//             })
-//             .catch((err) => {
-//                 console.log(err); //eslint-disable-line
-//             });
-//     };
+    logout = (): void => {
+        this.props
+            .logout();
+            // .then(() => {
+            //     //this.setState({shouldRedirect: true});
+            //     console.log('loged out'); //eslint-disable-line
+            // })
+            // .catch((err) => {
+            //     console.log(err); //eslint-disable-line
+            // });
+    }
 
     render() {
         return (
-            <div>Logout({this.props.enthusiasmLevelCount})</div>
+            <div>
+                {this.props.currentUser ? (
+                    <a onClick={this.logout}>Logout</a>
+                ) : (
+                    <Redirect to={'/login'} />
+                )}
+			</div>
+
+            // <div>Logout({this.props.enthusiasmLevelCount})</div>
             // this.props.currentUser
             //     ? <Redirect to={'/login'} />
             //     : <a onClick={this.logout}>Logout</a>
@@ -62,9 +57,9 @@ const mapStateToProps = (state: IStoreState) => {
         enthusiasmLevelCount: state.enthusiasmState.enthusiasmLevel
     };
 };
-const mapDispatchToProps = (dispatch: Dispatch<currentUserActions.CurrentUserActionType>) => {
+const mapDispatchToProps = (dispatch: Dispatch<currentUserActions.CurrentUserAction>) => {
     return {
-        logout: () => {}  //dispatch(currentUserActions.logout())
+        logout: () => dispatch(currentUserActions.logout())
     };
 };
 
