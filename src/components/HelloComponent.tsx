@@ -2,20 +2,20 @@ import * as React from 'react';
 
 import './HelloComponent.less';
 
-type PropType = {
+type Props = {
     name: string;
     enthusiasmLevel?: number;
     onIncrement?: () => void;
     onDecrement?: () => void;
 };
-// type StateType = {
+// type State = {
 //     count: number;
 // };
 
 // export const Hello1 = (props: HelloProps) =>
 //     <h1>Hello from {props.name} {getExclamationMarks(props.enthusiasmLevel)}!</h1>;
 
-export const HelloComponent = ({name, enthusiasmLevel = 1, onIncrement, onDecrement}: PropType) => {
+export const HelloComponent = ({name, enthusiasmLevel = 1, onIncrement, onDecrement}: Props) => {
     if (enthusiasmLevel <= 0) {
         throw new Error('You could be a little more enthusiastic. :D');
     }
