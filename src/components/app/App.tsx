@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
-import { IStoreState, ICurrentUserState } from '../../store/IStoreState';
+import { IGlobalState, ICurrentUserState } from '../../store/IGlobalState';
 
 import './App.less';
 import HomePage from '../../pages/home/HomePage';
@@ -44,7 +44,7 @@ class App extends React.Component<Props, {}> {
         );
     }
 }
-const mapStateToProps = (state: IStoreState) => {
+const mapStateToProps = (state: IGlobalState) => {
     return {
         currentUser: state.currentUserState
     };

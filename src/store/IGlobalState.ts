@@ -1,6 +1,6 @@
 import City from '../models/City';
 
-export interface IStoreState {
+export interface IGlobalState {
     currentUserState: ICurrentUserState,
     enthusiasmState: IEnthusiasmState,
     citiesState: City[]

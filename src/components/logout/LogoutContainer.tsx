@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Redirect } from 'react-router';
 import { connect, Dispatch } from 'react-redux';
 
-import { IStoreState, ICurrentUserState } from '../../store/IStoreState';
+import { IGlobalState, ICurrentUserState } from '../../store/IGlobalState';
 import * as currentUserActions from '../../actions/currentUserActions';
 
 
@@ -51,7 +51,7 @@ class LogoutContainer extends React.Component<Props, {}> {
         );
     }
 }
-const mapStateToProps = (state: IStoreState) => {
+const mapStateToProps = (state: IGlobalState) => {
     return {
         currentUser: state.currentUserState,
         enthusiasmLevelCount: state.enthusiasmState.enthusiasmLevel

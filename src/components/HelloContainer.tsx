@@ -1,12 +1,12 @@
 import { connect, Dispatch } from 'react-redux';
 
 import * as actions from '../actions/enthusiasmActions';
-import { IStoreState } from '../store/IStoreState';
+import { IGlobalState } from '../store/IGlobalState';
 
 import {HelloComponent} from './HelloComponent';
 
 
-const mapStateToProps = (state: IStoreState) => {
+const mapStateToProps = (state: IGlobalState) => {
     return {
         enthusiasmLevel: state.enthusiasmState.enthusiasmLevel,
         name: state.enthusiasmState.languageName,

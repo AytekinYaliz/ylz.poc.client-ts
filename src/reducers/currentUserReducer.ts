@@ -1,5 +1,5 @@
 import { CurrentUserAction } from '../actions/currentUserActions';
-import { ICurrentUserState } from '../store/IStoreState';
+import { ICurrentUserState } from '../store/IGlobalState';
 import initialStates from './initialStates';
 import * as types from '../actions/actionTypes';
 

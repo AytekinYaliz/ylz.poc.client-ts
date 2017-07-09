@@ -2,7 +2,7 @@ import * as React from 'react';
 //import { bindActionCreators } from 'redux';
 import { connect, Dispatch } from 'react-redux';
 
-import { IStoreState } from '../store/IStoreState';
+import { IGlobalState } from '../store/IGlobalState';
 import * as cityActions from '../actions/cityActions';
 
 import City from '../models/City';
@@ -62,7 +62,7 @@ class CityContainer extends React.Component<Props, State> {
     }
 }
 
-const mapStateToProps = (state: IStoreState) => {
+const mapStateToProps = (state: IGlobalState) => {
     return {
         cities: state.citiesState,
         name: 'aytek'
