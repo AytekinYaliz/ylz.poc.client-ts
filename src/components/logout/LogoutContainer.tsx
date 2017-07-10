@@ -11,7 +11,7 @@ type StateProps = {
     enthusiasmLevelCount: number;
 };
 type DispatchProps = {
-    logout: () => void;
+    logout: () => Promise<currentUserActions.CurrentUserAction>;
 };
 type OwnProps = {};
 type Props = StateProps & DispatchProps & OwnProps;
@@ -24,14 +24,14 @@ type Props = StateProps & DispatchProps & OwnProps;
 class LogoutContainer extends React.Component<Props, {}> {
     logout = (): void => {
         this.props
-            .logout();
-            // .then(() => {
-            //     //this.setState({shouldRedirect: true});
-            //     console.log('loged out'); //eslint-disable-line
-            // })
-            // .catch((err) => {
-            //     console.log(err); //eslint-disable-line
-            // });
+            .logout()
+            .then(() => {
+                //this.setState({shouldRedirect: true});
+                console.log('loged out'); //tslint:disable-line
+            })
+            .catch((err) => {
+                console.log(err); //tslint:disable-line
+            });
     }
 
     render() {
@@ -42,8 +42,7 @@ class LogoutContainer extends React.Component<Props, {}> {
                 ) : (
                     <Redirect to={'/login'} />
                 )}
-			</div>
-
+            </div>
             // <div>Logout({this.props.enthusiasmLevelCount})</div>
             // this.props.currentUser
             //     ? <Redirect to={'/login'} />

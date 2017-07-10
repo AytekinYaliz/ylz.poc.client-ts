@@ -9,11 +9,11 @@ class LoginPage extends React.Component<{}, {}> {
     //         password: ''
     //     };
     // }
-	login() {
+    login() {
         // firebase.auth().signInWithEmailAndPassword(
         //     this.state.email, this.state.password
         // );
-	}
+    }
     logout() {
         //firebase.auth().signOut();
     }

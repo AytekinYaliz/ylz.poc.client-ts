@@ -1,48 +1,48 @@
-// import * as constants from './actionTypes';
+// import * as types from './actionTypes';
 
 
 // export interface IncrementEnthusiasm {
-//     type: constants.INCREMENT_ENTHUSIASM;
+//     type: types.INCREMENT_ENTHUSIASM;
 // }
 // export interface DecrementEnthusiasm {
-//     type: constants.DECREMENT_ENTHUSIASM;
+//     type: types.DECREMENT_ENTHUSIASM;
 // }
 
 // export type EnthusiasmAction = IncrementEnthusiasm | DecrementEnthusiasm;
 
 // export function incrementEnthusiasm(): IncrementEnthusiasm {
 //     return {
-//         type: constants.INCREMENT_ENTHUSIASM
+//         type: types.INCREMENT_ENTHUSIASM
 //     };
 // }
 // export function decrementEnthusiasm(): DecrementEnthusiasm {
 //     return {
-//         type: constants.DECREMENT_ENTHUSIASM
+//         type: types.DECREMENT_ENTHUSIASM
 //     };
 // }
 
 
 
 
-import * as constants from './actionTypes';
+import * as types from './actionTypes';
 
 export interface IGetCities {
-    type: constants.GET_CITIES;
+    type: types.GET_CITIES;
 }
 export interface ILogCityName {
-    type: constants.LOG_CITYNAME;
+    type: types.LOG_CITYNAME;
 }
 
 export type CityActionType = IGetCities | ILogCityName;
 
 export function getCities(): IGetCities {
     return {
-        type: constants.GET_CITIES
+        type: types.GET_CITIES
     };
 }
 export function logCityName(): ILogCityName {
     return {
-        type: constants.LOG_CITYNAME
+        type: types.LOG_CITYNAME
     };
 }
 

@@ -19,3 +19,10 @@ export const GET_CURRENTUSER = 'GET_CURRENTUSER';
 export type GET_CURRENTUSER = typeof GET_CURRENTUSER;
 export const LOGOUT = 'LOGOUT';
 export type LOGOUT = typeof LOGOUT;
+
+export const LOGOUT_BEGIN = 'LOGOUT_BEGIN';
+export type LOGOUT_BEGIN = typeof LOGOUT_BEGIN;
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export type LOGOUT_SUCCESS = typeof LOGOUT_SUCCESS;
+export const LOGOUT_ERROR = 'LOGOUT_ERROR';
+export type LOGOUT_ERROR = typeof LOGOUT_ERROR;

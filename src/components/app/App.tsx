@@ -8,6 +8,7 @@ import './App.less';
 import HomePage from '../../pages/home/HomePage';
 import HeaderComponent from '../header/HeaderComponent';
 import FooterComponent from '../footer/FooterComponent';
+import LoginPage from '../../pages/login/LoginPage';
 import CustomersPage from '../../pages/customers/CustomersPage';
 
 
@@ -37,6 +38,7 @@ class App extends React.Component<Props, {}> {
                     <Switch>
                         <Route exact={true} path="/" component={HomePage as any} />
                         <Route exact={true} path="/customers" component={CustomersPage as any} />
+                        <Route exact={true} path="/login" component={LoginPage as any} />
                     </Switch>
                 )}
                 <FooterComponent />
