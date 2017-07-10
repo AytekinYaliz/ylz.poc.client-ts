@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Redirect } from 'react-router';
-import { connect, Dispatch } from 'react-redux';
+import {Redirect} from 'react-router';
+import {connect, Dispatch} from 'react-redux';
 
-import { IGlobalState, ICurrentUserState } from '../../store/IGlobalState';
+import {IGlobalState, ICurrentUserState} from '../../store/IGlobalState';
 import * as actions from '../../actions/currentUserActions';
 
 
@@ -38,7 +38,7 @@ class LogoutContainer extends React.Component<Props, {}> {
         return (
             <div>
                 {this.props.currentUser ? (
-                    <a onClick={this.logout}>Logout</a>
+                    <a onClick={this.logout}>Hello {this.props.currentUser.name}!</a>
                 ) : (
                     <Redirect to={'/login'} />
                 )}
