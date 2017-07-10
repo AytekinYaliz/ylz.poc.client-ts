@@ -1,37 +1,15 @@
 import * as types from './actionTypes';
+import IActionType from './IActionType';
 import { Dispatch } from 'react-redux';
 
 
-export interface IGetCurrentUser {
-    type: types.GET_CURRENTUSER;
-}
-// export interface ILogout {
-//     type: types.LOGOUT;
-// }
+export interface IGetCurrentUser extends IActionType {}
+export interface ILogoutBegin extends IActionType {}
+export interface ILogoutSuccess extends IActionType {}
+export interface ILogoutError extends IActionType {}
 
-export type CurrentUserAction = IGetCurrentUser | ILogoutBegin | ILogoutSuccess | ILogoutError;
+export type CurrentUserActionType = IGetCurrentUser | ILogoutBegin | ILogoutSuccess | ILogoutError;
 
-export function getCurrentUser(): IGetCurrentUser {
-    return {
-        type: types.GET_CURRENTUSER
-    };
-}
-// export function logout(): ILogout {
-//     return {
-//         type: types.LOGOUT
-//     };
-// }
-
-
-export interface ILogoutBegin {
-    type: types.LOGOUT_BEGIN;
-}
-export interface ILogoutSuccess {
-    type: types.LOGOUT_SUCCESS;
-}
-export interface ILogoutError {
-    type: types.LOGOUT_ERROR;
-}
 
 export const logoutBegin = () => {
     return {type: types.LOGOUT_BEGIN};
@@ -43,8 +21,14 @@ export const logoutError = (error: {}) => {
     return {type: types.LOGOUT_ERROR, error};
 };
 
+
+export function getCurrentUser(): IGetCurrentUser {
+    return {
+        type: types.GET_CURRENTUSER
+    };
+}
 export function logout() {
-    return (dispatch: Dispatch<CurrentUserAction>) => {
+    return (dispatch: Dispatch<CurrentUserActionType>) => {
         dispatch(logoutBegin());
 
         return new Promise((resolve, reject) => {
