@@ -27,7 +27,7 @@ class LoginPage extends React.Component<Props, {}> {
         //     this.state.email, this.state.password
         // );
         this.props
-            .login({name: 'AYTEK IN LOGINPAGE'})
+            .login({name: 'AYTEK'})
             .then(() => {
                 //this.setState({shouldRedirect: true});
                 console.log('loged in'); //tslint:disable-line

@@ -43,10 +43,6 @@ class LogoutContainer extends React.Component<Props, {}> {
                     <Redirect to={'/login'} />
                 )}
             </div>
-            // <div>Logout({this.props.enthusiasmLevelCount})</div>
-            // this.props.currentUser
-            //     ? <Redirect to={'/login'} />
-            //     : <a onClick={this.logout}>Logout</a>
         );
     }
 }

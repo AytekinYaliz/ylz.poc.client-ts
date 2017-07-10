@@ -50,7 +50,7 @@ export function login(user: {name: string}) {
             setTimeout(() => {
                 console.log('login.actions');  //tslint:disable-line
 
-                return dispatch(loginSuccess({name: 'aytek'}));
+                return dispatch(loginSuccess(user));
             }, 500);
         });
     };
