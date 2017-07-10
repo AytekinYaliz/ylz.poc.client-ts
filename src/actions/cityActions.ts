@@ -25,13 +25,10 @@
 
 
 import * as types from './actionTypes';
+import IActionType from './IActionType';
 
-export interface IGetCities {
-    type: types.GET_CITIES;
-}
-export interface ILogCityName {
-    type: types.LOG_CITYNAME;
-}
+export interface IGetCities extends IActionType {}
+export interface ILogCityName extends IActionType {}
 
 export type CityActionType = IGetCities | ILogCityName;
 
