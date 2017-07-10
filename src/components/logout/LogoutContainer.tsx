@@ -3,7 +3,7 @@ import { Redirect } from 'react-router';
 import { connect, Dispatch } from 'react-redux';
 
 import { IGlobalState, ICurrentUserState } from '../../store/IGlobalState';
-import * as currentUserActions from '../../actions/currentUserActions';
+import * as actions from '../../actions/currentUserActions';
 
 
 type StateProps = {
@@ -11,7 +11,7 @@ type StateProps = {
     enthusiasmLevelCount: number;
 };
 type DispatchProps = {
-    logout: () => Promise<currentUserActions.CurrentUserAction>;
+    logout: () => Promise<actions.CurrentUserActionType>;
 };
 type OwnProps = {};
 type Props = StateProps & DispatchProps & OwnProps;
@@ -56,9 +56,9 @@ const mapStateToProps = (state: IGlobalState) => {
         enthusiasmLevelCount: state.enthusiasmState.enthusiasmLevel
     };
 };
-const mapDispatchToProps = (dispatch: Dispatch<currentUserActions.CurrentUserAction>) => {
+const mapDispatchToProps = (dispatch: Dispatch<actions.CurrentUserActionType>) => {
     return {
-        logout: () => dispatch(currentUserActions.logout())
+        logout: () => dispatch(actions.logout())
     };
 };
 
