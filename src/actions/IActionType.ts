@@ -1,5 +1,8 @@
-interface IActionType {
+export interface IActionType {
     type: string;
 }
 
-export default IActionType;
+export interface IActionWithDataType {
+    type: string;
+    data: any
+}
