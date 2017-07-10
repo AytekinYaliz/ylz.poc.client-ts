@@ -37,8 +37,8 @@ class CityContainer extends React.Component<Props, State> {
             this.setState({ count: 8888999 });
             setTimeout(() => {
                 this.setState({ count: 4400 });
-            }, 2000);
-        }, 2000);
+            }, 1000);
+        }, 1000);
     }
 
     onClick = () => {
