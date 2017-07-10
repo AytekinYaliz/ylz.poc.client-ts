@@ -1,5 +1,5 @@
-import { CurrentUserActionType } from '../actions/currentUserActions';
-import { ICurrentUserState } from '../store/IGlobalState';
+import {CurrentUserActionType, ILoginSuccess} from '../actions/currentUserActions';
+import {ICurrentUserState} from '../store/IGlobalState';
 import initialStates from './initialStates';
 import * as types from '../actions/actionTypes';
 
@@ -18,7 +18,7 @@ export default function currentUserReducer (
         }
         case types.LOGIN_SUCCESS: {
             return {
-                name: action.data.name
+                name: (<ILoginSuccess> action).data.name
             };
         }
         case types.LOGOUT_BEGIN: {
