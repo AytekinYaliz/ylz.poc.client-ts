@@ -10,15 +10,24 @@ export default function currentUserReducer (
     switch (action.type) {
         case types.GET_CURRENTUSER:
             return state;
+        case types.LOGIN_BEGIN: {
+            return {
+                ...state,
+                isLoading: true
+            };
+        }
+        case types.LOGIN_SUCCESS: {
+            return {
+                name: action.data.name
+            };
+        }
         case types.LOGOUT_BEGIN: {
-            console.log('Logout.reducer.state.begin:', state); //tslint:disable-line
-            
-            return state;
+            return {
+                ...state,
+                isLoading: true
+            };
         }
         case types.LOGOUT_SUCCESS: {
-            console.log('Logout.reducer.action:', action); //tslint:disable-line
-            console.log('Logout.reducer.state:', state); //tslint:disable-line
-            
             return null;
         }
         default:
