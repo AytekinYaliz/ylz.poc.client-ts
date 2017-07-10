@@ -17,7 +17,7 @@ export type CurrentUserActionType = IGetCurrentUser | ILogoutBegin | ILogoutSucc
 export const loginBegin = () => {
     return {type: types.LOGIN_BEGIN};
 };
-export const loginSuccess = (data: string) => {
+export const loginSuccess = (data: {name: string}) => {
     return {type: types.LOGIN_SUCCESS, data};
 };
 export const loginError = (error: {}) => {
@@ -48,7 +48,7 @@ export function login(user: {name: string}) {
             setTimeout(() => {
                 console.log('login.actions');  //tslint:disable-line
 
-                return dispatch(loginSuccess('okk'));
+                return dispatch(loginSuccess({name: 'aytek'}));
             }, 500);
         });
     };
