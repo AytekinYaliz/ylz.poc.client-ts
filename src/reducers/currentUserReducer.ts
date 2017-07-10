@@ -1,11 +1,11 @@
-import { CurrentUserAction } from '../actions/currentUserActions';
+import { CurrentUserActionType } from '../actions/currentUserActions';
 import { ICurrentUserState } from '../store/IGlobalState';
 import initialStates from './initialStates';
 import * as types from '../actions/actionTypes';
 
 export default function currentUserReducer (
     state: ICurrentUserState = initialStates.currentUser, 
-    action: CurrentUserAction
+    action: CurrentUserActionType
 ): ICurrentUserState | null {
     switch (action.type) {
         case types.GET_CURRENTUSER:
