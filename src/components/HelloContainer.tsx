@@ -1,7 +1,7 @@
 import { connect, Dispatch } from 'react-redux';
 
 import * as actions from '../actions/enthusiasmActions';
-import { IGlobalState } from '../store/IGlobalState';
+import { IGlobalState } from '../types/IGlobalState';
 
 import {HelloComponent} from './HelloComponent';
 

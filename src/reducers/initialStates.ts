@@ -1,7 +1,8 @@
 import City from '../models/City';
 
 export default {
-    currentUser: { name: 'aytekin' },    // null,
+    isLoading: false,
+    currentUser: { name: 'INI-ALL' },    // null,
     enthusiasm: {
         languageName: 'TS', 
         enthusiasmLevel: 4

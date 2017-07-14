@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Redirect} from 'react-router';
 import {connect, Dispatch} from 'react-redux';
 
-import {IGlobalState, ICurrentUserState} from '../../store/IGlobalState';
+import {IGlobalState, ICurrentUserState} from '../../types/IGlobalState';
 import * as actions from '../../actions/currentUserActions';
 
 

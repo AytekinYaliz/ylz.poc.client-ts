@@ -1,5 +1,5 @@
 import { EnthusiasmAction } from '../actions/enthusiasmActions';
-import { IEnthusiasmState } from '../store/IGlobalState';
+import { IEnthusiasmState } from '../types/IGlobalState';
 import initialStates from './initialStates';
 import * as types from '../actions/actionTypes';
 

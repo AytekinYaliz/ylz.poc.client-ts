@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 // import {routerMiddleware} from 'react-router-redux';
 // import createHistory from 'history/createBrowserHistory';
 
-import {IGlobalState} from '../store/IGlobalState';
+import {IGlobalState} from '../types/IGlobalState';
 import rootReducer from '../reducers';
 
 

@@ -1,5 +1,5 @@
 import {CurrentUserActionType, ILoginSuccess} from '../actions/currentUserActions';
-import {ICurrentUserState} from '../store/IGlobalState';
+import {ICurrentUserState} from '../types/IGlobalState';
 import initialStates from './initialStates';
 import * as types from '../actions/actionTypes';
 

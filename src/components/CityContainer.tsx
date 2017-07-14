@@ -2,7 +2,7 @@ import * as React from 'react';
 //import { bindActionCreators } from 'redux';
 import { connect, Dispatch } from 'react-redux';
 
-import { IGlobalState } from '../store/IGlobalState';
+import { IGlobalState } from '../types/IGlobalState';
 import * as cityActions from '../actions/cityActions';
 
 import City from '../models/City';
