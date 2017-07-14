@@ -10,16 +10,18 @@ import * as React from 'react';
 //     );
 // };
 
-const FooterComponent: React.StatelessComponent<{}> = () => { 
-    const year = new Date().getFullYear();
+class FooterComponent extends React.PureComponent<{}> { 
+    private year = new Date().getFullYear();
 
-    return (
-        <footer className="footer">
-            <div className="container">
-                <p className="text-muted">@{year}</p>
-            </div>
-        </footer>
-    );
-};
+    render() {
+        return (
+            <footer className="footer">
+                <div className="container">
+                    <p className="text-muted">@{this.year}</p>
+                </div>
+            </footer>
+        );
+    }
+}
 
 export default FooterComponent;
