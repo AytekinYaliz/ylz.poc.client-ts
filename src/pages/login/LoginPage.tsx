@@ -4,6 +4,7 @@ import {connect, Dispatch} from 'react-redux';
 //import firebase from 'firebase';
 
 import {IGlobalState, ICurrentUserState} from '../../types/IGlobalState';
+import {IClickEvent} from '../../types/IEvent';
 import * as actions from '../../actions/currentUserActions';
 import LoginComponent from './LoginComponent';
 
@@ -23,7 +24,8 @@ type Props = StateProps & DispatchProps & OwnProps;
 // };
 
 class LoginPage extends React.Component<Props, {}> {
-    login = (): void => {
+    loginClickHandle = (event: IClickEvent): void => {
+        event.preventDefault();
         // firebase.auth().signInWithEmailAndPassword(
         //     this.state.email, this.state.password
         // );
@@ -41,15 +43,9 @@ class LoginPage extends React.Component<Props, {}> {
     render() {
         return(
             <div>
-                 {this.props.currentUser
+                {this.props.currentUser
                     ? <Redirect to={'/'} />
-                    : <LoginComponent /> }
-
-                 {/* {this.props.currentUser ? (
-                    <Redirect to={'/'} />
-                ) : (
-                    <LoginComponent />
-                )}  */}
+                    : <LoginComponent loginClick={this.loginClickHandle} /> }
             </div>
         );
     }

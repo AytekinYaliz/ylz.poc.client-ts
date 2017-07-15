@@ -1,3 +1,24 @@
+/*
+ * SYNTAX
+ * */
+{this.props.currentUser &&
+    <div>
+        <HelloContainer />
+        <CityContainer onClick={onClickHandle} />
+    </div>
+}
+
+{this.props.currentUser
+    ? <Redirect to={'/'} />
+    : <LoginComponent /> 
+}
+
+{this.props.currentUser ? (
+    <Redirect to={'/'} />
+) : (
+    <LoginComponent />
+)} 
+
 
 /*
  * FUNCTIONAL COMPONENT

@@ -1,9 +1,10 @@
 import * as React from 'react';
-import {Redirect} from 'react-router';
 import {connect, Dispatch} from 'react-redux';
 
 import {IGlobalState, ICurrentUserState} from '../../types/IGlobalState';
+import {IClickEvent} from '../../types/IEvent';
 import * as actions from '../../actions/currentUserActions';
+import LogoutComponent from './LogoutComponent';
 
 
 type StateProps = {
@@ -22,7 +23,7 @@ type Props = StateProps & DispatchProps & OwnProps;
 // };
 
 class LogoutContainer extends React.Component<Props, {}> {
-    logout = (): void => {
+    logoutClickHandle = (event: IClickEvent): void => {
         this.props
             .logout()
             .then(() => {
@@ -36,13 +37,7 @@ class LogoutContainer extends React.Component<Props, {}> {
 
     render() {
         return (
-            <div>
-                {this.props.currentUser ? (
-                    <a onClick={this.logout}>Hello {this.props.currentUser.name}!</a>
-                ) : (
-                    <Redirect to={'/login'} />
-                )}
-            </div>
+            <LogoutComponent currentUser={this.props.currentUser} logoutClick={this.logoutClickHandle} />
         );
     }
 }
