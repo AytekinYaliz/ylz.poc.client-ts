@@ -4,20 +4,18 @@ import './HomePage.less';
 import HelloContainer from '../../components/HelloContainer';
 import CityContainer from '../../components/CityContainer';
 
-class HomePage extends React.Component<{}, {}> {
-    onClickHandle = (val: string) => {
+const HomePage = () => {
+    const onClickHandle = (val: string) => {
         console.log(`Hello from home: ${val}`);  //tslint:disable-line
-    }
+    };
 
-    render() {
-        return (
-            <div>
-                <HelloContainer />
-                <CityContainer onClick={this.onClickHandle} />
-                <HelloContainer />
-            </div>
-        );
-    }
-}
+    return (
+        <div>
+            <HelloContainer />
+            <CityContainer onClick={onClickHandle} />
+            <HelloContainer />
+        </div>
+    );
+};
 
 export default HomePage;

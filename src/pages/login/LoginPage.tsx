@@ -5,6 +5,7 @@ import {connect, Dispatch} from 'react-redux';
 
 import {IGlobalState, ICurrentUserState} from '../../types/IGlobalState';
 import * as actions from '../../actions/currentUserActions';
+import LoginComponent from './LoginComponent';
 
 
 type StateProps = {
@@ -40,11 +41,15 @@ class LoginPage extends React.Component<Props, {}> {
     render() {
         return(
             <div>
-                {this.props.currentUser ? (
+                 {this.props.currentUser
+                    ? <Redirect to={'/'} />
+                    : <LoginComponent /> }
+
+                 {/* {this.props.currentUser ? (
                     <Redirect to={'/'} />
                 ) : (
-                    <a onClick={this.login}>Login</a>
-                )}
+                    <LoginComponent />
+                )}  */}
             </div>
         );
     }
