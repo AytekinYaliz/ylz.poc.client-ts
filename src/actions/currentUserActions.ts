@@ -2,6 +2,7 @@ import * as types from './actionTypes';
 import {IActionType, IActionWithDataType} from './IActionType';
 import {Dispatch} from 'react-redux';
 
+import LocalStorage from '../libs/LocalStorage';
 
 export interface IGetCurrentUser extends IActionType {}
 export interface ILoginBegin extends IActionType {}
@@ -63,6 +64,8 @@ export function logout() {
             setTimeout(() => {
                 //return resolve(people)
                 console.log('logout.actions');  //tslint:disable-line
+
+                LocalStorage.remove('LH.Accountancy');
 
                 return dispatch(logoutSuccess('okk'));
             }, 500);

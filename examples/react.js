@@ -57,7 +57,7 @@ export default HomePage;
 // -----------------------------------------------------------------------------------------
 
 /*
- * PURE COMPONENT
+ * PURE COMPONENT: will not rerender itself and its children
  * */
 const FooterComponent = (props: {}) => {
     const year = new Date().getFullYear();

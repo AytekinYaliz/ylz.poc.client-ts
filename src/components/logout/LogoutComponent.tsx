@@ -8,7 +8,7 @@ type TLogoutComponent = {
     logoutClick: (event: IClickEvent) => void
 };
 
-const LoginComponent = (props: TLogoutComponent) => {
+const LogoutComponent = (props: TLogoutComponent) => {
     return (
         <div>
             {props.currentUser ? (
@@ -20,4 +20,4 @@ const LoginComponent = (props: TLogoutComponent) => {
     );
 };
 
-export default LoginComponent;
+export default LogoutComponent;

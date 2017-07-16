@@ -31,12 +31,11 @@ class App extends React.Component<Props, {}> {
         //     this.setState({user});
         // });
         
-        let ls = new LocalStorage();
-        if (ls.localStorageSupported) {
-            let key = ls.get(this.lsKey);
+        if (LocalStorage.isLocalStorageSupported) {
+            let key = LocalStorage.get(this.lsKey);
 
             if (key === null) {
-                ls.add(this.lsKey, 'some cookies from app');
+                LocalStorage.add(this.lsKey, 'some cookies from app');
             } else {
                 console.log('LS', key);   //tslint:disable-line
             }

@@ -6,7 +6,6 @@ import {IClickEvent} from '../../types/IEvent';
 import * as actions from '../../actions/currentUserActions';
 import LogoutComponent from './LogoutComponent';
 
-
 type StateProps = {
     currentUser: ICurrentUserState;
     enthusiasmLevelCount: number;
@@ -37,7 +36,10 @@ class LogoutContainer extends React.Component<Props, {}> {
 
     render() {
         return (
-            <LogoutComponent currentUser={this.props.currentUser} logoutClick={this.logoutClickHandle} />
+            <LogoutComponent 
+                currentUser={this.props.currentUser} 
+                logoutClick={this.logoutClickHandle} 
+            />
         );
     }
 }
