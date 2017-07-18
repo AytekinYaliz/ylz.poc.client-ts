@@ -1,23 +1,46 @@
 /*
  * SYNTAX
  * */
-{this.props.currentUser &&
-    <div>
-        <HelloContainer />
-        <CityContainer onClick={onClickHandle} />
-    </div>
+function CustomTextInput(props) {
+   return (
+      <div>
+         <input ref={props.inputRef} />
+      </div>
+   );
 }
-
-{this.props.currentUser
-    ? <Redirect to={'/'} />
-    : <LoginComponent /> 
+class Parent1 extends React.Component {
+  render() {
+    return (
+      <CustomTextInput inputRef={el => this.inputElement = el} />
+    );
+  }
 }
-
-{this.props.currentUser ? (
-    <Redirect to={'/'} />
-) : (
-    <LoginComponent />
-)} 
+class Parent2 extends React.Component {
+    render() {
+        return (
+            <div>
+                <div>
+                    {this.props.array.length > 0 &&
+                        <b>{this.props.array.length}</b>
+                    }
+                </div>
+                <div>
+                    The user is <b>{this.props.isLoggedIn ? 'currently' : 'not'}</b> logged in.
+                </div>
+                <div>
+                    {this.props.isLoggedIn ? (
+                        <LogoutButton onClick={this.handleLogoutClick} />
+                    ) : (
+                        <LoginButton onClick={this.handleLoginClick} />
+                    )}
+                </div>
+                <div>
+                    <CustomTextInput inputRef={el => this.inputElement = el} />
+                </div>
+            </div>
+        );
+    }
+}
 
 
 /*
