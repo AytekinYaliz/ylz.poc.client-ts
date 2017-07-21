@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import './index.less';
@@ -20,9 +20,9 @@ store.dispatch(getCities());
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={history}>
+        <ConnectedRouter history={history}>
             <App />
-        </Router>
+        </ConnectedRouter>
     </Provider>,
     document.getElementById('app') as HTMLElement
 );
