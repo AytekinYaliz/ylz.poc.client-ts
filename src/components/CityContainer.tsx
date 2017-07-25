@@ -57,12 +57,12 @@ class CityContainer extends React.Component<Props, State> {
     connect = () => {
         this.io = socketIo(Config.getConfig(ConfigKeysEnum.apiBaseUrl));
 
-        this.io.on('news', (message: string) => {
-            console.log('NEWS: ', message);
+        this.io.on('currency_update_rss', (message: {currency: string, rate: number}) => {
+            console.log('currency_update: ', message);
         });
     }
     send = () => {
-        this.io.emit('message', {from: 'aytekin', content: 'hi'});
+        this.io.emit('currency_update_rss', {currency: 'aytekin', content: 'hi'});
     }
     disconnect = () => {
         this.io.disconnect();
