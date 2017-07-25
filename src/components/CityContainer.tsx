@@ -33,7 +33,7 @@ class CityContainer extends React.Component<Props, State> {
     state = {
         count: 33
     };
-    constructor(props: Props) {
+    constructor(props: Props) { 
         super(props);
 
         //this.io = socketIo(Config.instance.getConfig(ConfigKeysEnum.apiBaseUrl));
