@@ -4,5 +4,5 @@ export interface IActionType {
 
 export interface IActionWithDataType {
     type: string;
-    data: any
+    data: any;
 }

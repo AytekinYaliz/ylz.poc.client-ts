@@ -9,16 +9,18 @@ export enum DeploymentTypesEnum {
     production
 }
 
+interface IConfig {
+    apiBaseUrl: string;
+}
 class Config {
-    private static _config: any = null;
-    //private constructor() { }
+    private static _config: IConfig = null;
     
     public static getConfig(name: ConfigKeysEnum): string {
         if (!Config._config) {
             Config.loadConfig();
         }
 
-        return Config._config[Utilities.getEnumString(ConfigKeysEnum, name)]
+        return Config._config[Utilities.getEnumString(ConfigKeysEnum, name)];
     }
 
     private static loadConfig(): void {
@@ -36,6 +38,8 @@ class Config {
 
 Object.seal(Config);
 export default Config;
+
+
 
 /*
 export default class Config {
