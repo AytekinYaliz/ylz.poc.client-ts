@@ -29,10 +29,11 @@ type State = {
 
 //@connect<StateProps, DispatchProps, OwnProps>(mapStateToProps, mapDispatchToProps)
 class CityContainer extends React.Component<Props, State> {
-    private io: any;
     state = {
         count: 33
     };
+    private io: SocketIOClient.Socket;
+
     constructor(props: Props) { 
         super(props);
 
@@ -58,7 +59,7 @@ class CityContainer extends React.Component<Props, State> {
         this.io = socketIo(Config.getConfig(ConfigKeysEnum.apiBaseUrl));
 
         this.io.on('currency_update_rss', (message: {currency: string, rate: number}) => {
-            console.log('currency_update: ', message);
+            console.log('currency_update: ', message);  //tslint:disable-line
         });
     }
     send = () => {
@@ -69,6 +70,8 @@ class CityContainer extends React.Component<Props, State> {
     }
 
     render() {
+        console.log('City render');
+
         return (
             <div className="hello">
                 <div className="greeting">

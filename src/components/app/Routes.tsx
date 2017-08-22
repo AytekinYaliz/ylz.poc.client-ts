@@ -19,7 +19,7 @@ const RoutesComponent = (props: TRoutesComponent) => (
 );
 
 type TPrivateRoute = {
-    component: any;
+    component: any; //React.Component|React.StatelessComponent;
     user: {};
     path: string;
     exact: boolean;
