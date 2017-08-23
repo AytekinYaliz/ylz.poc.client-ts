@@ -26,10 +26,10 @@ type TPrivateRoute = {
     path: string;
     exact: boolean;
 };
-const PrivateRoute = ({component: Component, user, path, exact}: TPrivateRoute) => (
+const PrivateRoute = ({component: Component, user, ...rest}: TPrivateRoute) => (
     <div className="container">
         <HeaderComponent />
-        <Route exact={exact} path={path} render={props => {
+        <Route {...rest} render={props => {
             return (
                 user 
                     ? PrivateRender(Component) 

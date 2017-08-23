@@ -1,5 +1,5 @@
 import * as React from 'react';
-//import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 import { connect, Dispatch } from 'react-redux';
 import * as socketIo from 'socket.io-client';
 
@@ -27,17 +27,14 @@ type State = {
 };
 
 
-//@connect<StateProps, DispatchProps, OwnProps>(mapStateToProps, mapDispatchToProps)
 class CityContainer extends React.Component<Props, State> {
+    private socket: SocketIOClient.Socket;
     state = {
         count: 33
     };
-    private io: SocketIOClient.Socket;
 
     constructor(props: Props) { 
         super(props);
-
-        //this.io = socketIo(Config.instance.getConfig(ConfigKeysEnum.apiBaseUrl));
         
         setTimeout(() => {
             this.setState({ count: 8888999 });
@@ -56,17 +53,17 @@ class CityContainer extends React.Component<Props, State> {
     }
 
     connect = () => {
-        this.io = socketIo(Config.getConfig(ConfigKeysEnum.apiBaseUrl));
+        this.socket = socketIo(Config.getConfig(ConfigKeysEnum.apiBaseUrl));
 
-        this.io.on('currency_update_rss', (message: {currency: string, rate: number}) => {
+        this.socket.on('currency_update_rss', (message: {currency: string, rate: number}) => {
             console.log('currency_update: ', message);  //tslint:disable-line
         });
     }
     send = () => {
-        this.io.emit('currency_update_rss', {currency: 'aytekin', content: 'hi'});
+        this.socket.emit('currency_update_rss', {currency: 'aytekin', content: 'hi'});
     }
     disconnect = () => {
-        this.io.disconnect();
+        this.socket.disconnect();
     }
 
     render() {
@@ -102,11 +99,9 @@ const mapDispatchToProps = (dispatch: Dispatch<cityActions.CityActionType>) => {
 //     return {
 //         actions: bindActionCreators(cityActions, dispatch)
 //     };
-// }
+// };
 
 
-
-// connect<TStateProps, TDispatchProps, TOwnProps>()
 export default connect<StateProps, DispatchProps, OwnProps>(
     mapStateToProps,
     mapDispatchToProps
