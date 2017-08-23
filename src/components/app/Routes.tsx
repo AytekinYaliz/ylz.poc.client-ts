@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
+import HeaderComponent from '../header/HeaderComponent';
+import FooterComponent from '../footer/FooterComponent';
 import HomePage from '../../pages/home/HomePage';
 import LoginPage from '../../pages/login/LoginPage';
 import CustomersPage from '../../pages/customers/CustomersPage';
@@ -19,26 +21,24 @@ const RoutesComponent = (props: TRoutesComponent) => (
 );
 
 type TPrivateRoute = {
-    component: any; //React.Component|React.StatelessComponent;
+    component: React.Component|React.StatelessComponent;
     user: {};
     path: string;
     exact: boolean;
 };
-const PrivateRoute = ({component, user, path, exact}: TPrivateRoute) => (
-    <Route exact={exact} path={path} component={component} render={props => ( !user && <Redirect to="/login" /> )} />
+const PrivateRoute = ({component: Component, user, path, exact}: TPrivateRoute) => (
+    <div className="container">
+        <HeaderComponent />
+        <Route exact={exact} path={path} render={props => {
+            return (
+                user 
+                    ? PrivateRender(Component) 
+                    : <Redirect to="/login" /> 
+            ); 
+        }} />
+        <FooterComponent />
+    </div>
 );
+const PrivateRender = (Component: any) => ( <Component /> );
 
 export default RoutesComponent;
-
-
-// {props.currentUser ? (
-//     <Switch>
-//         <Route exact={true} path="/" component={HomePage as any} />
-//         <Route exact={true} path="/customers" component={CustomersPage as any} />
-//         <Route exact={true} path="/login" component={LoginPage as any} />
-//     </Switch>
-// ) : (
-//     <Switch>
-//         <Route exact={true} path="/login" component={LoginPage as any} />
-//     </Switch>
-// )}

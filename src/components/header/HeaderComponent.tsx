@@ -25,6 +25,7 @@ const HeaderComponent = (props: {}) => {
                 </Nav>
                 <Nav pullRight={true}>
                     <NavItem eventKey={1}><Logout /></NavItem>
+                    {/* <Logout /> */}
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

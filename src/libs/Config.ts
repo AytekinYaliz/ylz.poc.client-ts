@@ -32,7 +32,7 @@ class Config {
             return;
         }
 
-        Config._config = JSON.parse((<any>process.env).config);
+        Config._config = JSON.parse((<any> process.env).config);
     }
 }
 

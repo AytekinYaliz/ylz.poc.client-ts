@@ -70,8 +70,6 @@ class CityContainer extends React.Component<Props, State> {
     }
 
     render() {
-        console.log('City render');
-
         return (
             <div className="hello">
                 <div className="greeting">

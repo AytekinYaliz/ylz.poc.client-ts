@@ -6,8 +6,6 @@ import { IGlobalState, ICurrentUserState } from '../../types/IGlobalState';
 import LocalStorage from '../../libs/LocalStorage';
 
 import './App.less';
-import HeaderComponent from '../header/HeaderComponent';
-import FooterComponent from '../footer/FooterComponent';
 import Routes from './Routes';
 
 
@@ -44,11 +42,7 @@ class App extends React.Component<Props, {}> {
 
     render() {
         return (
-            <div className="container">
-                <HeaderComponent />
-                <Routes currentUser={this.props.currentUser} />
-                <FooterComponent />
-            </div>
+            <Routes currentUser={this.props.currentUser} />
         );
     }
 }
