@@ -41,7 +41,7 @@ class LoginPage extends React.Component<Props, {}> {
     }
 
     render() {
-        return(
+        return (
             <div>
                 {this.props.currentUser
                     ? <Redirect to={'/'} />
@@ -62,7 +62,7 @@ const mapDispatchToProps = (dispatch: Dispatch<actions.CurrentUserActionType>) =
     };
 };
 
-export default connect<StateProps, DispatchProps, OwnProps>(
+export default connect<StateProps, DispatchProps, OwnProps> (
     mapStateToProps,
     mapDispatchToProps
 )(LoginPage);

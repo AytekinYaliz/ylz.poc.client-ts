@@ -5,10 +5,10 @@ type TLoginComponent = {
     loginClick: (event: IClickEvent) => void
 };
 
-const LoginComponent = (props: TLoginComponent) => {
+const LogoutComponent = (props: TLoginComponent) => {
     return (
         <a onClick={props.loginClick}>LOGINN!</a>
     );
 };
 
-export default LoginComponent;
+export default LogoutComponent;

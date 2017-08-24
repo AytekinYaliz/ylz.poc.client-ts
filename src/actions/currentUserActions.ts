@@ -30,8 +30,8 @@ export const loginError = (data: {}) => {
 export const logoutBegin = () => {
     return {type: types.LOGOUT_BEGIN};
 };
-export const logoutSuccess = (data: string) => {
-    return {type: types.LOGOUT_SUCCESS, data};
+export const logoutSuccess = () => {
+    return {type: types.LOGOUT_SUCCESS};
 };
 export const logoutError = (data: {}) => {
     return {type: types.LOGOUT_ERROR, data};
@@ -51,7 +51,7 @@ export function login(user: {name: string}) {
             setTimeout(() => {
                 console.log('login.actions');  //tslint:disable-line
 
-                return dispatch(loginSuccess(user));
+                resolve( dispatch(loginSuccess(user)) );
             }, 500);
         });
     };
@@ -67,7 +67,7 @@ export function logout() {
 
                 LocalStorage.remove('LH.Accountancy');
 
-                return dispatch(logoutSuccess('okk'));
+                resolve( dispatch(logoutSuccess()) );
             }, 500);
         });
 

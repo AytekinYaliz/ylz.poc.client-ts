@@ -12,8 +12,7 @@ export default function currentUserReducer (
             return state;
         case types.LOGIN_BEGIN: {
             return {
-                ...state,
-                isLoading: true
+                ...state
             };
         }
         case types.LOGIN_SUCCESS: {
@@ -23,8 +22,7 @@ export default function currentUserReducer (
         }
         case types.LOGOUT_BEGIN: {
             return {
-                ...state,
-                isLoading: true
+                ...state
             };
         }
         case types.LOGOUT_SUCCESS: {

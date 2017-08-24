@@ -1,4 +1,5 @@
 import * as React from 'react';
+// import * as PropTypes from 'prop-types';
 import { connect, Dispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
@@ -22,7 +23,7 @@ type Props = StateProps & DispatchProps & OwnProps;
 // };
 
 class App extends React.Component<Props, {}> {
-    lsKey = 'LH.Accountancy';
+    private lsKey = 'LH.Accountancy';
 
     componentDidMount() {
         // fireabase.auth().onAuthStateChanged(user => {
@@ -35,7 +36,7 @@ class App extends React.Component<Props, {}> {
             if (key === null) {
                 LocalStorage.add(this.lsKey, 'some cookies from app');
             } else {
-                console.log('LS', key);   //tslint:disable-line
+                console.log('LS:', key);   //tslint:disable-line
             }
         }
     }

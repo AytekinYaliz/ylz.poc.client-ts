@@ -1,4 +1,7 @@
 import * as React from 'react';
+import {  } from 'react-bootstrap';
+
+import './FooterComponent.less';
 
 // const FooterComponent = (props: {}) => {
 //     return (
