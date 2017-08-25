@@ -5,35 +5,40 @@ import * as socketIo from 'socket.io-client';
 
 import { IGlobalState } from '../types/IGlobalState';
 import * as cityActions from '../actions/cityActions';
+import { IClickEvent } from '../types/IEvent';
 import Config, {ConfigKeysEnum} from '../libs/Config';
 
 import City from '../models/City';
 
-type StateProps = {
+// type StateProps = {
+//     cities: City[];
+//     name: string;
+// };
+// type DispatchProps = {
+//     logCityName: () => void;
+// };
+// type OwnProps = {
+//     onClick?: (val: String) => void;
+// };
+interface Props {
     cities: City[];
     name: string;
-};
-type DispatchProps = {
-    logCityName: () => void;
-};
-type OwnProps = {
-    onClick?: (val: String) => void;
-};
-type Props = StateProps & DispatchProps & OwnProps;
-
+    logCityName: () => cityActions.ILogCityName;
+}
+interface OwnProps {
+    onClick: (val: String) => void;
+}
 type State = {
     count: number;
-    count2?: number;
 };
 
-
-class CityContainer extends React.Component<Props, State> {
+class CityContainer extends React.Component<Props & OwnProps, State> {
     private socket: SocketIOClient.Socket;
     state = {
         count: 33
     };
 
-    constructor(props: Props) { 
+    constructor(props: Props&OwnProps) { 
         super(props);
         
         setTimeout(() => {
@@ -44,9 +49,9 @@ class CityContainer extends React.Component<Props, State> {
         }, 1000);
     }
 
-    onClick = () => {
+    onClick = (event: IClickEvent) => {
         if (this.props.onClick) {
-            this.props.onClick(String(this.state.count));
+            this.props.onClick( (event.target as any).innerHTML );
         } else {
             console.log(`Hello from CityContainer: ${this.state.count}`);   // tslint:disable-line
         }
@@ -66,11 +71,13 @@ class CityContainer extends React.Component<Props, State> {
         this.socket.disconnect();
     }
 
-    render() {
+    render(): JSX.Element {
         return (
             <div className="hello">
                 <div className="greeting">
-                    {`Total cities for ${this.props.name}: ${this.props.cities.length} [${this.state.count}]`}
+                    <div>
+                        {`Total cities for ${this.props.name}: ${this.props.cities.length} [${this.state.count}]`}
+                    </div>
                     <button onClick={this.onClick}>Alert</button>
                     <button onClick={this.props.logCityName}>log</button>
                     &nbsp; &nbsp;
@@ -82,7 +89,6 @@ class CityContainer extends React.Component<Props, State> {
         );
     }
 }
-
 const mapStateToProps = (state: IGlobalState) => {
     return {
         cities: state.citiesState,
@@ -95,14 +101,7 @@ const mapDispatchToProps = (dispatch: Dispatch<cityActions.CityActionType>) => {
     };
 };
 
-// const mapDispatchToProps = (dispatch: Dispatch<cityActions.CityActionType>) => {
-//     return {
-//         actions: bindActionCreators(cityActions, dispatch)
-//     };
-// };
-
-
-export default connect<StateProps, DispatchProps, OwnProps>(
+export default connect<{}, {}, OwnProps> (
     mapStateToProps,
     mapDispatchToProps
-)(CityContainer);
+) (CityContainer);

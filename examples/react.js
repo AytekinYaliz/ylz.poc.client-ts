@@ -116,7 +116,7 @@ export default FooterComponent;
 type Props = {
     currentUser: ICurrentUserState;
     enthusiasmLevelCount: number;
-    login: (user: {name: string}) => Promise<actions.CurrentUserActionType>;    
+    login: (user: ICurrentUserState) => Promise<actions.CurrentUserActionType>;    
 };
 type State = {
     count: number;
@@ -153,14 +153,21 @@ type StateProps = {
 type DispatchProps = {
     logout: () => Promise<actions.CurrentUserActionType>;
 };
-type OwnProps = {};
-type Props = StateProps & DispatchProps & OwnProps;
-class LogoutPage extends React.Component<Props, {}> {
+type OwnProps = {
+    onClick: (val: String) => void;
+};
+
+class LogoutPage extends React.Component<StateProps & DispatchProps & OwnProps, {}> {
     static contextTypes = {
         router: PropTypes.object
     };
     componentWillMount() {
         this.context.router.history.replace('/login');
+    }
+    onClick = (event: any) => {
+        if (this.props.onClick) {
+            this.props.onClick( (event.target as any).innerHTML );
+        }
     }
     /* The implementation goes here */
 }
@@ -175,7 +182,7 @@ const mapDispatchToProps = (dispatch: Dispatch<actions.CurrentUserActionType>) =
         logout: () => dispatch(actions.logout())
     };
 };
-export default connect<StateProps, DispatchProps, null> (
+export default connect<StateProps, DispatchProps, OwnProps> (
     mapStateToProps,
     mapDispatchToProps
 ) (LogoutPage);
