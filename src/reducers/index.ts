@@ -7,7 +7,7 @@ import enthusiasmState from './enthusiasmReducer';
 
 const rootReducer = combineReducers({
     //routing: routerReducer,
-    isLoading: Boolean,
+    isLoadingState: Boolean,
     currentUserState,
     enthusiasmState,
     citiesState,

@@ -4,7 +4,7 @@ import initialStates from './initialStates';
 import * as types from '../actions/actionTypes';
 
 export default function currentUserReducer (
-    state: ICurrentUserState = initialStates.currentUser, 
+    state: ICurrentUserState = initialStates.currentUserState, 
     action: CurrentUserActionType
 ): ICurrentUserState | null {
     switch (action.type) {

@@ -10,10 +10,11 @@ import App from './components/app/App';
 
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './store/configureStore.dev';
+import initialStates from './reducers/initialStates';
 import {getCities} from './actions/cityActions';
 
 
-const store = configureStore(),
+const store = configureStore(initialStates),
     history = createBrowserHistory();
 
 store.dispatch(getCities());

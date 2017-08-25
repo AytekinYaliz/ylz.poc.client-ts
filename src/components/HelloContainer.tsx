@@ -12,7 +12,7 @@ const mapStateToProps = (state: IGlobalState) => {
         name: state.enthusiasmState.languageName,
     };
 };
-const mapDispatchToProps = (dispatch: Dispatch<actions.EnthusiasmAction>) => {
+const mapDispatchToProps = (dispatch: Dispatch<actions.EnthusiasmActionType>) => {
     return {
         onIncrement: () => dispatch(actions.incrementEnthusiasm()),
         onDecrement: () => dispatch(actions.decrementEnthusiasm()),

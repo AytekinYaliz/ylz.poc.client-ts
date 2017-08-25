@@ -1,11 +1,11 @@
 import City from '../models/City';
 
 export default {
-    isLoading: false,
-    currentUser: { name: 'INI-ALL' },    // null,
-    enthusiasm: {
+    isLoadingState: false,
+    currentUserState: { name: 'INI-ALL' },    // null,
+    enthusiasmState: {
         languageName: 'TS', 
         enthusiasmLevel: 4
     },
-    cities: Array<City>(0)
+    citiesState: Array<City>(0)
 };

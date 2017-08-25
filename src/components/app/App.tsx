@@ -12,6 +12,7 @@ import Config, { ConfigKeysEnum } from '../../libs/Config';
 
 
 type StateProps = {
+    isLoading: boolean;
     currentUser: ICurrentUserState;
 };
 type DispatchProps = {};
@@ -25,6 +26,9 @@ type Props = StateProps & DispatchProps & OwnProps;
 
 class App extends React.Component<Props, {}> {
 
+    constructor(props: Props) {
+        super(props);
+    }
     componentDidMount() {
         // fireabase.auth().onAuthStateChanged(user => {
         //     this.setState({user});
@@ -43,12 +47,19 @@ class App extends React.Component<Props, {}> {
 
     render() {
         return (
-            <Routes currentUser={this.props.currentUser} />
+            <div>
+                {this.props.isLoading ? (
+                    <div>asdf</div>
+                ) : (
+                    <Routes currentUser={this.props.currentUser} />
+                )}
+            </div>
         );
     }
 }
 const mapStateToProps = (state: IGlobalState) => {
     return {
+        isLoading: state.isLoadingState,
         currentUser: state.currentUserState
     };
 };
@@ -61,4 +72,4 @@ const mapDispatchToProps = (dispatch: Dispatch<{}>) => {
 export default withRouter(connect<StateProps, DispatchProps, null>(
     mapStateToProps,
     mapDispatchToProps
-)(App));
+) (App));

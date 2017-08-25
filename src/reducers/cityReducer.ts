@@ -4,7 +4,7 @@ import * as types from '../actions/actionTypes';
 import City from '../models/City';
 
 export default function cityReducer (
-    state: City[] = initialStates.cities, 
+    state: City[] = initialStates.citiesState, 
     action: CityActionType
 ): City[] {
     switch (action.type) {
