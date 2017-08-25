@@ -6,8 +6,13 @@ type TLoginComponent = {
 };
 
 const LogoutComponent = (props: TLoginComponent) => {
+    let stylee = {
+        padding: '20px'
+    };
     return (
-        <a onClick={props.loginClick}>LOGINN!</a>
+        <div style={stylee}>
+            <a href="#" onClick={props.loginClick}>LOGINN!</a>
+        </div>
     );
 };
 

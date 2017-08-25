@@ -8,6 +8,7 @@ import LocalStorage from '../../libs/LocalStorage';
 
 import './App.less';
 import Routes from './Routes';
+import Config, { ConfigKeysEnum } from '../../libs/Config';
 
 
 type StateProps = {
@@ -23,7 +24,6 @@ type Props = StateProps & DispatchProps & OwnProps;
 // };
 
 class App extends React.Component<Props, {}> {
-    private lsKey = 'LH.Accountancy';
 
     componentDidMount() {
         // fireabase.auth().onAuthStateChanged(user => {
@@ -31,10 +31,10 @@ class App extends React.Component<Props, {}> {
         // });
         
         if (LocalStorage.isLocalStorageSupported) {
-            let key = LocalStorage.get(this.lsKey);
+            let key = LocalStorage.get( Config.getConfig(ConfigKeysEnum.localStorageKey) );
 
             if (key === null) {
-                LocalStorage.add(this.lsKey, 'some cookies from app');
+                LocalStorage.add(Config.getConfig(ConfigKeysEnum.localStorageKey), 'some cookies from app');
             } else {
                 console.log('LS:', key);   //tslint:disable-line
             }

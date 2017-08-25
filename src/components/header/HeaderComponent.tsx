@@ -4,10 +4,14 @@ import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 import './HeaderComponent.less';
+import { ICurrentUserState } from '../../types/IGlobalState';
 // import Logout from '../logout/LogoutContainer';
 
+type THeader = {
+    user: ICurrentUserState
+};
 
-const HeaderComponent = (props: {}) => {
+const HeaderComponent = (props: THeader) => {
     return (
         <Navbar inverse={true} collapseOnSelect={true}>
             <Navbar.Header>
@@ -24,7 +28,9 @@ const HeaderComponent = (props: {}) => {
                     <LinkContainer to="/invoices"><NavItem eventKey={4}>Invoices</NavItem></LinkContainer>
                 </Nav>
                 <Nav pullRight={true}>
-                    <LinkContainer to="/logout"><NavItem eventKey={1}>Logout</NavItem></LinkContainer>
+                    <LinkContainer to="/logout">
+                        <NavItem eventKey={1} title="Click to log out.">{props.user.name}</NavItem>
+                    </LinkContainer>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

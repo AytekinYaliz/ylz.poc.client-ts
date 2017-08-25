@@ -1,7 +1,8 @@
 import * as types from './actionTypes';
-import {IActionType, IActionWithDataType} from './IActionType';
-import {Dispatch} from 'react-redux';
+import { IActionType, IActionWithDataType } from './IActionType';
+import { Dispatch } from 'react-redux';
 
+import Config, { ConfigKeysEnum } from '../libs/Config';
 import LocalStorage from '../libs/LocalStorage';
 
 export interface IGetCurrentUser extends IActionType {}
@@ -49,7 +50,7 @@ export function login(user: {name: string}) {
 
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                console.log('login.actions');  //tslint:disable-line
+                LocalStorage.add(Config.getConfig(ConfigKeysEnum.localStorageKey), 'some cookies from app');
 
                 resolve( dispatch(loginSuccess(user)) );
             }, 500);
@@ -62,10 +63,7 @@ export function logout() {
 
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                //return resolve(people)
-                console.log('logout.actions');  //tslint:disable-line
-
-                LocalStorage.remove('LH.Accountancy');
+                LocalStorage.remove(Config.getConfig(ConfigKeysEnum.localStorageKey));
 
                 resolve( dispatch(logoutSuccess()) );
             }, 500);

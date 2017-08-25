@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {Redirect} from 'react-router';
-import {connect, Dispatch} from 'react-redux';
+import * as PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
+import { connect, Dispatch } from 'react-redux';
 //import firebase from 'firebase';
 
 import {IGlobalState, ICurrentUserState} from '../../types/IGlobalState';
@@ -24,16 +25,18 @@ type Props = StateProps & DispatchProps & OwnProps;
 // };
 
 class LoginPage extends React.Component<Props, {}> {
+    static contextTypes = {
+        router: PropTypes.object
+    };
     loginClickHandle = (event: IClickEvent): void => {
         event.preventDefault();
         // firebase.auth().signInWithEmailAndPassword(
         //     this.state.email, this.state.password
         // );
         this.props
-            .login({name: 'AYTEK'})
+            .login( {name: 'AYTEK'} )
             .then(() => {
-                //this.setState({shouldRedirect: true});
-                console.log('loged in'); //tslint:disable-line
+                this.context.router.history.replace('/login');
             })
             .catch((err) => {
                 console.log(err); //tslint:disable-line

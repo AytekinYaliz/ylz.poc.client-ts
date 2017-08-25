@@ -1,6 +1,7 @@
 import Utilities from './Utilities';
 
 export enum ConfigKeysEnum {
+    localStorageKey,
     apiBaseUrl
 }
 export enum DeploymentTypesEnum {
@@ -10,6 +11,7 @@ export enum DeploymentTypesEnum {
 }
 
 interface IConfig {
+    localStorageKey: string;
     apiBaseUrl: string;
 }
 class Config {
@@ -27,7 +29,8 @@ class Config {
         if (process.env.NODE_ENV === Utilities.getEnumString(DeploymentTypesEnum, DeploymentTypesEnum.development) || 
             process.env.NODE_ENV === Utilities.getEnumString(DeploymentTypesEnum, DeploymentTypesEnum.test)) {
             Config._config = {
-                'apiBaseUrl': 'http://localhost:4001'
+                localStorageKey: 'LH.Accountancy',
+                apiBaseUrl: 'http://localhost:4001'
             };
             return;
         }

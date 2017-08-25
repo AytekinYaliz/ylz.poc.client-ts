@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
+import { ICurrentUserState } from '../../types/IGlobalState';
 import HeaderComponent from '../header/HeaderComponent';
 import FooterComponent from '../footer/FooterComponent';
 import LoginPage from '../../pages/login/LoginPage';
@@ -10,7 +11,7 @@ import CustomersPage from '../../pages/customers/CustomersPage';
 
 
 type TRoutesComponent = {
-    currentUser: {};
+    currentUser: ICurrentUserState;
 };
 
 const RoutesComponent = (props: TRoutesComponent) => (
@@ -24,13 +25,13 @@ const RoutesComponent = (props: TRoutesComponent) => (
 
 type TPrivateRoute = {
     component: React.Component|React.StatelessComponent;
-    user: {};
+    user: ICurrentUserState;
     path: string;
     exact: boolean;
 };
 const PrivateRoute = ({component: Component, user, ...rest}: TPrivateRoute) => (
     <div className="container">
-        <HeaderComponent />
+        <HeaderComponent user={user} />
         <Route {...rest} render={props => {
             return (
                 user 
