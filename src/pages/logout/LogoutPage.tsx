@@ -56,4 +56,4 @@ const mapDispatchToProps = (dispatch: Dispatch<actions.CurrentUserActionType>) =
 export default connect<StateProps, DispatchProps, null> (
     mapStateToProps,
     mapDispatchToProps
-)(LogoutPage);
+) (LogoutPage);

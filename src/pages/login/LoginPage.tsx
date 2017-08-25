@@ -10,19 +10,21 @@ import * as actions from '../../actions/currentUserActions';
 import LoginComponent from './LoginComponent';
 
 
-type StateProps = {
-    currentUser: ICurrentUserState;
-};
-type DispatchProps = {
-    login: (user: {name: string}) => Promise<actions.CurrentUserActionType>;
-};
-type OwnProps = {};
-type Props = StateProps & DispatchProps & OwnProps;
-
-// type State = {
-//     count: number;
-//     count2?: number;
+// type StateProps = {
+//     currentUser: ICurrentUserState;
+//      enthusiasmLevelCount: number;
 // };
+// type DispatchProps = {
+//     login: (user: {name: string}) => Promise<actions.CurrentUserActionType>;
+// };
+// type OwnProps = {};
+// type Props = StateProps & DispatchProps & OwnProps;
+
+type Props = {
+    currentUser: ICurrentUserState;
+    enthusiasmLevelCount: number;
+    login: (user: {name: string}) => Promise<actions.CurrentUserActionType>;    
+};
 
 class LoginPage extends React.Component<Props, {}> {
     static contextTypes = {
@@ -61,11 +63,12 @@ const mapStateToProps = (state: IGlobalState) => {
 };
 const mapDispatchToProps = (dispatch: Dispatch<actions.CurrentUserActionType>) => {
     return {
-        login: (user: {name: string}) => dispatch(actions.login(user))
+        login: (user: ICurrentUserState) => dispatch(actions.login(user))
     };
 };
 
-export default connect<StateProps, DispatchProps, OwnProps> (
+// export default connect<StateProps, DispatchProps, OwnProps> (
+export default connect (
     mapStateToProps,
     mapDispatchToProps
-)(LoginPage);
+) (LoginPage);

@@ -1,6 +1,6 @@
 /* tslint:disable */
 /*
- * SYNTAX
+ * SYNTAX (ES6)
  * */
 function CustomTextInput(props) {
    return (
@@ -42,10 +42,10 @@ class Parent2 extends React.Component {
         );
     }
 }
-
+// -----------------------------------------------------------------------------------------
 
 /*
- * FUNCTIONAL COMPONENT
+ * FUNCTIONAL (STATELESS) COMPONENT
  * */
 const HomePage = () => {
     const onClickHandle = (val: string) => {
@@ -95,7 +95,6 @@ const FooterComponent = (props: {}) => {
 };
 class FooterComponent extends React.PureComponent<{}> { 
     private year = new Date().getFullYear();
-
     render() {
         return (
             <footer className="footer">
@@ -108,3 +107,75 @@ class FooterComponent extends React.PureComponent<{}> {
 }
 
 export default FooterComponent;
+
+
+/*
+ * SYNTAX 1: React.Component<P, S> -> connect()
+ * */
+
+type Props = {
+    currentUser: ICurrentUserState;
+    enthusiasmLevelCount: number;
+    login: (user: {name: string}) => Promise<actions.CurrentUserActionType>;    
+};
+type State = {
+    count: number;
+    isLoading: boolean;
+}
+
+class LoginPage extends React.Component<Props, State> {
+    /* The implementation goes here */
+}
+const mapStateToProps = (state: IGlobalState) => {
+    return {
+        currentUser: state.currentUserState,
+        enthusiasmLevelCount: state.enthusiasmState.enthusiasmLevel
+    };
+};
+const mapDispatchToProps = (dispatch: Dispatch<actions.CurrentUserActionType>) => {
+    return {
+        login: (user: ICurrentUserState) => dispatch(actions.login(user))
+    };
+};
+export default connect (
+    mapStateToProps,
+    mapDispatchToProps
+) (LoginPage);
+
+
+/*
+ * SYNTAX 2: React.Component<P1&P2&P3, S>{} -> connect<P1, P2, P3>()
+ * */
+
+type StateProps = {
+    currentUser: ICurrentUserState;
+};
+type DispatchProps = {
+    logout: () => Promise<actions.CurrentUserActionType>;
+};
+type OwnProps = {};
+type Props = StateProps & DispatchProps & OwnProps;
+class LogoutPage extends React.Component<Props, {}> {
+    static contextTypes = {
+        router: PropTypes.object
+    };
+    componentWillMount() {
+        this.context.router.history.replace('/login');
+    }
+    /* The implementation goes here */
+}
+const mapStateToProps = (state: IGlobalState) => {
+    return {
+        currentUser: state.currentUserState,
+        enthusiasmLevelCount: state.enthusiasmState.enthusiasmLevel
+    };
+};
+const mapDispatchToProps = (dispatch: Dispatch<actions.CurrentUserActionType>) => {
+    return {
+        logout: () => dispatch(actions.logout())
+    };
+};
+export default connect<StateProps, DispatchProps, null> (
+    mapStateToProps,
+    mapDispatchToProps
+) (LogoutPage);
