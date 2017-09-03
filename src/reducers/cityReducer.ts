@@ -3,10 +3,13 @@ import initialStates from './initialStates';
 import * as types from '../actions/actionTypes';
 import City from '../models/City';
 
-export default function cityReducer (
+
+type ICityReducer = (state: City[], action: CityActionType) => City[];
+
+const cityReducer: ICityReducer = (
     state: City[] = initialStates.citiesState, 
     action: CityActionType
-): City[] {
+): City[] => {
     switch (action.type) {
         case types.GET_CITIES: {
             return [
@@ -19,20 +22,12 @@ export default function cityReducer (
             
             return state;
         }
-        // case types.GET_CITIES_SUCCESS: {
-        //     let cities = action.data.map(city => {
-        //         return new City(city);
-        //     });
-
-        //     return {
-        //         ...state,
-        //         cities
-        //     };
-        // }
         default:
             return state;
     }
-}
+};
+
+export default cityReducer;
 
 
 // import initialStates from './initialStates';

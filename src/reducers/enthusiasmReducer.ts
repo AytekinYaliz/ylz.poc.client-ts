@@ -3,10 +3,13 @@ import { IEnthusiasmState } from '../types/IGlobalState';
 import initialStates from './initialStates';
 import * as types from '../actions/actionTypes';
 
-export default function enthusiasmReducer (
+
+type IEnthusiasmReducer = (state: IEnthusiasmState, action: EnthusiasmActionType) => IEnthusiasmState;
+
+const enthusiasmReducer: IEnthusiasmReducer = (
     state: IEnthusiasmState = initialStates.enthusiasmState, 
     action: EnthusiasmActionType
-): IEnthusiasmState {
+): IEnthusiasmState => {
     switch (action.type) {
         case types.INCREMENT_ENTHUSIASM:
             return { ...state, enthusiasmLevel: state.enthusiasmLevel + 1 };
@@ -15,4 +18,6 @@ export default function enthusiasmReducer (
         default:
             return state;
     }
-}
+};
+
+export default enthusiasmReducer;

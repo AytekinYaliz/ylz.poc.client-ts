@@ -7,5 +7,5 @@ export default {
         languageName: 'TS', 
         enthusiasmLevel: 4
     },
-    citiesState: Array<City>(0)
+    citiesState: Array<City>()
 };

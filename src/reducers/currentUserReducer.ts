@@ -1,12 +1,15 @@
-import {CurrentUserActionType, ILoginSuccess} from '../actions/currentUserActions';
-import {ICurrentUserState} from '../types/IGlobalState';
+import { CurrentUserActionType, ILoginSuccess } from '../actions/currentUserActions';
+import { ICurrentUserState } from '../types/IGlobalState';
 import initialStates from './initialStates';
 import * as types from '../actions/actionTypes';
 
-export default function currentUserReducer (
+
+type ICurrentUserReducer = (state: ICurrentUserState, action: CurrentUserActionType) => ICurrentUserState | null;
+
+const currentUserReducer: ICurrentUserReducer = (
     state: ICurrentUserState = initialStates.currentUserState, 
     action: CurrentUserActionType
-): ICurrentUserState | null {
+): ICurrentUserState | null => {
     switch (action.type) {
         case types.GET_CURRENTUSER:
             return state;
@@ -31,4 +34,6 @@ export default function currentUserReducer (
         default:
             return state;
     }
-}
+};
+
+export default currentUserReducer;

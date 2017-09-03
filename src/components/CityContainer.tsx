@@ -10,35 +10,27 @@ import Config, {ConfigKeysEnum} from '../libs/Config';
 
 import City from '../models/City';
 
-// type StateProps = {
-//     cities: City[];
-//     name: string;
-// };
-// type DispatchProps = {
-//     logCityName: () => void;
-// };
-// type OwnProps = {
-//     onClick?: (val: String) => void;
-// };
-interface Props {
+type StateProps = {
     cities: City[];
     name: string;
-    logCityName: () => cityActions.ILogCityName;
-}
-interface OwnProps {
-    onClick: (val: String) => void;
-}
+};
+type DispatchProps = {
+    logCityName: () => void;
+};
+type OwnProps = {
+    onClick?: (val: String) => void;
+};
 type State = {
     count: number;
 };
 
-class CityContainer extends React.Component<Props & OwnProps, State> {
+class CityContainer extends React.Component<StateProps & DispatchProps & OwnProps, State> {
     private socket: SocketIOClient.Socket;
     state = {
         count: 33
     };
 
-    constructor(props: Props&OwnProps) { 
+    constructor(props: StateProps & DispatchProps & OwnProps) { 
         super(props);
         
         setTimeout(() => {
