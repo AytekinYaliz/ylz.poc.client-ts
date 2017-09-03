@@ -8,12 +8,6 @@ type Props = {
     onIncrement?: () => void;
     onDecrement?: () => void;
 };
-// type State = {
-//     count: number;
-// };
-
-// export const Hello1 = (props: HelloProps) =>
-//     <h1>Hello from {props.name} {getExclamationMarks(props.enthusiasmLevel)}!</h1>;
 
 export const HelloComponent = ({name, enthusiasmLevel = 1, onIncrement, onDecrement}: Props) => {
     if (enthusiasmLevel <= 0) {

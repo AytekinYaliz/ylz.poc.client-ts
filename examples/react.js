@@ -45,7 +45,7 @@ class Parent2 extends React.Component {
 // -----------------------------------------------------------------------------------------
 
 /*
- * FUNCTIONAL (STATELESS) COMPONENT
+ * FUNCTIONAL (STATELESS) COMPONENT: 1
  * */
 const HomePage = () => {
     const onClickHandle = (val: string) => {
@@ -54,45 +54,28 @@ const HomePage = () => {
 
     return (
         <div>
-            <HelloContainer />
             <CityContainer onClick={onClickHandle} />
         </div>
     );
 };
 export default HomePage;
 
-
-class HomePage extends React.Component<{}, {}> {
-    onClickHandle = (val: string) => {
-        console.log(`Hello from home: ${val}`);  //tslint:disable-line
-    }
-
-    render() {
-        return (
-            <div>
-                <HelloContainer />
-                <CityContainer onClick={this.onClickHandle} />
-            </div>
-        );
-    }
-}
-export default HomePage;
-
-// -----------------------------------------------------------------------------------------
-
 /*
- * PURE COMPONENT: will not rerender itself and its children
+ * FUNCTIONAL (STATELESS) COMPONENT: 2
  * */
-const FooterComponent = (props: {}) => {
-    const year = new Date().getFullYear();
+
+type Props = { name: string; onIncrement?: () => void; };
+const HelloComponent = ({name, onIncrement}: Props) => {
     return (
-        <footer className="footer">
-            <div className="container">
-                <p className="text-muted">@{year}</p>
-            </div>
-        </footer>
+        <div className="hello">
+            Hello { name } <button onClick={onIncrement}>[+]</button>
+        </div>
     );
 };
+
+/*
+ * FUNCTIONAL (STATELESS) COMPONENT: 3 (Pure component: will not rerender itself and its children)
+ * */
 class FooterComponent extends React.PureComponent<{}> { 
     private year = new Date().getFullYear();
     render() {
@@ -106,7 +89,7 @@ class FooterComponent extends React.PureComponent<{}> {
     }
 }
 
-export default FooterComponent;
+// -----------------------------------------------------------------------------------------
 
 
 /*
