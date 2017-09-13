@@ -26,6 +26,7 @@ type State = {
 
 class CityContainer extends React.Component<StateProps & DispatchProps & OwnProps, State> {
     private socket: SocketIOClient.Socket;
+    // private query: { cityId: string, cityName: string } = this.props.match.params;
     state = {
         count: 33
     };
