@@ -45,7 +45,7 @@ class Parent2 extends React.Component {
 // -----------------------------------------------------------------------------------------
 
 /*
- * FUNCTIONAL (STATELESS) COMPONENT: 1
+ * FUNCTIONAL COMPONENT: 1 (ES6)
  * */
 const HomePage = () => {
     const onClickHandle = (val: string) => {
@@ -61,33 +61,49 @@ const HomePage = () => {
 export default HomePage;
 
 /*
- * FUNCTIONAL (STATELESS) COMPONENT: 2
+ * FUNCTIONAL COMPONENT: 2 (TS + Flow)
  * */
 
-type Props = { name: string; onIncrement?: () => void; };
-const HelloComponent = ({name, onIncrement}: Props) => {
+type IProps = { 
+    name: string; 
+    onIncrement?: () => void;
+};
+const HelloComponent = (props: IProps) => {     // = ({name, onIncrement}: IProps) => {
     return (
         <div className="hello">
-            Hello { name } <button onClick={onIncrement}>[+]</button>
+            Hello { props.name } <button onClick={props.onIncrement}>[+]</button>
         </div>
     );
 };
 
 /*
- * FUNCTIONAL (STATELESS) COMPONENT: 3 (Pure component: will not rerender itself and its children)
+ * FUNCTIONAL COMPONENT: 3 (Pure component)
  * */
-class FooterComponent extends React.PureComponent<{}> { 
-    private year = new Date().getFullYear();
-    render() {
+class FooterComponent extends React.PureComponent<IProps> {
+    render(): JSX.Element | null {
         return (
-            <footer className="footer">
-                <div className="container">
-                    <p className="text-muted">@{this.year}</p>
-                </div>
-            </footer>
+            <div className="hello">
+                Hello { this.props.name } <button onClick={this.props.onIncrement}>[+]</button>
+            </div>
         );
     }
 }
+
+// /*
+//  * FUNCTIONAL COMPONENT: 4 (Stateless component)
+//  * */
+// class FooterComponent implements React.StatelessComponent<{}> {
+//     private year = new Date().getFullYear();
+//     render() {
+//         return (
+//             <footer className="footer">
+//                 <div className="container">
+//                     <p className="text-muted">@{this.year}</p>
+//                 </div>
+//             </footer>
+//         );
+//     }
+// }
 
 // -----------------------------------------------------------------------------------------
 
