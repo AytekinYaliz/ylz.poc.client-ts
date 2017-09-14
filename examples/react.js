@@ -157,6 +157,7 @@ type OwnProps = {
 };
 
 class LogoutPage extends React.Component<StateProps & DispatchProps & OwnProps, {}> {
+   // private query: { cityId: string, cityName: string } = this.props.match.params;
     static contextTypes = {
         router: PropTypes.object
     };
