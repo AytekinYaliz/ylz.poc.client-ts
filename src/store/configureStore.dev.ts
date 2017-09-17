@@ -17,8 +17,8 @@ export default function configureStore(initialState?: IGlobalState) {
     // });
 
     return createStore(
-        rootReducer, 
-        initialState, 
+        rootReducer,
+        initialState,
         applyMiddleware(
             thunk,
             reduxImmutableStateInvariant()

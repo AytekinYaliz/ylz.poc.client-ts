@@ -79,7 +79,7 @@ const HelloComponent = (props: IProps) => {     // = ({name, onIncrement}: IProp
 /*
  * FUNCTIONAL COMPONENT: 3 (Pure component)
  * */
-class FooterComponent extends React.PureComponent<IProps> {
+class FooterComponent extends React.PureComponent<IProps, {}> {
     render(): JSX.Element | null {
         return (
             <div className="hello">
@@ -89,21 +89,15 @@ class FooterComponent extends React.PureComponent<IProps> {
     }
 }
 
-// /*
-//  * FUNCTIONAL COMPONENT: 4 (Stateless component)
-//  * */
-// class FooterComponent implements React.StatelessComponent<{}> {
-//     private year = new Date().getFullYear();
-//     render() {
-//         return (
-//             <footer className="footer">
-//                 <div className="container">
-//                     <p className="text-muted">@{this.year}</p>
-//                 </div>
-//             </footer>
-//         );
-//     }
-// }
+/*
+ * FUNCTIONAL COMPONENT: 4 (Stateless component)
+ * */
+const FooterComponent: React.StatelessComponent<IProps> = ({children}) => (
+    <button
+        className="f4 br2 grow no-underline ph5 pv3 dib white bg-dark-pink bn shadow-3 w-100 w-auto-ns b">
+        {children}
+    </button>
+  );
 
 // -----------------------------------------------------------------------------------------
 

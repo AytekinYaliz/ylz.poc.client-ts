@@ -23,7 +23,7 @@ import LoginComponent from './LoginComponent';
 type Props = {
     currentUser: ICurrentUserState;
     enthusiasmLevelCount: number;
-    login: (user: ICurrentUserState) => Promise<actions.CurrentUserActionType>;    
+    login: (user: ICurrentUserState) => Promise<actions.CurrentUserActionType>;
 };
 
 class LoginPage extends React.Component<Props, {}> {

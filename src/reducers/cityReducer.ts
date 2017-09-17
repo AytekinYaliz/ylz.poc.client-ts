@@ -7,7 +7,7 @@ import City from '../models/City';
 type ICityReducer = (state: City[], action: CityActionType) => City[];
 
 const cityReducer: ICityReducer = (
-    state: City[] = initialStates.citiesState, 
+    state: City[] = initialStates.citiesState,
     action: CityActionType
 ): City[] => {
     switch (action.type) {

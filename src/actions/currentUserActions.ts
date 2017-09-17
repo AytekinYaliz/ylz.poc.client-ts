@@ -13,7 +13,7 @@ export interface ILogoutBegin extends IActionType {}
 export interface ILogoutSuccess extends IActionWithDataType {}
 export interface ILogoutError extends IActionWithDataType {}
 
-export type CurrentUserActionType = IGetCurrentUser | 
+export type CurrentUserActionType = IGetCurrentUser |
     ILoginBegin | ILoginSuccess | ILoginError |
     ILogoutBegin | ILogoutSuccess | ILogoutError;
 

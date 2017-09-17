@@ -33,7 +33,7 @@ class App extends React.Component<Props, {}> {
         // fireabase.auth().onAuthStateChanged(user => {
         //     this.setState({user});
         // });
-        
+
         if (LocalStorage.isLocalStorageSupported) {
             let key = LocalStorage.get( Config.getConfig(ConfigKeysEnum.localStorageKey) );
 

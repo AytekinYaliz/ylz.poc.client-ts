@@ -20,6 +20,6 @@ const mapDispatchToProps = (dispatch: Dispatch<actions.EnthusiasmActionType>) =>
 };
 
 export default connect(
-    mapStateToProps, 
+    mapStateToProps,
     mapDispatchToProps
 )(HelloComponent);

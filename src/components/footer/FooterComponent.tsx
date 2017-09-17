@@ -4,7 +4,7 @@ import {  } from 'react-bootstrap';
 import './FooterComponent.less';
 
 
-class FooterComponent extends React.PureComponent<{}> { 
+class FooterComponent extends React.PureComponent<{}> {
     private year = new Date().getFullYear();
 
     render() {

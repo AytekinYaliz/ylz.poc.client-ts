@@ -21,7 +21,7 @@ class SingleInput extends React.PureComponent<ISingleInput> {
                     type={this.props.inputType}
                     value={this.props.content}
                     onChange={this.props.controlFunction}
-                    placeholder={this.props.placeholder} 
+                    placeholder={this.props.placeholder}
                 />
             </div>
         );
@@ -31,7 +31,7 @@ class SingleInput extends React.PureComponent<ISingleInput> {
 export default SingleInput;
 
 
-// const SingleInput = (props) => (  
+// const SingleInput = (props) => (
 //   <div className="form-group">
 //     <label className="form-label">{props.title}</label>
 //     <input
@@ -44,7 +44,7 @@ export default SingleInput;
 //   </div>
 // );
 
-// SingleInput.propTypes = {  
+// SingleInput.propTypes = {
 //   inputType: React.PropTypes.oneOf(['text', 'number']).isRequired,
 //   title: React.PropTypes.string.isRequired,
 //   name: React.PropTypes.string.isRequired,

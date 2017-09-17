@@ -10,7 +10,7 @@ type TLogoutComponent = {
 const LogoutComponent = (props: TLogoutComponent) => {
     return (
         <div>
-            {props.currentUser && 
+            {props.currentUser &&
                 <span onClick={props.logoutClick}>Hello {props.currentUser.name}!</span>
             }
         </div>

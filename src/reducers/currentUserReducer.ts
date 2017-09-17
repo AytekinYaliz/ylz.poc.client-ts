@@ -7,7 +7,7 @@ import * as types from '../actions/actionTypes';
 type ICurrentUserReducer = (state: ICurrentUserState, action: CurrentUserActionType) => ICurrentUserState | null;
 
 const currentUserReducer: ICurrentUserReducer = (
-    state: ICurrentUserState = initialStates.currentUserState, 
+    state: ICurrentUserState = initialStates.currentUserState,
     action: CurrentUserActionType
 ): ICurrentUserState | null => {
     switch (action.type) {

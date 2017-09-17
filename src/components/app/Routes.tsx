@@ -34,10 +34,10 @@ const PrivateRoute = ({component: Component, user, ...rest}: TPrivateRoute) => (
         <HeaderComponent user={user} />
         <Route {...rest} render={props => {
             return (
-                user 
-                    ? PrivateRender(Component) 
-                    : <Redirect to="/login" /> 
-            ); 
+                user
+                    ? PrivateRender(Component)
+                    : <Redirect to="/login" />
+            );
         }} />
         <FooterComponent />
     </div>

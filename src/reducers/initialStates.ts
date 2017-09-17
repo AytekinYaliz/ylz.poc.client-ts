@@ -4,7 +4,7 @@ export default {
     isLoadingState: false,
     currentUserState: { name: 'INI-ALL' },    // null,
     enthusiasmState: {
-        languageName: 'TS', 
+        languageName: 'TS',
         enthusiasmLevel: 4
     },
     citiesState: Array<City>()

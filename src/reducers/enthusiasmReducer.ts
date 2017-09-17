@@ -7,7 +7,7 @@ import * as types from '../actions/actionTypes';
 type IEnthusiasmReducer = (state: IEnthusiasmState, action: EnthusiasmActionType) => IEnthusiasmState;
 
 const enthusiasmReducer: IEnthusiasmReducer = (
-    state: IEnthusiasmState = initialStates.enthusiasmState, 
+    state: IEnthusiasmState = initialStates.enthusiasmState,
     action: EnthusiasmActionType
 ): IEnthusiasmState => {
     switch (action.type) {

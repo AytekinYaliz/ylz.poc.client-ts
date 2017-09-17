@@ -4,7 +4,7 @@ import App from './App';
 
 it('renders without crashing', () => {
     ReactDOM.render(
-        <App />, 
+        <App />,
         document.createElement('div')
     );
 });

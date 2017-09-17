@@ -14,7 +14,7 @@ export default class LocalStorage {
             var item = localStorage.getItem(key);
             return item;
         }
-            
+
         return null;
     }
 
@@ -51,7 +51,7 @@ export default class LocalStorage {
     //         var item = localStorage.getItem(key);
     //         return item;
     //     }
-            
+    //
     //     return null;
     // }
 

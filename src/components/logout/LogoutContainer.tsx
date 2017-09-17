@@ -36,9 +36,9 @@ class LogoutContainer extends React.Component<Props, {}> {
 
     render() {
         return (
-            <LogoutComponent 
-                currentUser={this.props.currentUser} 
-                logoutClick={this.logoutClickHandle} 
+            <LogoutComponent
+                currentUser={this.props.currentUser}
+                logoutClick={this.logoutClickHandle}
             />
         );
     }

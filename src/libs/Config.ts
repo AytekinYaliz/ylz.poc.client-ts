@@ -16,7 +16,7 @@ interface IConfig {
 }
 class Config {
     private static _config: IConfig = null;
-    
+
     public static getConfig(name: ConfigKeysEnum): string {
         if (!Config._config) {
             Config.loadConfig();
@@ -26,7 +26,7 @@ class Config {
     }
 
     private static loadConfig(): void {
-        if (process.env.NODE_ENV === Utilities.getEnumString(DeploymentTypesEnum, DeploymentTypesEnum.development) || 
+        if (process.env.NODE_ENV === Utilities.getEnumString(DeploymentTypesEnum, DeploymentTypesEnum.development) ||
             process.env.NODE_ENV === Utilities.getEnumString(DeploymentTypesEnum, DeploymentTypesEnum.test)) {
             Config._config = {
                 localStorageKey: 'LH.Accountancy',
@@ -64,7 +64,7 @@ export default class Config {
     }
 
     private loadConfig(): void {
-        if (process.env.NODE_ENV === Utilities.getEnumString(DeploymentTypesEnum, DeploymentTypesEnum.local) || 
+        if (process.env.NODE_ENV === Utilities.getEnumString(DeploymentTypesEnum, DeploymentTypesEnum.local) ||
             process.env.NODE_ENV === Utilities.getEnumString(DeploymentTypesEnum, DeploymentTypesEnum.test)) {
             this.config = {
                 'apiBaseUrl': 'http://localhost:4001'

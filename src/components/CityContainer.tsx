@@ -31,9 +31,9 @@ class CityContainer extends React.Component<StateProps & DispatchProps & OwnProp
         count: 33
     };
 
-    constructor(props: StateProps & DispatchProps & OwnProps) { 
+    constructor(props: StateProps & DispatchProps & OwnProps) {
         super(props);
-        
+
         setTimeout(() => {
             this.setState({ count: 8888999 });
             setTimeout(() => {
