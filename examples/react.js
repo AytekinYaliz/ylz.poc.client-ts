@@ -1,4 +1,5 @@
 /* tslint:disable */
+
 /*
  * SYNTAX (ES6)
  * */

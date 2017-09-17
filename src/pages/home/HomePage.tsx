@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import './HomePage.less';
 import HelloContainer from '../../components/HelloContainer';
-import CityContainer from '../../components/CityContainer';
+import CityContainer from '../../components/city/CityContainer';
 
 
 const HomePage: React.StatelessComponent<{}> = () => {

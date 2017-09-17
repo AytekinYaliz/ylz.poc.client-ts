@@ -3,12 +3,12 @@ import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import * as socketIo from 'socket.io-client';
 
-import { IGlobalState } from '../types/IGlobalState';
-import * as cityActions from '../actions/cityActions';
-import { IClickEvent } from '../types/IEvent';
-import Config, {ConfigKeysEnum} from '../libs/Config';
-
-import City from '../models/City';
+import { IGlobalState } from '../../types/IGlobalState';
+import * as cityActions from '../../actions/cityActions';
+import { IClickEvent } from '../../types/IEvent';
+import Config, {ConfigKeysEnum} from '../../libs/Config';
+import TownComponent from './TownComponent';
+import City from '../../models/City';
 
 type StateProps = {
     cities: City[];
@@ -24,23 +24,27 @@ type State = {
     count: number;
 };
 
-class CityContainer extends React.Component<StateProps & DispatchProps & OwnProps, State> {
+class CityContainer extends React.Component<StateProps&DispatchProps&OwnProps, State> {
     private socket: SocketIOClient.Socket;
     // private query: { cityId: string, cityName: string } = this.props.match.params;
     state = {
         count: 33
     };
 
-    constructor(props: StateProps & DispatchProps & OwnProps) {
+    constructor(props: StateProps&DispatchProps&OwnProps) {
         super(props);
 
         setTimeout(() => {
             this.setState({ count: 8888999 });
             setTimeout(() => {
                 this.setState({ count: 4400 });
-            }, 1000);
-        }, 1000);
+            }, 2000);
+        }, 2000);
     }
+    // shouldComponentUpdate(nextProps: Readonly<StateProps&DispatchProps&OwnProps>, nextState: Readonly<State>) {
+    //     console.log('shouldComponentUpdate', nextState);   // tslint:disable-line
+    //     return false;
+    // }
 
     onClick = (event: IClickEvent) => {
         if (this.props.onClick) {
@@ -48,6 +52,9 @@ class CityContainer extends React.Component<StateProps & DispatchProps & OwnProp
         } else {
             console.log(`Hello from CityContainer: ${this.state.count}`);   // tslint:disable-line
         }
+    }
+    setCount = (event: IClickEvent) => {
+        this.setState({ count: this.state.count });
     }
 
     connect = () => {
@@ -64,7 +71,11 @@ class CityContainer extends React.Component<StateProps & DispatchProps & OwnProp
         this.socket.disconnect();
     }
 
-    render(): JSX.Element {
+    render(): JSX.Element | null | false {
+        const {cities} = this.props;
+        const topTen = cities.map(_ => _);
+        console.log('City render.', topTen);  //tslint:disable-line
+
         return (
             <div className="city">
                 <div className="greeting">
@@ -73,10 +84,12 @@ class CityContainer extends React.Component<StateProps & DispatchProps & OwnProp
                     </div>
                     <button onClick={this.onClick}>Alert</button>
                     <button onClick={this.props.logCityName}>log</button>
+                    <button onClick={this.setCount}>Count |></button>
                     &nbsp; &nbsp;
                     <button onClick={this.connect}>Connect</button>
                     <button onClick={this.send}>Send</button>
                     <button onClick={this.disconnect}>Disconnect</button>
+                    <TownComponent count={this.state.count} towns={topTen} />
                 </div>
             </div>
         );

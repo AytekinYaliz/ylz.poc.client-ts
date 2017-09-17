@@ -10,6 +10,9 @@ type Props = {
 };
 
 export const HelloComponent = ({name, enthusiasmLevel = 1, onIncrement, onDecrement}: Props) => {
+
+    //console.log('HelloComponent render.');  //tslint:disable-line
+
     if (enthusiasmLevel <= 0) {
         throw new Error('You could be a little more enthusiastic. :D');
     }
