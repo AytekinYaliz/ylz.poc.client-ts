@@ -10,16 +10,6 @@ import * as actions from '../../actions/currentUserActions';
 import LoginComponent from './LoginComponent';
 
 
-// type StateProps = {
-//     currentUser: ICurrentUserState;
-//      enthusiasmLevelCount: number;
-// };
-// type DispatchProps = {
-//     login: (user: {name: string}) => Promise<actions.CurrentUserActionType>;
-// };
-// type OwnProps = {};
-// type Props = StateProps & DispatchProps & OwnProps;
-
 type Props = {
     currentUser: ICurrentUserState;
     enthusiasmLevelCount: number;
@@ -67,7 +57,6 @@ const mapDispatchToProps = (dispatch: Dispatch<actions.CurrentUserActionType>) =
     };
 };
 
-// export default connect<StateProps, DispatchProps, OwnProps> (
 export default connect (
     mapStateToProps,
     mapDispatchToProps

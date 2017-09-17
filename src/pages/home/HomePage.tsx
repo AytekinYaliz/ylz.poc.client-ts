@@ -4,13 +4,14 @@ import './HomePage.less';
 import HelloContainer from '../../components/HelloContainer';
 import CityContainer from '../../components/CityContainer';
 
-const HomePage = () => {
+
+const HomePage: React.StatelessComponent<{}> = () => {
     const onClickHandle = (val: string) => {
         console.log(`Hello from home: ${val}`);  //tslint:disable-line
     };
 
     return (
-        <div>
+        <div className="home">
             <HelloContainer />
             <CityContainer onClick={onClickHandle} />
             <HelloContainer />

@@ -3,7 +3,7 @@ import { connect, Dispatch } from 'react-redux';
 import * as actions from '../actions/enthusiasmActions';
 import { IGlobalState } from '../types/IGlobalState';
 
-import {HelloComponent} from './HelloComponent';
+import { HelloComponent } from './HelloComponent';
 
 
 const mapStateToProps = (state: IGlobalState) => {
@@ -22,4 +22,4 @@ const mapDispatchToProps = (dispatch: Dispatch<actions.EnthusiasmActionType>) =>
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(HelloComponent);
+) (HelloComponent);

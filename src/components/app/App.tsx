@@ -7,6 +7,7 @@ import { IGlobalState, ICurrentUserState } from '../../types/IGlobalState';
 import LocalStorage from '../../libs/LocalStorage';
 
 import './App.less';
+import NoDiv from '../noDiv/NoDiv';
 import Routes from './Routes';
 import Config, { ConfigKeysEnum } from '../../libs/Config';
 
@@ -16,24 +17,13 @@ type StateProps = {
     currentUser: ICurrentUserState;
 };
 type DispatchProps = {};
-type OwnProps = {};
-type Props = StateProps & DispatchProps & OwnProps;
 
-// type State = {
-//     count: number;
-//     count2?: number;
-// };
+class App extends React.Component<StateProps&DispatchProps, {}> {
 
-class App extends React.Component<Props, {}> {
-
-    constructor(props: Props) {
+    constructor(props: StateProps&DispatchProps) {
         super(props);
     }
     componentDidMount() {
-        // fireabase.auth().onAuthStateChanged(user => {
-        //     this.setState({user});
-        // });
-
         if (LocalStorage.isLocalStorageSupported) {
             let key = LocalStorage.get( Config.getConfig(ConfigKeysEnum.localStorageKey) );
 
@@ -47,13 +37,13 @@ class App extends React.Component<Props, {}> {
 
     render() {
         return (
-            <div>
+            <NoDiv>
                 {this.props.isLoading ? (
                     <div>asdf</div>
                 ) : (
                     <Routes currentUser={this.props.currentUser} />
                 )}
-            </div>
+            </NoDiv>
         );
     }
 }

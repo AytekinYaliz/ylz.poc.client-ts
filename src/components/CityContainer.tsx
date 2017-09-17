@@ -66,7 +66,7 @@ class CityContainer extends React.Component<StateProps & DispatchProps & OwnProp
 
     render(): JSX.Element {
         return (
-            <div className="hello">
+            <div className="city">
                 <div className="greeting">
                     <div>
                         {`Total cities for ${this.props.name}: ${this.props.cities.length} [${this.state.count}]`}

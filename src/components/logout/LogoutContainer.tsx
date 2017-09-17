@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {connect, Dispatch} from 'react-redux';
+import { connect, Dispatch } from 'react-redux';
 
-import {IGlobalState, ICurrentUserState} from '../../types/IGlobalState';
-import {IClickEvent} from '../../types/IEvent';
+import { IGlobalState, ICurrentUserState } from '../../types/IGlobalState';
+import { IClickEvent } from '../../types/IEvent';
 import * as actions from '../../actions/currentUserActions';
 import LogoutComponent from './LogoutComponent';
 
@@ -14,14 +14,8 @@ type DispatchProps = {
     logout: () => Promise<actions.CurrentUserActionType>;
 };
 type OwnProps = {};
-type Props = StateProps & DispatchProps & OwnProps;
 
-// type State = {
-//     count: number;
-//     count2?: number;
-// };
-
-class LogoutContainer extends React.Component<Props, {}> {
+class LogoutContainer extends React.Component<StateProps&DispatchProps&OwnProps, {}> {
     logoutClickHandle = (event: IClickEvent): void => {
         this.props
             .logout()
@@ -58,4 +52,4 @@ const mapDispatchToProps = (dispatch: Dispatch<actions.CurrentUserActionType>) =
 export default connect<StateProps, DispatchProps, OwnProps>(
     mapStateToProps,
     mapDispatchToProps
-)(LogoutContainer);
+) (LogoutContainer);

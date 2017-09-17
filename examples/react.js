@@ -80,7 +80,7 @@ const HelloComponent = (props: IProps) => {     // = ({name, onIncrement}: IProp
  * FUNCTIONAL COMPONENT: 3 (Pure component)
  * */
 class FooterComponent extends React.PureComponent<IProps, {}> {
-    render(): JSX.Element | null {
+    render(): JSX.Element | null | false {
         return (
             <div className="hello">
                 Hello { this.props.name } <button onClick={this.props.onIncrement}>[+]</button>
@@ -92,12 +92,11 @@ class FooterComponent extends React.PureComponent<IProps, {}> {
 /*
  * FUNCTIONAL COMPONENT: 4 (Stateless component)
  * */
-const FooterComponent: React.StatelessComponent<IProps> = ({children}) => (
-    <button
-        className="f4 br2 grow no-underline ph5 pv3 dib white bg-dark-pink bn shadow-3 w-100 w-auto-ns b">
-        {children}
-    </button>
-  );
+const FooterComponent: React.StatelessComponent<IProps> = (props: IProps) => (
+    <div>
+        {props.children}
+    </div>
+);
 
 // -----------------------------------------------------------------------------------------
 
@@ -106,17 +105,17 @@ const FooterComponent: React.StatelessComponent<IProps> = ({children}) => (
  * SYNTAX 1: React.Component<P, S> -> connect()
  * */
 
-type Props = {
+type IProps = {
     currentUser: ICurrentUserState;
     enthusiasmLevelCount: number;
     login: (user: ICurrentUserState) => Promise<actions.CurrentUserActionType>;    
 };
-type State = {
+type IState = {
     count: number;
     isLoading: boolean;
 }
 
-class LoginPage extends React.Component<Props, State> {
+class LoginPage extends React.Component<IProps, IState> {
     /* The implementation goes here */
 }
 const mapStateToProps = (state: IGlobalState) => {
