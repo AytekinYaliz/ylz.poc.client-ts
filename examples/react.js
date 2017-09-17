@@ -61,7 +61,7 @@ const HomePage = () => {
 export default HomePage;
 
 /*
- * FUNCTIONAL COMPONENT: 2 (TS + Flow)
+ * FUNCTIONAL COMPONENT: 2 (TS + Flow | transpiled to React.StatelessComponent<{}>)
  * */
 
 type IProps = { 
