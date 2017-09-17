@@ -7,7 +7,9 @@ import * as React from 'react';
 
 class ListComponent extends React.PureComponent<{}> {
     render(): JSX.Element | null | false {
-        return null;
+        return (
+            <div>ct</div>
+        );
     }
 }
 
