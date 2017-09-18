@@ -24,4 +24,34 @@
 .otherInput {               |   .otherInput {
     &:extend(.inputbase);   |       // other code
     // other code           |   }
-} 
+}
+------------------------------------------------------
+.box {
+    width: 100px;
+    height: 100px;
+}
+
+// 1. horizontal center
+.blueBox {
+    // if you remove width=100px; it will be like width=100%;
+    margin: 0 auto;
+}
+
+// 2. vertical center
+.blueBox {
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+}
+
+// 3. vertical + horizontal center (with container)
+.container {
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    left: 0;
+    width: 100%;
+}
+.blueBox {
+    margin: 0 auto;
+}
