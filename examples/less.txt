@@ -27,29 +27,30 @@
 }
 ------------------------------------------------------
 .box {
-    width: 100px;
-    height: 100px;
+    display: block;
+    width: 80px;
+    height: 80px;
 }
 
-// 1. horizontal center
+// 1. horizontal-center
 .blueBox {
     // if you remove width=100px; it will be like width=100%;
     margin: 0 auto;
 }
 
-// 2. vertical center
+// 2. vertical-center
 .blueBox {
     position: absolute;
     top: 50%;
-    margin-top: -50px;
+    margin-top: -40px;
 }
 
-// 3. vertical + horizontal center (with container)
+// 3. area-center (with container)
 .container {
     position: absolute;
     top: 50%;
-    margin-top: -50px;
     left: 0;
+    margin-top: -40px;
     width: 100%;
 }
 .blueBox {
