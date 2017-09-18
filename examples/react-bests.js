@@ -12,6 +12,7 @@ class CommentItem extends PureComponent {
     }
 }
 
+
 /* 2.1
  * DON'T DERIVE DATA IN THE RENDER METHOD:
  * 'topTen' will have a brand new REFERENCE each time the component re-renders, 
@@ -21,7 +22,7 @@ class CommentItem extends PureComponent {
 class CacheComponent extends React.Component {
     render() {
         const {cities} = this.props;
-        const topCities = cities.map(_ => _);   // CREATES A NEW ARRAY EACH TIME!
+        const topCities = cities.map(_ => _);   // .map() CREATES A NEW ARRAY FROM cities EACH TIME!
 
         return (
             <ChildComponent cities={topCities} />

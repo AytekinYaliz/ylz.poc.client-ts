@@ -38,12 +38,12 @@ class CityContainer extends React.Component<StateProps&DispatchProps&OwnProps, S
             this.setState({ count: 8888999 });
             setTimeout(() => {
                 this.setState({ count: 4400 });
-            }, 2000);
-        }, 2000);
+            }, 1000);
+        }, 1000);
     }
     // shouldComponentUpdate(nextProps: Readonly<StateProps&DispatchProps&OwnProps>, nextState: Readonly<State>) {
     //     console.log('shouldComponentUpdate', nextState);   // tslint:disable-line
-    //     return false;
+    //     return true;
     // }
 
     onClick = (event: IClickEvent) => {
@@ -73,7 +73,7 @@ class CityContainer extends React.Component<StateProps&DispatchProps&OwnProps, S
 
     render(): JSX.Element | null | false {
         const {cities} = this.props;
-        const topTen = cities.map(_ => _);
+        const topTen = cities;  //;.map(_ => _);
         console.log('City render.', topTen);  //tslint:disable-line
 
         return (
