@@ -24,7 +24,7 @@
 .otherInput {               |   .otherInput {
     &:extend(.inputbase);   |       // other code
     // other code           |   }
-}
+}                           |
 ------------------------------------------------------
 .box {
     display: block;
