@@ -4,11 +4,12 @@
  * DON'T BIND VALUES IN FUNCTIONS IN RENDER:
  * Every time the parent’s render method is called, a new function (with a new reference) is created to be passed to likeComment.
  * */
-<CommentItem likeComment={() => { return; }} />
-<CommentItem likeComment={this.likeComment} />
+<CommentItem likeComment={() => this.likeComment(user.id)} />
+ will be:
+<CommentItem likeComment={this.likeComment} userID={user.id} />
 class CommentItem extends PureComponent {
     handleLike() {
-        this.props.likeComment();
+        this.props.likeComment(this.props.userID);
     }
 }
 
