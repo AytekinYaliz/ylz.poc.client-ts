@@ -39,14 +39,16 @@
     // other code           |   }
 }                           |
 -------------------------------------------------------
-.footer {               |   .footer {
-    &__top {            |   }
-                        |
-    }                   |   .footer__top {
-    &__bottom {         |   }
-                        |
-    }                   |   .footer__bottom {
-}                       |   }
+.footer {                   |   .footer {
+    font-size: 12px;        |       font-size: 12px;
+    &__top {                |   }
+        width: 20px;        |   .footer__top {
+        font-size: 14px;    |       width: 20px;
+    }                       |       font-size: 14px;
+    &__bottom {             |   }
+        width: 15px;        |   .footer__bottom {
+    }                       |       width: 15px;
+}                           |   }
 -------------------------------------------------------
 .box {
     display: block;
