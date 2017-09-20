@@ -1,3 +1,4 @@
+/* CASCADING */
 #header {                   |   #header {
     color: black;           |       color: black;
     .navigation {           |   }
@@ -8,6 +9,7 @@
     }                       |       width: 300px;
 }                           |   }
 --------------------------------------------------------
+/* BAD */
 .inputbase() {          |   // nothing for inputBase
     // BASE CODE        |
 }                       |
@@ -22,6 +24,7 @@
     // other code       |       // other code
 }                       |   }
 -------------------------------------------------------
+/* GOOD */
 .inputbase {                |   .inputbase,
     // BASE CODE            |   .someInput,
 }                           |   .otherInput {
@@ -35,6 +38,15 @@
     &:extend(.inputbase);   |       // other code
     // other code           |   }
 }                           |
+-------------------------------------------------------
+.footer {               |   .footer {
+    &__top {            |   }
+                        |
+    }                   |   .footer__top {
+    &__bottom {         |   }
+                        |
+    }                   |   .footer__bottom {
+}                       |   }
 -------------------------------------------------------
 .box {
     display: block;
