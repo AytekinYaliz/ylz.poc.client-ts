@@ -1,12 +1,25 @@
 /* CASCADING */
-#header {                   |   #header {
-    color: black;           |       color: black;
+.header {                   |   .header {
+    font-size: 12px;        |       font-size: 12px;
     .navigation {           |   }
-        font-size: 12px;    |   #header .navigation {
-    }                       |       font-size: 12px;
+		width: 20px;		|	.header .navigation {
+        font-size: 14px;    |   	width: 20px;
+    }                       |       font-size: 14px;
     .logo {                 |   }
-        width: 300px;       |   #header .logo {
-    }                       |       width: 300px;
+        width: 15px;       |   .header .logo {
+    }                       |       width: 15px;
+}                           |   }
+-------------------------------------------------------
+/* CONCATENATING */
+.footer {                   |   .footer {
+    font-size: 12px;        |       font-size: 12px;
+    &__top {                |   }
+        width: 20px;        |   .footer__top {
+        font-size: 14px;    |       width: 20px;
+    }                       |       font-size: 14px;
+    &__bottom {             |   }
+        width: 15px;        |   .footer__bottom {
+    }                       |       width: 15px;
 }                           |   }
 --------------------------------------------------------
 /* BAD */
@@ -38,17 +51,6 @@
     &:extend(.inputbase);   |       // other code
     // other code           |   }
 }                           |
--------------------------------------------------------
-.footer {                   |   .footer {
-    font-size: 12px;        |       font-size: 12px;
-    &__top {                |   }
-        width: 20px;        |   .footer__top {
-        font-size: 14px;    |       width: 20px;
-    }                       |       font-size: 14px;
-    &__bottom {             |   }
-        width: 15px;        |   .footer__bottom {
-    }                       |       width: 15px;
-}                           |   }
 -------------------------------------------------------
 .box {
     display: block;
