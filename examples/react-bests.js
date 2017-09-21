@@ -23,7 +23,7 @@ class CommentItem extends PureComponent {
 class CacheComponent extends React.Component {
     render() {
         const {cities} = this.props;
-        const topCities = cities.map(_ => _);   // .map() CREATES A NEW ARRAY FROM cities EACH TIME!
+        const topCities = cities.filter(_ => _);   // .filter() .map() CREATES A NEW ARRAY FROM cities EACH TIME!
 
         return (
             <ChildComponent cities={topCities} />
@@ -45,7 +45,7 @@ class CacheComponent extends React.Component {
     }
     setTopTenPosts(cities) {
         this.setState({
-            topCities: cities.map(_ => _)
+            topCities: cities.filter(_ => _)
         });
     }
     render() {
