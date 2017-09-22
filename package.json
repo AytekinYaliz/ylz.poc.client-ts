@@ -24,7 +24,7 @@
     "redux-thunk": "2.2.0",
     "request-promise": "4.2.1",
     "socket.io-client": "^2.0.3",
-    "uuid": "3.1.0"
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "@types/history": "4.6.0",
@@ -40,6 +40,7 @@
     "@types/react-router-dom": "4.0.5",
     "@types/react-router-redux": "5.0.3",
     "@types/socket.io-client": "^1.4.29",
+    "@types/uuid": "^3.4.2",
     "app-root-path": "2.0.1",
     "autoprefixer": "7.1.0",
     "case-sensitive-paths-webpack-plugin": "2.0.0",

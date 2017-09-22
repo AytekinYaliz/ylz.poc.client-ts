@@ -2,12 +2,14 @@ import * as React from 'react';
 // import { bindActionCreators } from 'redux';
 import { connect, Dispatch } from 'react-redux';
 import * as socketIo from 'socket.io-client';
+import * as uuid from 'uuid/v4';
 
 import { IGlobalState } from '../../types/IGlobalState';
 import * as cityActions from '../../actions/cityActions';
 import { IClickEvent } from '../../types/IEvent';
 import Config, {ConfigKeysEnum} from '../../libs/Config';
 import TownComponent from './TownComponent';
+import TestComponent from './TestComponent';
 import City from '../../models/City';
 
 type StateProps = {
@@ -22,13 +24,15 @@ type OwnProps = {
 };
 type State = {
     count: number;
+    users: Array<{}>;
 };
 
 class CityContainer extends React.Component<StateProps&DispatchProps&OwnProps, State> {
     private socket: SocketIOClient.Socket;
     // private query: { cityId: string, cityName: string } = this.props.match.params;
     state = {
-        count: 33
+        count: 4,
+        users: [{id: 1, name: 'Aaa'}, {id: 2, name: 'Bbb'}, {id: 3, name: 'Ccc'}]
     };
 
     constructor(props: StateProps&DispatchProps&OwnProps) {
@@ -54,7 +58,10 @@ class CityContainer extends React.Component<StateProps&DispatchProps&OwnProps, S
         }
     }
     setCount = (event: IClickEvent) => {
-        this.setState({ count: this.state.count });
+        let s = this.state;
+        s.count++;
+        s.users.push({ id: s.count, name: String(s.count) });
+        this.setState(s);
     }
 
     connect = () => {
@@ -84,12 +91,17 @@ class CityContainer extends React.Component<StateProps&DispatchProps&OwnProps, S
                     </div>
                     <button onClick={this.onClick}>Alert</button>
                     <button onClick={this.props.logCityName}>log</button>
-                    <button onClick={this.setCount}>Count |></button>
+                    <button onClick={this.setCount}>Change State</button>
                     &nbsp; &nbsp;
                     <button onClick={this.connect}>Connect</button>
                     <button onClick={this.send}>Send</button>
                     <button onClick={this.disconnect}>Disconnect</button>
                     <TownComponent count={this.state.count} towns={topTen} />
+                    <ul>
+                        {this.state.users.map(_ => {
+                            return <TestComponent key={uuid()} id={_.id} name={_.name} />;
+                        })}
+                    </ul>
                 </div>
             </div>
         );
