@@ -8,7 +8,7 @@ function CustomTextInput(props) {
       <div>
          <input ref={props.inputRef} />
       </div>
-   );
+    );
 }
 class Parent1 extends React.Component {
   render() {
@@ -18,28 +18,28 @@ class Parent1 extends React.Component {
   }
 }
 class Parent2 extends React.Component {
-    render() {
-        return (
+   render() {
+      return (
+         <div>
             <div>
-                <div>
-                    {this.props.array.length > 0 &&
-                        <b>{this.props.array.length}</b>
-                    }
-                </div>
-                <div>
-                    The user is <b>{this.props.isLoggedIn ? 'currently' : 'not'}</b> logged in.
-                </div>
-                <div>
-                    {this.props.isLoggedIn ? (
-                        <LogoutButton onClick={this.handleLogoutClick} />
-                    ) : (
-                        <LoginButton onClick={this.handleLoginClick} />
-                    )}
-                </div>
-                <div>
-                    <CustomTextInput inputRef={el => this.inputElement = el} />
-                </div>
+               {this.props.array.length > 0 &&
+                  <b>{this.props.array.length}</b>
+               }
             </div>
+            <div>
+               The user is <b>{this.props.isLoggedIn ? 'currently' : 'not'}</b> logged in.
+            </div>
+            <div>
+               {this.props.isLoggedIn ? (
+                  <LogoutButton onClick={this.handleLogoutClick} />
+               ) : (
+                  <LoginButton onClick={this.handleLoginClick} />
+               )}
+            </div>
+            <div>
+               <CustomTextInput inputRef={el => this.inputElement = el} />
+            </div>
+         </div>
         );
     }
 }
@@ -70,24 +70,24 @@ type IProps = {
     onIncrement?: () => void;
 };
 const HelloComponent = (props: IProps) => {     // = ({name, onIncrement}: IProps) => {
-    return (
-        <div className="hello">
-            Hello { props.name } <button onClick={props.onIncrement}>[+]</button>
-        </div>
-    );
+   return (
+      <div className="hello">
+         Hello { props.name } <button onClick={props.onIncrement}>[+]</button>
+      </div>
+   );
 };
 
 /*
  * FUNCTIONAL COMPONENT: 3 (Pure component)
  * */
 class FooterComponent extends React.PureComponent<IProps, {}> {
-    render(): JSX.Element | null | false {
-        return (
-            <div className="hello">
-                Hello { this.props.name } <button onClick={this.props.onIncrement}>[+]</button>
-            </div>
-        );
-    }
+   render(): JSX.Element | null | false {
+      return (
+         <div className="hello">
+            Hello { this.props.name } <button onClick={this.props.onIncrement}>[+]</button>
+         </div>
+      );
+   }
 }
 
 /*
@@ -133,7 +133,7 @@ const mapDispatchToProps = (dispatch: Dispatch<actions.CurrentUserActionType>) =
 export default connect (
     mapStateToProps,
     mapDispatchToProps
-) (LoginPage);
+)(LoginPage);
 
 
 /*
@@ -179,4 +179,4 @@ const mapDispatchToProps = (dispatch: Dispatch<actions.CurrentUserActionType>) =
 export default connect<StateProps, DispatchProps, OwnProps> (
     mapStateToProps,
     mapDispatchToProps
-) (LogoutPage);
+)(LogoutPage);
