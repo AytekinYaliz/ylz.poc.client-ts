@@ -2,7 +2,7 @@ import City from '../models/City';
 import ICustomer from '../models/ICustomer';
 
 export interface IGlobalState {
-   isLoadingState: boolean;
+   loaderState: boolean;
    currentUserState: ICurrentUserState;
    citiesState: City[];
    customersState: ICustomersState;

@@ -16,7 +16,7 @@ const HeaderComponent: React.StatelessComponent<IProps> = (props: IProps) => (
     <Navbar inverse={true} collapseOnSelect={true}>
         <Navbar.Header>
             <Navbar.Brand>
-                <Link to="/"><img src="/logo_32x30.jpg" /></Link>
+                <Link to="/"><img src="/img/logo_32x30.jpg" /></Link>
             </Navbar.Brand>
             <Navbar.Toggle />
         </Navbar.Header>

@@ -9,57 +9,48 @@ import LocalStorage from '../../libs/LocalStorage';
 import './App.less';
 import NoDiv from '../noDiv/NoDiv';
 import Routes from './Routes';
+import LoaderComponent from '../loader/LoaderComponent';
 import Config, { ConfigKeysEnum } from '../../libs/Config';
 
 
 type StateProps = {
-    isLoading: boolean;
-    currentUser: ICurrentUserState;
+   isLoading: boolean;
+   currentUser: ICurrentUserState;
 };
-type DispatchProps = {};
 
-class App extends React.Component<StateProps&DispatchProps, {}> {
+class App extends React.Component<StateProps, {}> {
+   constructor(props: StateProps) {
+      super(props);
+   }
+   componentDidMount() {
+      if (LocalStorage.isLocalStorageSupported) {
+         let key = LocalStorage.get( Config.getConfig(ConfigKeysEnum.localStorageKey) );
 
-    constructor(props: StateProps&DispatchProps) {
-        super(props);
-    }
-    componentDidMount() {
-        if (LocalStorage.isLocalStorageSupported) {
-            let key = LocalStorage.get( Config.getConfig(ConfigKeysEnum.localStorageKey) );
+         if (key === null) {
+            LocalStorage.add(Config.getConfig(ConfigKeysEnum.localStorageKey), 'some cookies from app');
+         } else {
+            console.log('LS:', key);   //tslint:disable-line
+         }
+      }
+   }
 
-            if (key === null) {
-                LocalStorage.add(Config.getConfig(ConfigKeysEnum.localStorageKey), 'some cookies from app');
-            } else {
-                console.log('LS:', key);   //tslint:disable-line
-            }
-        }
-    }
-
-    render() {
-        return (
-            <NoDiv>
-                {this.props.isLoading ? (
-                    <div>asdf</div>
-                ) : (
-                    <Routes currentUser={this.props.currentUser} />
-                )}
-            </NoDiv>
-        );
-    }
+   render() {
+      return (
+         <div>
+            <LoaderComponent isLoading={this.props.isLoading} />
+            <Routes currentUser={this.props.currentUser} />
+         </div>
+      );
+   }
 }
 const mapStateToProps = (state: IGlobalState) => {
-    return {
-        isLoading: state.isLoadingState,
-        currentUser: state.currentUserState
-    };
-};
-const mapDispatchToProps = (dispatch: Dispatch<{}>) => {
-    return {
-        //logout: () => {}  //dispatch(currentUserActions.logout())
-    };
+   return {
+      isLoading: state.loaderState,
+      currentUser: state.currentUserState
+   };
 };
 
-export default withRouter(connect<StateProps, DispatchProps, null>(
-    mapStateToProps,
-    mapDispatchToProps
-) (App));
+export default withRouter(connect<StateProps, null, null>(
+   mapStateToProps,
+   null
+)(App));

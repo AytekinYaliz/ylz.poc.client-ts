@@ -2,7 +2,7 @@ import City from '../models/City';
 import ICustomer from '../models/ICustomer';
 
 export default {
-   isLoadingState: false,
+   loaderState: false,
    currentUserState: { name: 'INI-ALL' },    // null,
    citiesState: Array<City>(),
    customersState: {

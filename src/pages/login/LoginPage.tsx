@@ -10,9 +10,9 @@ import LoginComponent from './LoginComponent';
 
 
 type Props = {
-    currentUser: ICurrentUserState;
-    enthusiasmLevelCount: number;
-    login: (user: ICurrentUserState) => Promise<actions.CurrentUserActionType>;
+   currentUser: ICurrentUserState;
+   enthusiasmLevelCount: number;
+   login: (user: ICurrentUserState) => Promise<actions.CurrentUserActionType>;
 };
 
 class LoginPage extends React.Component<Props, {}> {
@@ -24,19 +24,20 @@ class LoginPage extends React.Component<Props, {}> {
       this.props
          .login( {name: 'AYTEK'} )
          .then(() => {
-               this.context.router.history.replace('/login');
+            this.context.router.history.replace('/login');
          })
          .catch((err) => {
-               console.log(err); //tslint:disable-line
+            console.log(err); //tslint:disable-line
          });
    }
 
    render() {
       return (
          <div>
-               {this.props.currentUser
-                  ? <Redirect to={'/'} />
-                  : <LoginComponent loginClick={this.loginClickHandle} /> }
+            {this.props.currentUser
+               ? <Redirect to={'/'} />
+               : <LoginComponent loginClick={this.loginClickHandle} />
+            }
          </div>
       );
    }

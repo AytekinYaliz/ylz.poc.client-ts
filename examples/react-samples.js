@@ -109,7 +109,7 @@ const FooterComponent: React.StatelessComponent<IProps> = (props: IProps) => (
 type IProps = {
    currentUser: ICurrentUserState;
    enthusiasmLevelCount: number;
-   login: (user: ICurrentUserState) => Promise<actions.CurrentUserActionType>;
+   login: Function;     //(user: ICurrentUserState) => Promise<actions.CurrentUserActionType>;
 };
 type IState = {
    count: number;
@@ -144,7 +144,7 @@ type StateProps = {
    currentUser: ICurrentUserState;
 };
 type DispatchProps = {
-   logout: () => Promise<actions.CurrentUserActionType>;
+   logout: Function;    // () => Promise<actions.CurrentUserActionType>;
 };
 type OwnProps = {
    onClick: (val: String) => void;

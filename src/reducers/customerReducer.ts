@@ -11,11 +11,6 @@ const customerReducer: ICustomerReducer = (
    action: CustomerActionType
 ): ICustomersState | null => {
    switch (action.type) {
-      case types.GET_CUSTOMERS_BEGIN: {
-         return {
-            ...state
-         };
-      }
       case types.GET_CUSTOMERS_SUCCESS: {
          return {
             ...state,

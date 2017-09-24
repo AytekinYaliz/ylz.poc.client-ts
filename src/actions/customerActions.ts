@@ -3,6 +3,7 @@ import { Dispatch } from 'react-redux';
 
 import * as types from './actionTypes';
 import { IActionType, IActionWithDataType } from './IActionType';
+import { addLoader, removeLoader } from './loaderActions';
 import ICustomer from '../models/ICustomer';
 import Config, { ConfigKeysEnum } from '../libs/Config';
 
@@ -13,9 +14,9 @@ export interface IGetCustomersError extends IActionWithDataType<{}> {}
 
 export type CustomerActionType = IGetCustomersBegin | IGetCustomersSuccess | IGetCustomersError;
 
-function getCustomersBegin() {
-   return {type: types.GET_CUSTOMERS_BEGIN};
-}
+// function getCustomersBegin() {
+//    return {type: types.GET_CUSTOMERS_BEGIN};
+// }
 function getCustomersSuccess(data: ICustomer[]) {
    return {type: types.GET_CUSTOMERS_SUCCESS, data};
 }
@@ -25,10 +26,16 @@ function getCustomersError(data: {}) {
 
 export function getCustomers() {
    return (dispatch: Dispatch<CustomerActionType>) => {
-      dispatch(getCustomersBegin());
+      dispatch(addLoader());
 
       return Axios.get(Config.getConfig(ConfigKeysEnum.apiBaseUrl) + Config.getConfig(ConfigKeysEnum.customersEndpoint))
-         .then( (response: AxiosResponse) => dispatch(getCustomersSuccess(<ICustomer[]> response.data)) )
-         .catch( (error: AxiosError) => dispatch(getCustomersError(error)) );
+         .then( (response: AxiosResponse) => {
+            dispatch(getCustomersSuccess(<ICustomer[]> response.data));
+            dispatch(removeLoader());
+         })
+         .catch( (error: AxiosError) => {
+            dispatch(getCustomersError(error));
+            dispatch(removeLoader());
+          });
    };
 }

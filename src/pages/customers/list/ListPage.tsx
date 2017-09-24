@@ -8,27 +8,17 @@ import ListComponent from './ListComponent';
 
 type IProps = {
    customers: ICustomer[];
-   getCustomers: () => Promise<actions.CustomerActionType>;
+   getCustomers: () => Function; //Promise<actions.CustomerActionType>;
 };
 class ListPage extends React.PureComponent<IProps> {
    private _customers = Array<any>(0);
    componentDidMount() {
-      this.props
-         .getCustomers()
-         .then((customers: any) => {
-
-            console.log(customers);
-
-            //this._customers = customers;
-         })
-         .catch((error: any) => {
-            console.log(error); //tslint:disable-line
-         });
+      this.props.getCustomers();
    }
    render(): JSX.Element | null | false {
-       return (
-           <ListComponent customers={this.props.customers} />
-       );
+      return (
+         <ListComponent customers={this.props.customers} />
+      );
    }
 }
 const mapStateToProps = (state: IGlobalState) => {
