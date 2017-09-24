@@ -3,6 +3,7 @@ import {combineReducers}    from 'redux';
 
 import currentUserState from './currentUserReducer';
 import citiesState from './cityReducer';
+import customersState from './customerReducer';
 import enthusiasmState from './enthusiasmReducer';
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
     currentUserState,
     enthusiasmState,
     citiesState,
+    customersState
     // customersRootReducer,
     // customersAddEditReducer,
 });

@@ -1,17 +1,18 @@
 import * as types from './actionTypes';
-import { IActionType, IActionWithDataType } from './IActionType';
 import { Dispatch } from 'react-redux';
 
+import { IActionType, IActionWithDataType } from './IActionType';
 import Config, { ConfigKeysEnum } from '../libs/Config';
 import LocalStorage from '../libs/LocalStorage';
 
+
 export interface IGetCurrentUser extends IActionType {}
 export interface ILoginBegin extends IActionType {}
-export interface ILoginSuccess extends IActionWithDataType {}
-export interface ILoginError extends IActionWithDataType {}
+export interface ILoginSuccess extends IActionWithDataType<{name: string}> {}
+export interface ILoginError extends IActionWithDataType<{}> {}
 export interface ILogoutBegin extends IActionType {}
-export interface ILogoutSuccess extends IActionWithDataType {}
-export interface ILogoutError extends IActionWithDataType {}
+export interface ILogoutSuccess extends IActionWithDataType<void> {}
+export interface ILogoutError extends IActionWithDataType<{}> {}
 
 export type CurrentUserActionType = IGetCurrentUser |
     ILoginBegin | ILoginSuccess | ILoginError |

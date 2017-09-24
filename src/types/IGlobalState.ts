@@ -1,16 +1,22 @@
 import City from '../models/City';
+import ICustomer from '../models/ICustomer';
 
 export interface IGlobalState {
-    isLoadingState: boolean;
-    currentUserState: ICurrentUserState;
-    enthusiasmState: IEnthusiasmState;
-    citiesState: City[];
+   isLoadingState: boolean;
+   currentUserState: ICurrentUserState;
+   citiesState: City[];
+   customersState: ICustomersState;
+   enthusiasmState: IEnthusiasmState;
 }
 
 export interface ICurrentUserState {
-    name: string;
+   name: string;
+}
+export interface ICustomersState {
+   customers: ICustomer[];
+   // selectedCustomer: ICustomer;
 }
 export interface IEnthusiasmState {
-    languageName: string;
-    enthusiasmLevel: number;
+   languageName: string;
+   enthusiasmLevel: number;
 }

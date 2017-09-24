@@ -1,42 +1,44 @@
 import Utilities from './Utilities';
 
 export enum ConfigKeysEnum {
-    localStorageKey,
-    apiBaseUrl
+   localStorageKey = 'localStorageKey',
+   apiBaseUrl = 'apiBaseUrl',
+   customersEndpoint = 'customersEndpoint'
 }
 export enum DeploymentTypesEnum {
-    test,
-    development,
-    production
+   test = 'test',
+   development = 'development',
+   production = 'production'
 }
 
 interface IConfig {
-    localStorageKey: string;
-    apiBaseUrl: string;
+   localStorageKey: string;
+   apiBaseUrl: string;
+   customersEndpoint: string;
 }
 class Config {
-    private static _config: IConfig = null;
+   private static _config: IConfig = null;
 
-    public static getConfig(name: ConfigKeysEnum): string {
-        if (!Config._config) {
-            Config.loadConfig();
-        }
+   public static getConfig(name: ConfigKeysEnum): string {
+      if (!Config._config) {
+         Config.loadConfig();
+      }
+      return Config._config[name];
+   }
 
-        return Config._config[Utilities.getEnumString(ConfigKeysEnum, name)];
-    }
+   private static loadConfig(): void {
+      if (process.env.NODE_ENV === DeploymentTypesEnum.development ||
+         process.env.NODE_ENV === DeploymentTypesEnum.test) {
+         Config._config = {
+            localStorageKey: 'LH.Accountancy',
+            apiBaseUrl: 'http://localhost:4001',
+            customersEndpoint: '/api/customers'
+         };
+         return;
+      }
 
-    private static loadConfig(): void {
-        if (process.env.NODE_ENV === Utilities.getEnumString(DeploymentTypesEnum, DeploymentTypesEnum.development) ||
-            process.env.NODE_ENV === Utilities.getEnumString(DeploymentTypesEnum, DeploymentTypesEnum.test)) {
-            Config._config = {
-                localStorageKey: 'LH.Accountancy',
-                apiBaseUrl: 'http://localhost:4001'
-            };
-            return;
-        }
-
-        Config._config = JSON.parse((<any> process.env).config);
-    }
+      Config._config = JSON.parse((<any> process.env).config);
+   }
 }
 
 Object.seal(Config);

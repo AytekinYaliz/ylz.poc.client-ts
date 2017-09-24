@@ -1,6 +1,7 @@
 import * as types from './actionTypes';
 import {IActionType} from './IActionType';
 
+
 export interface IGetCities extends IActionType {}
 export interface ILogCityName extends IActionType {}
 

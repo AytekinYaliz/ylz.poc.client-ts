@@ -2,7 +2,7 @@ export interface IActionType {
     type: string;
 }
 
-export interface IActionWithDataType {
+export interface IActionWithDataType<T> {
     type: string;
-    data: any;
+    data: T;
 }
