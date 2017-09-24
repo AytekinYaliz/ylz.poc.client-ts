@@ -14,7 +14,7 @@ const LoaderComponent: React.StatelessComponent<IProps> = (props: IProps) => (
          </div>
       </div>
    ) :
-   (null)
+   ( null )
 );
 
 export default LoaderComponent;
