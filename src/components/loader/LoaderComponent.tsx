@@ -9,7 +9,9 @@ type IProps = {
 const LoaderComponent: React.StatelessComponent<IProps> = (props: IProps) => (
    props.isLoading ? (
       <div className="loader">
-          <i className="fa fa-spinner fa-spin fa-5x fa-fw" aria-hidden="true" />
+         <div className="container">
+            <i className="fa fa-spinner fa-spin fa-5x fa-fw" aria-hidden="true" />
+         </div>
       </div>
    ) :
    (null)
