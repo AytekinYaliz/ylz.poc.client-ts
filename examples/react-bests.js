@@ -1,3 +1,11 @@
+1. constructor
+1. render
+  2. constructor
+  2. render
+  2. didMount
+1. didMount
+
+
 /* tslint:disable */
 
 /** 1.
