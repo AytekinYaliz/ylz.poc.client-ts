@@ -11,15 +11,25 @@
 /** 1.
  * DON'T BIND VALUES IN FUNCTIONS IN RENDER:
  * Every time the parent’s render method is called, a new function (with a new reference) is created to be passed to likeComment.
+ * If you inline an object in JSX, it will fail PureComponent prop diff and move on to more expensive React elements.
+ * Arrays and Functions are Objects in JS. {} !== {}
  * */
 <CommentItem likeComment={() => this.likeComment(user.id)} />
- will be:
+  should be:
 <CommentItem likeComment={this.likeComment} userID={user.id} />
 class CommentItem extends PureComponent {
     handleLike() {
         this.props.likeComment(this.props.userID);
     }
 }
+
+// first render
+<Avatar user={{ id: ‘ryan’ }} />
+// next render
+<Avatar user={{ id: ‘ryan’ }} />
+// prop diff thinks something changed because {} !== {}
+// element diff (reconciler) finds out that nothing changed
+
 
 
 /** 2.1
