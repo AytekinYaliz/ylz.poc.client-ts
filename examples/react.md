@@ -20,9 +20,10 @@ My container components:
 Examples: UserPage, FollowersSidebar, StoryContainer, FollowedUserList.
 
 I put them in different folders to make this distinction clear.
---------------------------------------------------------------------------------------------------------------------------------- 
 
-—-- COMPONENT vs. PURECOMPONENT:
+---
+
+--- COMPONENT vs. PURECOMPONENT:
 PureComponent is exactly the same as Component except that it handles the shouldComponentUpdate method for you. When props or state changes, PureComponent will do a shallow comparison on both props and state. Component on the other hand won’t compare current props and state to next out of the box. Thus, the component will re-render by default whenever shouldComponentUpdate is called.
 
 --- Shallow Comparison 101:
@@ -32,7 +33,8 @@ In JS there are 6 primitive types: String, Number, Boolean, null, undefined and 
  Never MUTATE
 You’ve probably been hearing not to mutate objects and arrays in props and state. If you were to mutate objects in a parent component, your “pure” child components wouldn’t update. Although the values have changed upstream, the child would be comparing the reference to the previous props and not detect a difference.
 Instead, return new objects when you make a change by either leveraging es6 for object and array spreading or using a library to enforce immutability.
----------------------------------------------------------------------------------------------------------------------------------
+
+---
 
 --- VIRTUAL DOM
 DOM stands for Document Object Model and is an abstraction of a structured text.
@@ -68,7 +70,8 @@ ReactComponent:
 SUMMARY:
 - I believe that before updating the virtual DOM, a snapshot is taken of the existing virtual DOM , then the virtual DOM gets updated and is compared with the snapshot to be able to see what is actually changed.
 - Yep this is correct. By comparing the new virtual DOM with a pre-update version, React figures out exactly which virtual DOM objects have changed. This process is called "diffing."
----------------------------------------------------------------------------------------------------------------------------------
+
+---
 
 --- What is a controlled component?
 A controlled component has two aspects:
