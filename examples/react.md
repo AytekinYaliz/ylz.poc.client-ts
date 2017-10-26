@@ -24,11 +24,11 @@ I put them in different folders to make this distinction clear.
 ---
 
 ### Component vs. PureComponent: ###
-PureComponent is exactly the same as Component except that it handles the <i>shouldComponentUpdate</i> method for you. When props or state changes, PureComponent will do a shallow comparison on both props and state. Component on the other hand won’t compare current props and state to next out of the box. Thus, the component will re-render by default whenever shouldComponentUpdate is called.  
+React.PureComponent is exactly like React.Component, but implements <i>shouldComponentUpdate()</i> with a shallow comparison on both state and props (when state or props changes). Component on the other hand won’t compare current props and state to next out of the box. Thus, the component will re-render by default whenever shouldComponentUpdate is called.  
 ```javascript
 class Component {             |   class PureComponent extends Component {
   shouldComponentUpdate() {   |     shouldComponentUpdate() {
-    return true;              |       /* Shallow Comparison */
+    return true;              |       /* Shallow Comparison for state & props */
   }                           |     }
 }                             |   }
 ```
