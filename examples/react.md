@@ -25,12 +25,13 @@ I put them in different folders to make this distinction clear.
 
 --- COMPONENT vs. PURECOMPONENT:
 PureComponent is exactly the same as Component except that it handles the <i>shouldComponentUpdate</i> method for you. When props or state changes, PureComponent will do a shallow comparison on both props and state. Component on the other hand won’t compare current props and state to next out of the box. Thus, the component will re-render by default whenever shouldComponentUpdate is called.  
+```
 class Component {             |   class PureComponent extends Component {  
   shouldComponentUpdate() {   |     shouldComponentUpdate() {  
     return true;              |       /* Shallow Comparison * /  
   }                           |     }  
 }                             |   }  
-
+```
 --- Shallow Comparison 101:
 When comparing previous props and state to next, a shallow comparison will check that primitives have the same value (eg, 1 equals 1 or that true equals true) and that the references are the same between more complex javascript values like objects and arrays.
 In JS there are 6 primitive types: String, Number, Boolean, null, undefined and Symbol. The rest are Objets (Arrays and Functions).
