@@ -1,5 +1,5 @@
 
-### PRESENTATIONAL vs CONTAINER COMPONENTS (@Dan Abramov) ###
+### Presentational vs. Container Components (@Dan Abramov) ###
 My presentational components:
 - Are concerned with how things look.
 - May contain both presentational and container components** inside, and usually have some DOM markup and styles of their own.
@@ -23,7 +23,7 @@ I put them in different folders to make this distinction clear.
 
 ---
 
-### COMPONENT vs. PURECOMPONENT: ###
+### Component vs. PureComponent: ###
 PureComponent is exactly the same as Component except that it handles the <i>shouldComponentUpdate</i> method for you. When props or state changes, PureComponent will do a shallow comparison on both props and state. Component on the other hand won’t compare current props and state to next out of the box. Thus, the component will re-render by default whenever shouldComponentUpdate is called.  
 ```javascript
 class Component {             |   class PureComponent extends Component {
@@ -42,7 +42,7 @@ Instead, return new objects when you make a change by either leveraging ES6 for 
 
 ---
 
-### VIRTUAL DOM ###
+### Virtual DOM ###
 DOM stands for Document Object Model and is an abstraction of a structured text.  
 For web developers, this text is an HTML code, and the DOM is simply called HTML DOM.  
 Elements of HTML become nodes in the DOM.  
@@ -79,10 +79,9 @@ SUMMARY:
 
 ---
 
-### What is a controlled component? ###
-A controlled component has two aspects:
-
-1. Controlled components have functions to govern the data going into them on every onChange event, rather than grabbing the data only once, e.g. when a user clicks a submit button. This 'governed' data is then saved to state (in this case, the parent/container component's state).
-2. Data displayed by a controlled component is received through props passed down from it's parent/container component.
+### Controlled Component ###
+A controlled component has two aspects:  
+1. Controlled components have functions to govern the data going into them on every onChange event, rather than grabbing the data only once, e.g. when a user clicks a submit button. This 'governed' data is then saved to state (in this case, the parent/container component's state).  
+2. Data displayed by a controlled component is received through props passed down from it's parent/container component.  
 
 This is a one-way loop – from (1) child component input (2) to parent component state and (3) back down to the child component via props – is what is meant by unidirectional data flow in React.js application architecture.
