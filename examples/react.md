@@ -1,5 +1,5 @@
 
---- PRESENTATIONAL vs CONTAINER COMPONENTS (@Dan Abramov)
+# PRESENTATIONAL vs CONTAINER COMPONENTS (@Dan Abramov)  
 My presentational components:
 - Are concerned with how things look.
 - May contain both presentational and container components** inside, and usually have some DOM markup and styles of their own.
@@ -23,7 +23,7 @@ I put them in different folders to make this distinction clear.
 
 ---
 
---- COMPONENT vs. PURECOMPONENT:
+# COMPONENT vs. PURECOMPONENT:  
 PureComponent is exactly the same as Component except that it handles the <i>shouldComponentUpdate</i> method for you. When props or state changes, PureComponent will do a shallow comparison on both props and state. Component on the other hand won’t compare current props and state to next out of the box. Thus, the component will re-render by default whenever shouldComponentUpdate is called.  
 ```
 class Component {             |   class PureComponent extends Component {  
@@ -32,54 +32,54 @@ class Component {             |   class PureComponent extends Component {
   }                           |     }  
 }                             |   }  
 ```
---- Shallow Comparison 101:
+--- Shallow Comparison 101:  
 When comparing previous props and state to next, a shallow comparison will check that primitives have the same value (eg, 1 equals 1 or that true equals true) and that the references are the same between more complex javascript values like objects and arrays.
 In JS there are 6 primitive types: String, Number, Boolean, null, undefined and Symbol. The rest are Objets (Arrays and Functions).
 
- Never MUTATE
+ Never MUTATE  
 You’ve probably been hearing not to mutate objects and arrays in props and state. If you were to mutate objects in a parent component, your “pure” child components wouldn’t update. Although the values have changed upstream, the child would be comparing the reference to the previous props and not detect a difference.
 Instead, return new objects when you make a change by either leveraging ES6 for object and array spreading or using a library to enforce immutability.
 
 ---
 
---- VIRTUAL DOM
-DOM stands for Document Object Model and is an abstraction of a structured text.
-For web developers, this text is an HTML code, and the DOM is simply called HTML DOM. 
-Elements of HTML become nodes in the DOM.
-So, while HTML is a text, the DOM is an in-memory representation of this text.
+# VIRTUAL DOM  
+DOM stands for Document Object Model and is an abstraction of a structured text.  
+For web developers, this text is an HTML code, and the DOM is simply called HTML DOM.  
+Elements of HTML become nodes in the DOM.  
+So, while HTML is a text, the DOM is an in-memory representation of this text.  
 
-The HTML DOM provides an interface (API) to traverse and modify the nodes. It contains methods like getElementById or removeChild. We usually use JavaScript language to work with the DOM.
+The HTML DOM provides an interface (API) to traverse and modify the nodes. It contains methods like getElementById or removeChild. We usually use JavaScript language to work with the DOM.  
 
-The HTML DOM is always tree-structured - which is allowed by the structure of HTML document. This is cool because we can traverse trees fairly easily. Unfortunately, easily doesn’t mean quickly here.
+The HTML DOM is always tree-structured - which is allowed by the structure of HTML document. This is cool because we can traverse trees fairly easily. Unfortunately, easily doesn’t mean quickly here.  
 
-A typical jQuery-like event handler looks like this:
+A typical jQuery-like event handler looks like this:  
 - find every node interested on an event
 - update it if necessary
-Problems with this approach:
+Problems with this approach:  
 1. Hard to manage => Instead of low-level techniques like traversing the DOM tree manually, you simple declare how a component should look like. React does the low-level job for you - the HTML DOM API methods are called under the hood. React doesn’t want you to worry about it - eventually, the component will look like it should.
 2. Inefficient => 
 
 The Virtual DOM is an abstraction of the HTML DOM. It is lightweight and detached from the browser-specific implementation details. Since the DOM itself was already an abstraction, the virtual DOM is, in fact, an abstraction of an abstraction.
-Perhaps it’s better to think of the virtual DOM as React’s local and simplified copy of the HTML DOM. It allows React to do its computations within this abstract world and skip the “real” DOM operations, often slow and browser-specific.
+Perhaps it’s better to think of the virtual DOM as React’s local and simplified copy of the HTML DOM. It allows React to do its computations within this abstract world and skip the “real” DOM operations, often slow and browser-specific.  
 
-ReactElement:
+ReactElement:  
 A ReactElement is a light, stateless, immutable, virtual representation of a DOM Element. ReactElements lives in the virtual DOM. They make the basic nodes here. Their immutability makes them easy and fast to compare and update. This is the reason of great React performance. Almost every HTML tag - div, table, strong.. can be a ReactElement.
 Once defined, ReactElements can be render into the “real” DOM. This is the moment when React ceases to control the elements. They become slow, boring DOM nodes:
 
-ReactComponent:
+ReactComponent:  
 - What differs ReactComponent from ReactElement is - ReactComponents are stateful. Whenever the state changes, the component is re-rendered.
 - ReactComponents turned out to be a great tool for designing dynamic HTML. They don’t have the access to the virtual DOM, but they can be easily converted to ReactElements.
 - ReactComponents are great, we would love to have plenty of them since they are easy to manage. But they have no access to the virtual DOM - and we would like to do as much as possible there.
 - Whenever a ReactComponent is changing the state, we want to make as little changes to the “real” DOM as possible. So this is how React deals with it. The ReactComponent is converted to the ReactElement. Now the ReactElement can be inserted to the virtual DOM, compared and updated fast and easily. How exactly - well, that’s the job of the diff algorithm. The point is - it’s done faster than it would be in the “regular” DOM.
 - When React knows the diff - it’s converted to the low-level (HTML DOM) code, which is executed in the DOM. This code is optimised per browser.
 
-SUMMARY:
+SUMMARY:  
 - I believe that before updating the virtual DOM, a snapshot is taken of the existing virtual DOM , then the virtual DOM gets updated and is compared with the snapshot to be able to see what is actually changed.
-- Yep this is correct. By comparing the new virtual DOM with a pre-update version, React figures out exactly which virtual DOM objects have changed. This process is called "diffing."
+- Yep this is correct. By comparing the new virtual DOM with a pre-update version, React figures out exactly which virtual DOM objects have changed. This process is called "diffing."  
 
 ---
 
---- What is a controlled component?
+# What is a controlled component? #
 A controlled component has two aspects:
 
 1. Controlled components have functions to govern the data going into them on every onChange event, rather than grabbing the data only once, e.g. when a user clicks a submit button. This 'governed' data is then saved to state (in this case, the parent/container component's state).
