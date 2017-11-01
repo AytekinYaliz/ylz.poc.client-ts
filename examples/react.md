@@ -92,39 +92,35 @@ This is a one-way loop – from (1) child component input (2) to parent componen
 
 Concretely, a higher-order component is a function that takes a component and returns a new component.
 ```javascript
-function addAndLog(x, y) {
-  var result = x + y;
-  console.log('result:', result);
-  return result;
-}
+function addAndLog(x, y) {          |   function multiplyAndLog(x, y) {
+  var result = x + y;               |     var result = x * y;
+  console.log('result:', result);   |     console.log('result:', result);
+  return result;                    |     return result;
+}                                   |   }
 
-function multiplyAndLog(x, y) {
-  var result = x * y;
-  console.log('result:', result);
-  return result;
-}
+addAndLog(1,2);
+multiplyAndLog(4,5);
 ```
 Let’s say that we want to extract the logging logic out of these functions without changing their signatures. How can we do this? With a Higher-Order function, that is, a function that takes a function as an argument and returns a function.
 ```javascript
-const add = (x, y) => {
-  return x + y;
-};
-
-const multiply = (x, y) => {
-  return x * y;
-};
+const add = (x, y) => {     |   const multiply = (x, y) => {
+  return x + y;             |     return x * y;
+};                          |   };
 
 const withLogging = (wrappedFunction) => {
   return (x, y) => {
-    var result = wrappedFunction(x, y);
+    const result = wrappedFunction(x, y);
     console.log('result:', result);
     return result;
   };
 };
 
 // Equivalent to writing addAndLog by hand:
-var addAndLog2 = withLogging(add);
+const addAndLog2 = withLogging(add);
 
 // Equivalent to writing multiplyAndLog by hand:
-var multiplyAndLog2 = withLogging(multiply);
+const multiplyAndLog2 = withLogging(multiply);
+
+addAndLog2(1,2);
+multiplyAndLog2(4,5);
 ```
