@@ -92,11 +92,11 @@ This is a one-way loop – from (1) child component input (2) to parent componen
 
 Concretely, a higher-order component is a function that takes a component and returns a new component.
 ```javascript
-function addAndLog(x, y) {          |   function multiplyAndLog(x, y) {
-  var result = x + y;               |     var result = x * y;
+const addAndLog = (x, y) => {       |   const multiplyAndLog = (x, y) => {
+  let result = x + y;               |     let result = x * y;
   console.log('result:', result);   |     console.log('result:', result);
   return result;                    |     return result;
-}                                   |   }
+};                                  |   };
 
 addAndLog(1,2);
 multiplyAndLog(4,5);
@@ -109,7 +109,7 @@ const add = (x, y) => {     |   const multiply = (x, y) => {
 
 const withLogging = (wrappedFunction) => {
   return (x, y) => {
-    const result = wrappedFunction(x, y);
+    let result = wrappedFunction(x, y);
     console.log('result:', result);
     return result;
   };
