@@ -79,9 +79,52 @@ SUMMARY:
 
 ---
 
-### Controlled Component ###
+### Controlled Components ###
 A controlled component has two aspects:  
 1. Controlled components have functions to govern the data going into them on every onChange event, rather than grabbing the data only once, e.g. when a user clicks a submit button. This 'governed' data is then saved to state (in this case, the parent/container component's state).  
 2. Data displayed by a controlled component is received through props passed down from it's parent/container component.  
 
 This is a one-way loop – from (1) child component input (2) to parent component state and (3) back down to the child component via props – is what is meant by unidirectional data flow in React.js application architecture.
+
+---
+
+### Higher-Order Components (HOCs) ###
+
+Concretely, a higher-order component is a function that takes a component and returns a new component.
+```javascript
+function addAndLog(x, y) {
+  var result = x + y;
+  console.log('result:', result);
+  return result;
+}
+
+function multiplyAndLog(x, y) {
+  var result = x * y;
+  console.log('result:', result);
+  return result;
+}
+```
+Let’s say that we want to extract the logging logic out of these functions without changing their signatures. How can we do this? With a Higher-Order function, that is, a function that takes a function as an argument and returns a function.
+```javascript
+const add = (x, y) => {
+  return x + y;
+};
+
+const multiply = (x, y) => {
+  return x * y;
+};
+
+const withLogging = (wrappedFunction) => {
+  return (x, y) => {
+    var result = wrappedFunction(x, y);
+    console.log('result:', result);
+    return result;
+  };
+};
+
+// Equivalent to writing addAndLog by hand:
+var addAndLog2 = withLogging(add);
+
+// Equivalent to writing multiplyAndLog by hand:
+var multiplyAndLog2 = withLogging(multiply);
+```
