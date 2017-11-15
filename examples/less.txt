@@ -2,8 +2,8 @@
 .header {                   |   .header {
     font-size: 12px;        |       font-size: 12px;
     .navigation {           |   }
-		width: 20px;            |	.header .navigation {
-        font-size: 14px;    |   	width: 20px;
+        width: 20px;        |   .header .navigation {
+        font-size: 14px;    |       width: 20px;
     }                       |       font-size: 14px;
     .logo {                 |   }
         width: 15px;        |   .header .logo {
