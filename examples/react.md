@@ -124,3 +124,11 @@ const multiplyAndLog2 = withLogging(multiply);
 addAndLog2(1,2);
 multiplyAndLog2(4,5);
 ```
+---
+---
+# INTERVIEW Q.
+
+## Higher Order Components: What is it, Where do we use it and Why do we use it
+## Key in React:
+## Pure Function
+## What is selector in Redux
