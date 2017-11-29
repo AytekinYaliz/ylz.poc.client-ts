@@ -128,6 +128,9 @@ multiplyAndLog2(4,5);
 ---
 # INTERVIEW Q.
 
+### this.setState
+setState is async. You can also use this.setState((prevState, props) => {}) w/ a callback func.
+
 ## Higher Order Components: What is it, Where do we use it and Why do we use it
 ## Key in React:
 ## Pure Function
