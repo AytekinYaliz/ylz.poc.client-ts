@@ -43,6 +43,7 @@ class Parent2 extends React.Component {
       );
    }
 }
+
 // -----------------------------------------------------------------------------------------
 
 /*
@@ -180,3 +181,44 @@ export default connect<StateProps, DispatchProps, OwnProps> ( // if you don't sp
    mapStateToProps,           // put null if there isn't ant stateToProps
    mapDispatchToProps
 )(LogoutPage);
+
+/*
+ * SYNTAX 3: React.Events
+ * */
+const handleOnKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
+   console.log("KEYUP", event.currentTarget.value);   //tslint:disable-line
+};
+const handleOnClick = (event: React.MouseEvent<HTMLInputElement>) => {
+   event.preventDefault();
+   console.log("CLICK", event.currentTarget.id);   //tslint:disable-line   
+};
+export const App = () => {
+   return(
+      <div>
+         <Input onKeyUp={handleOnKeyUp} />
+         <Button onClick={handleOnClick} />
+      </div>
+   );
+};
+
+type InputProps = {
+   onKeyUp: React.KeyboardEventHandler<HTMLInputElement>;
+   // onKeyUp: (e: React.KeyboardEvent<HTMLInputElement>) => void;   // OK
+   // onKeyUp: () => void; // OK
+};
+export const Input: React.StatelessComponent<inputProps> = (props) => {
+   return (
+      <input type="text" onKeyUp={props.onKeyUp} />
+   );
+};
+
+type ButtonProps = {
+   onClick: React.MouseEventHandler<HTMLInputElement>;
+   // onClick: (event: React.MouseEvent<HTMLInputElement>) => void   // OK
+   // onClick: () => void; // OK
+};
+export const Button: React.StatelessComponent<ButtonProps> = (props) => {
+   return (
+      <input type="button" id="myId" onClick={props.onClick} value="CLICK" />
+   );
+};
