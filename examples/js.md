@@ -5,14 +5,16 @@ Variables are function-scoped: only functions introduce new scopes; blocks are i
 
 IIFE:
 An IIFE enables you to attach private data to a function
+```javascript
 function f() {
     if (condition) {
         var tmp = "...";
     }
     // tmp still exists here
 }
+```
 
-
+```javascript
 var result = [];
 for (var i=0; i < 5; i++) {
     result.push(function () { return i });  // (1)
@@ -26,12 +28,13 @@ for (var i=0; i < 5; i++) {
         result.push(function () { return i2 });
     }());
 }
+```
 
 ### HOISTING: ###
 JavaScript hoists all variable declarations, it moves them to the beginning of their direct scopes.
 The complete function is hoisted, not just the creation of the variable in which it is stored.
 
-- - -
+---
 
 // CommonJS -------------------------------------------------------------------
 // testA.js                         |   // testB.js
