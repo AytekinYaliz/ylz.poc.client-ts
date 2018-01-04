@@ -36,6 +36,7 @@ The complete function is hoisted, not just the creation of the variable in which
 
 ---
 
+```javascript
 // CommonJS -------------------------------------------------------------------
 // testA.js                         |   // testB.js
 exports.funcA = () => {             |   module.exports = () => {
@@ -44,8 +45,7 @@ exports.funcA = () => {             |   module.exports = () => {
 // app.js                           |   // app.js
 const testA = require('./testA');   |   const testB = require('./testB');
 testA.funcA();                      |   testB();
---------------------------------------------------------------------------------
-
+```
 console.clear();
 
 const arr = [23, 55, 644, 234],
