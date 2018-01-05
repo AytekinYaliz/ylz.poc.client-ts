@@ -1,3 +1,5 @@
+A function that is the property of an object is called its *method*.
+
 ### SCOPE ###
 The scope of a variable: The scope of a variable are the locations where it is accessible.
 Variables in JavaScript are lexically scoped, so the static structure of a program determines the scope of a variable (it is not influenced by, say, where a function is called from).  
