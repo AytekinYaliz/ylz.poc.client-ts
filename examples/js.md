@@ -4,7 +4,7 @@ To create a function we can use:
 *Function Expression*: var func = function() { /\* ... \*/ };  
 The function has full access to the outer variable. It can modify it as well.  
 If a same-named variable is declared inside the function then it *shadows* the outer one.  
-Values passed to a function as parameters are copied to its local variables (But you can update object properties in the function).  
+Values passed to a function as parameters are copied to its local variables (pass-by-value). If the parameter is an object, you can update its properties.  
 
 
 ### SCOPE ###
