@@ -1,8 +1,10 @@
-A function that is the property of an object is called its *method*.
-To create a function we can use a *function declaration*. function f() { /\* ... \*/ }
-The function has full access to the outer variable. It can modify it as well.
-If a same-named variable is declared inside the function then it *shadows* the outer one.
-Values passed to a function as parameters are copied to its local variables (But you can update object properties in the function).
+A function that is the property of an object is called its *method*.  
+To create a function we can use:  
+*Function Declaration*: function func() { /\* ... \*/ }  
+*Function Expression*: var func = function() { /\* ... \*/ };  
+The function has full access to the outer variable. It can modify it as well.  
+If a same-named variable is declared inside the function then it *shadows* the outer one.  
+Values passed to a function as parameters are copied to its local variables (But you can update object properties in the function).  
 
 
 ### SCOPE ###
@@ -52,7 +54,8 @@ for (var i=0; i < 5; i++) {
 ```
 
 ### HOISTING ###
-In JavaScript declerations (variable and function) are hoisted but assignment are not. JS engine moves declerations to the beginning of their direct scopes.
+In JavaScript declerations (variable and function) are hoisted but assignment are not.  
+JS engine moves declerations to the beginning of their direct scopes.  
 
 
 ### CLOSURE ###
