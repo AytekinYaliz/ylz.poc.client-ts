@@ -60,6 +60,7 @@ JS engine moves declerations to the beginning of their direct scopes.
 
 ### CLOSURE ###
 
+A ***closure*** is a function that remembers its outer variables and can access them.  
 If a function leaves the scope in which it was created, it stays connected to the variables of that scope (and of the surrounding scopes). For example:
 ```javascript
 function createInc(startValue) {
