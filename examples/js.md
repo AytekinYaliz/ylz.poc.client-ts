@@ -1,7 +1,7 @@
 ### SCOPE ###
 The scope of a variable: The scope of a variable are the locations where it is accessible.
-Variables in JavaScript are lexically scoped, so the static structure of a program determines the scope of a variable (it is not influenced by, say, where a function is called from).
-**var** variables are either function-wide (only functions introduce new scopes) or global, they are visible through blocks.
+Variables in JavaScript are lexically scoped, so the static structure of a program determines the scope of a variable (it is not influenced by, say, where a function is called from).  
+**var** variables are either function-wide (only functions introduce new scopes) or global, they are visible through blocks.  
 **var** declarations are processed when the function starts (or script starts for globals).
 
 ```javascript
