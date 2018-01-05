@@ -1,7 +1,21 @@
 ### SCOPE ###
 The scope of a variable: The scope of a variable are the locations where it is accessible.
 Variables in JavaScript are lexically scoped, so the static structure of a program determines the scope of a variable (it is not influenced by, say, where a function is called from).
-Variables are function-scoped: only functions introduce new scopes; blocks are ignored when it comes to scoping.
+**var** variables are either function-wide (only functions introduce new scopes) or global, they are visible through blocks.
+**var** declarations are processed when the function starts (or script starts for globals).
+
+```javascript
+if (true) {
+  var test = true; // use "var" instead of "let"
+}
+alert(test);   // true
+```
+```javascript
+for (var i = 0; i < 10; i++) {
+  // ...
+}
+alert(i);   // 10
+```
 
 IIFE:
 An IIFE enables you to attach private data to a function
@@ -31,8 +45,8 @@ for (var i=0; i < 5; i++) {
 ```
 
 ### HOISTING ###
-JavaScript hoists all variable declarations, it moves them to the beginning of their direct scopes.
-The complete function is hoisted, not just the creation of the variable in which it is stored.
+In JavaScript declerations (variable and function) are hoisted but assignment are not. JS engine moves declerations to the beginning of their direct scopes.
+
 
 ### CLOSURE ###
 
