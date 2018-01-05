@@ -68,8 +68,33 @@ The function returned by createInc() does not lose its connection to startValue�
   8
 ```
 A closure is a function plus the connection to the scope in which the function was **created**. The name stems from the fact that a closure “closes over” the free variables of a function. A variable is free if it is not declared within the function—that is, if it comes “from outside.”
-  
-  
+
+## EXECUTION STACK ##
+
+The information about a function run is stored in its execution context.
+One function call has exactly one execution context associated with it.
+
+```javascript
+function pow(x, n) {
+  if (n == 1) {
+    return x;
+  } else {
+    return x * pow(x, n - 1);
+  }
+}
+
+alert( pow(2, 3) );
+```
+
+Execution Stack will be like:
+
+| pow(2,1) [x=2, n=1] |  
+|---------------------|  
+| pow(2,2) [x=2, n=2] |  
+|---------------------|
+| pow(2,3) [x=2, n=3] |  
+-----------------------  
+
 - - - -
   
   
