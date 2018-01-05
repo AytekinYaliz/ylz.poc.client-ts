@@ -54,12 +54,11 @@ The function returned by createInc() does not lose its connection to startValue�
   8
 ```
 A closure is a function plus the connection to the scope in which the function was **created**. The name stems from the fact that a closure “closes over” the free variables of a function. A variable is free if it is not declared within the function—that is, if it comes “from outside.”
-
-
-
+  
+  
 - - - -
-
-
+  
+  
 ```javascript
 // CommonJS -------------------------------------------------------------------
 // testA.js                         |   // testB.js
