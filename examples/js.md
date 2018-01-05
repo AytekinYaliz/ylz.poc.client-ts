@@ -1,4 +1,4 @@
-### SCOPE: ###
+### SCOPE ###
 The scope of a variable: The scope of a variable are the locations where it is accessible.
 Variables in JavaScript are lexically scoped, so the static structure of a program determines the scope of a variable (it is not influenced by, say, where a function is called from).
 Variables are function-scoped: only functions introduce new scopes; blocks are ignored when it comes to scoping.
@@ -30,11 +30,30 @@ for (var i=0; i < 5; i++) {
 }
 ```
 
-### HOISTING: ###
+### HOISTING ###
 JavaScript hoists all variable declarations, it moves them to the beginning of their direct scopes.
 The complete function is hoisted, not just the creation of the variable in which it is stored.
 
----
+## CLOSURE ##
+
+If a function leaves the scope in which it was created, it stays connected to the variables of that scope (and of the surrounding scopes). For example:
+```javascript
+function createInc(startValue) {
+    return function (step) {
+        startValue += step;
+        return startValue;
+    };
+}
+```
+The function returned by createInc() does not lose its connection to startValue—the variable provides the function with state that persists across function calls:
+> var inc = createInc(5);
+> inc(1)
+  6
+> inc(2)
+  8
+A closure is a function plus the connection to the scope in which the function was created. The name stems from the fact that a closure “closes over” the free variables of a function. A variable is free if it is not declared within the function—that is, if it comes “from outside.”
+
+- - - -
 
 ```javascript
 // CommonJS -------------------------------------------------------------------
