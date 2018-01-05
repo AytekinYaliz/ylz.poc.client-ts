@@ -34,22 +34,8 @@ function f() {
         var tmp = "...";
     }
     // tmp still exists here
-}
-```
-
-```javascript
-var result = [];
-for (var i=0; i < 5; i++) {
-    result.push(function () { return i });  // (1)
-}
-console.log(result[1]()); // 5 (not 1)
-console.log(result[3]()); // 5 (not 3)
-
-for (var i=0; i < 5; i++) {
-    (function () {
-        var i2 = i; // copy current i
-        result.push(function () { return i2 });
-    }());
+    
+    
 }
 ```
 
@@ -60,7 +46,7 @@ JS engine moves declerations to the beginning of their direct scopes.
 
 ### CLOSURE ###
 
-A ***closure*** is a function that remembers its outer variables and can access them.  
+A *closure* is a function that remembers its outer variables and can access them.  
 If a function leaves the scope in which it was created, it stays connected to the variables of that scope (and of the surrounding scopes). For example:
 ```javascript
 function createInc(startValue) {
@@ -79,6 +65,22 @@ The function returned by createInc() does not lose its connection to startValue�
   8
 ```
 A closure is a function plus the connection to the scope in which the function was **created**. The name stems from the fact that a closure “closes over” the free variables of a function. A variable is free if it is not declared within the function—that is, if it comes “from outside.”
+
+```javascript
+var result = [];
+for (var i=0; i < 5; i++) {
+    result.push( function () { return i } );  // (1)
+}
+console.log(result[1]());  // 5 (not 1)
+console.log(result[3]());  // 5 (not 3)
+
+for (var i=0; i < 5; i++) {
+    (function () {
+        var i2 = i;
+        result.push( function () { return i2 } );
+    }());
+}
+```
 
 ### EXECUTION STACK ###
 
