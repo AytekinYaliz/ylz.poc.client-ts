@@ -101,10 +101,10 @@ alert( pow(2, 3) );
 
 Execution Stack will be like:
 
-| pow(2,1) [x=2, n=1] |  
-|---------------------|  
-| pow(2,2) [x=2, n=2] |   
-| pow(2,3) [x=2, n=3] | 
+| Exe. Context pow(2,1) [x=2, n=1] |  
+|----------------------------------|  
+| Exe. Context pow(2,2) [x=2, n=2] |   
+| Exe. Context pow(2,3) [x=2, n=3] | 
  
 
 - - - -
