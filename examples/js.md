@@ -1,9 +1,14 @@
 A function that is the property of an object is called its *method*.
+To create a function we can use a *function declaration*. function f() { /\* ... \*/ }
+The function has full access to the outer variable. It can modify it as well.
+If a same-named variable is declared inside the function then it *shadows* the outer one.
+Values passed to a function as parameters are copied to its local variables (But you can update object properties in the function).
+
 
 ### SCOPE ###
 The scope of a variable: The scope of a variable are the locations where it is accessible.
 Variables in JavaScript are lexically scoped, so the static structure of a program determines the scope of a variable (it is not influenced by, say, where a function is called from).  
-**var** variables are either function-wide (only functions introduce new scopes) or global, they are visible through blocks.  
+**var** variables are either *function-wide* (only functions introduce new scopes) or global, they are visible through blocks.  
 **var** declarations are processed when the function starts (or script starts for globals).
 
 ```javascript
