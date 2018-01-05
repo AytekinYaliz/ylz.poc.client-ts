@@ -34,7 +34,7 @@ for (var i=0; i < 5; i++) {
 JavaScript hoists all variable declarations, it moves them to the beginning of their direct scopes.
 The complete function is hoisted, not just the creation of the variable in which it is stored.
 
-## CLOSURE ##
+### CLOSURE ###
 
 If a function leaves the scope in which it was created, it stays connected to the variables of that scope (and of the surrounding scopes). For example:
 ```javascript
@@ -46,11 +46,13 @@ function createInc(startValue) {
 }
 ```
 The function returned by createInc() does not lose its connection to startValue—the variable provides the function with state that persists across function calls:
+```
 > var inc = createInc(5);
 > inc(1)
   6
 > inc(2)
   8
+```
 A closure is a function plus the connection to the scope in which the function was created. The name stems from the fact that a closure “closes over” the free variables of a function. A variable is free if it is not declared within the function—that is, if it comes “from outside.”
 
 - - - -
