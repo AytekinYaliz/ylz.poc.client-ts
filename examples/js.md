@@ -16,8 +16,7 @@ Values passed to a function as parameters are copied to its local variables (pas
 
 
 ```javascript
-function func(val1, val2) {
-}
+function func(val1, val2) { ... }
 var obj = {name: 'Ayte'};
 var funcDel = func.bind( obj );
 funcDel('aa', 123);
