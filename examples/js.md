@@ -101,7 +101,7 @@ sayHiLater();
 ### EXECUTION STACK ###
 
 The information about a function run is stored in its Execution Context.
-One function call has exactly one EC associated with it. EC of a function is *this* of the function.  
+One function call has exactly one EC associated with it.  
 
 ```javascript
 function pow(x, n) {
