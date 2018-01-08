@@ -88,6 +88,16 @@ for (var i=0; i < 5; i++) {
 }
 ```
 
+```javascript
+function sayHiLater() {
+	var greeting = 'Hi';
+	setTimeout(function() {
+		console.log( greeting );
+	}, 2000);
+}
+sayHiLater();
+```
+
 ### EXECUTION STACK ###
 
 The information about a function run is stored in its Execution Context.
