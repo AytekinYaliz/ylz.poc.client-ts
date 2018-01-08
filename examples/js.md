@@ -2,7 +2,7 @@
 *Expression*: A unit of code that results a value.  
 
 ### FUNCTIONS ###
-Functions are objects.  
+Functions are objects {name, code, call(), apply(), bind()}. Name is optional, anonymous functions.  
 *Invocation* is running a function by ().  
 A function that is the property of an object is called its *method*.  
 To create a function we can use:  
@@ -13,6 +13,17 @@ var func = function() { /\* ... \*/ };
 The function has full access to the outer variable. It can modify it as well.  
 If a same-named variable is declared inside the function then it *shadows* the outer one.  
 Values passed to a function as parameters are copied to its local variables (pass-by-value). If the parameter is an object, you can update its properties.  
+
+
+```javascript
+function func(val1, val2) {
+}
+var obj = {name: 'Ayte'};
+var funcDel = func.bind( obj );
+funcDel('aa', 123);
+func.call( obj, 'aa', 123 );
+func.apply( obj, ['aa', 123] );
+```
 
 ### SCOPE ###
 The scope of a variable: The scope of a variable are the locations where it is accessible.
