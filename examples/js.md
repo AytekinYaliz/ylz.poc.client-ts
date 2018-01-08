@@ -1,9 +1,10 @@
- *Coercion* is converting a value from one type to another (ex: console.log(1 + 'ankara')).  
+*Coercion* is converting a value from one type to another (ex: console.log(1 + 'ankara')).  
+*Expression*: A unit of code that results a value.  
 
 ### FUNCTIONS ###
 Functions are objects.  
 *Invocation* is running a function by ().  
-A function that is the property of an object is called its *method*. 
+A function that is the property of an object is called its *method*.  
 To create a function we can use:  
 - *Function Declaration*: Can only exist as a *statement* and should start with the keyword. When it is executed it doesn't do anything. They are *hoisted*.  
 function func() { /\* ... \*/ }  
