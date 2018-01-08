@@ -1,11 +1,17 @@
-A function that is the property of an object is called its *method*.  
+ *Coercion* is converting a value from one type to another (ex: console.log(1 + 'ankara')).  
+
+### FUNCTIONS ###
+Functions are objects.  
+*Invocation* is running a function by ().  
+A function that is the property of an object is called its *method*. 
 To create a function we can use:  
-*Function Declaration*: function func() { /\* ... \*/ }  
-*Function Expression*: var func = function() { /\* ... \*/ };  
+- *Function Declaration*: Can only exist as a *statement* and should start with the keyword. When it is executed it doesn't do anything. They are *hoisted*.  
+function func() { /\* ... \*/ }  
+- *Function Expression*: When it is executed it returns an object, as other expressions. They are *not hoisted*.  
+var func = function() { /\* ... \*/ };  
 The function has full access to the outer variable. It can modify it as well.  
 If a same-named variable is declared inside the function then it *shadows* the outer one.  
 Values passed to a function as parameters are copied to its local variables (pass-by-value). If the parameter is an object, you can update its properties.  
-
 
 ### SCOPE ###
 The scope of a variable: The scope of a variable are the locations where it is accessible.
@@ -40,9 +46,8 @@ function f() {
 ```
 
 ### HOISTING ###
-In JavaScript declerations (variable and function) are hoisted but assignment are not.  
-JS engine moves declerations to the beginning of their direct scopes.  
-
+JS engine sets up memory space for variables and functions. It moves the declerations to the beginning of their direct scopes.  
+In JS, declerations (variable and function) are hoisted but assignment are not.  
 
 ### CLOSURE ###
 
@@ -84,8 +89,8 @@ for (var i=0; i < 5; i++) {
 
 ### EXECUTION STACK ###
 
-The information about a function run is stored in its execution context.
-One function call has exactly one execution context associated with it.
+The information about a function run is stored in its Execution Context.
+One function call has exactly one EC associated with it. EC of a function is *this* of the function.  
 
 ```javascript
 function pow(x, n) {
