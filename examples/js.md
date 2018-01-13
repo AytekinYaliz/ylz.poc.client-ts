@@ -123,6 +123,21 @@ setTimeout../
 JS is a *single-threaded* programming language, which means it has a single Call Stack. Therefore it can do one thing at a time.  
 *Stack Frame*: every entry in the Call Stack.  
 
+```javascript
+ STACK      Web API
+|     |    |       |
+|     |    |       |
+|     |    |       |
+ -----      -------
+ 
+ Event Loop
+            -> --
+            |     |
+             -----
+ Task    ----------
+ Queue  |          |
+         ----------
+```
 
 
 ### EXECUTION STACK ###
