@@ -103,10 +103,10 @@ for (var i=0; i < 5; i++) {
 
 ```javascript
 function sayHiLater() {
-	var greeting = 'Hi';
-	setTimeout(function() {
-		console.log( greeting );
-	}, 2000);
+    var greeting = 'Hi';
+    setTimeout(function() {
+        console.log( greeting );
+    }, 2000);
 }
 sayHiLater();
 ```
@@ -133,11 +133,11 @@ One function call has exactly one EC associated with it.
 
 ```javascript
 function pow(x, n) {
-  if (n == 1) {
-    return x;
-  } else {
-    return x * pow(x, n - 1);
-  }
+    if (n == 1) {
+        return x;
+    } else {
+        return x * pow(x, n - 1);
+    }
 }
 
 alert( pow(2, 3) );
