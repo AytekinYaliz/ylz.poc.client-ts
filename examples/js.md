@@ -153,7 +153,10 @@ Execution Stack will be like:
 
 ### PROTOTYPE ###
 
-All objects have a prototype property which reference to another object.  
+*Inheritance*: One object gets access to the properties and methods of another object.   
+All objects have a *prototype* property which reference to another object.  
+*Prototype chain*: obj.proto.proto.prop2 -> obj.prop2
+
 ```javascript
 var a = {};
 var b = function() {};
