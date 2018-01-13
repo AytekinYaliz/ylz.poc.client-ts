@@ -1,5 +1,5 @@
 JS is a prototype-based language: there are no classes and objects are created using a cloning process.  
-_JS_ is a dynamic language: properties can be added or removed from an object after instantiation.  
+JS is a dynamic language: properties can be added or removed from an object after instantiation.  
 *Coercion* is converting a value from one type to another (ex: console.log(1 + 'ankara')).  
 *Expression*: A unit of code that results a value.  
 *Decleration*: When it is executed it doesn't do anything.  
