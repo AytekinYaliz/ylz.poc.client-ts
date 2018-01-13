@@ -116,12 +116,13 @@ Google's V8 engine is used in Chrome and Node.js.  The engine consists of two ma
 - *Call Stack*: this is where your stack frames are, as your code executes.  
 
 DOM.........\  
-AJAX........- Web APIs which are provided by browsers, not by the Engine.  
-setTimeout../  
+AJAX.........- Web APIs which are provided by browsers, not by the Engine.  
+setTimeout.../  
 
 *Call Stack* is a data structure which records basically where in the program we are.   
 JS is a *single-threaded* programming language, which means it has a single Call Stack. Therefore it can do one thing at a time.  
 *Stack Frame*: every entry in the Call Stack.  
+*Event Loop*: It pushes the first item in the queue into the stack if the stack is empty.  
 
 ```javascript
  _STACK_      _WebAPIs_
