@@ -168,9 +168,11 @@ a.__proto__ = Object {}
 b.__proto__ = function() {}
 c.__proto__ = []
 d.__proto__ = Date() {}
-b.__proto__.__proto__ = Object {};
-c.__proto__.__proto__ = Object {};
-d.__proto__.__proto__ = Object {};
+
+a.__proto__.__proto__ \
+b.__proto__.__proto__ -  Object {}
+c.__proto__.__proto__ -
+d.__proto__.__proto__ /
 ```
   
   
