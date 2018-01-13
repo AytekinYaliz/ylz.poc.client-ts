@@ -1,8 +1,9 @@
 *Coercion* is converting a value from one type to another (ex: console.log(1 + 'ankara')).  
 *Expression*: A unit of code that results a value.  
+*Decleration*:  
 
 ### FUNCTIONS ###
-Functions are objects {name, code, call(), apply(), bind()}. Name is optional, anonymous functions.  
+Functions are objects {name, code, call(), apply(), bind()}. Name is optional (anonymous functions). Bind returns a function.  
 *Invocation* is running a function by ().  
 A function that is the property of an object is called its *method*.  
 To create a function we can use:  
@@ -57,7 +58,7 @@ function f() {
 ```
 
 ### HOISTING ###
-JS engine sets up memory space for variables and functions. It moves the declerations to the beginning of their direct scopes.  
+JS engine sets up memory space for variable and function declerations (it moves the declerations to the beginning of their direct scopes).  
 In JS, declerations (variable and function) are hoisted but assignment are not.  
 
 ### CLOSURE ###
@@ -131,7 +132,24 @@ Execution Stack will be like:
 |----------------------------------|  
 | Exe. Context pow(2,2) [x=2, n=2] |   
 | Exe. Context pow(2,3) [x=2, n=3] | 
- 
+
+
+### PROTOTYPE ###
+
+All objects have a prototype property which reference to another object.  
+```javascript
+var a = {};
+var b = function() {};
+var c = [];
+
+a.__proto__ = Object {}
+b.__proto__ = function() {}
+c.__proto__ = []
+b.__proto__.__proto__ = Object {};
+c.__proto__.__proto__ = Object {};
+
+```
+
 
 - - - -
   
