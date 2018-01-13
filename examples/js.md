@@ -35,13 +35,13 @@ Variables in JavaScript are lexically scoped, so the static structure of a progr
 
 ```javascript
 if (true) {
-  var test = true; // use "var" instead of "let"
+    var test = true; // use "var" instead of "let"
 }
 alert(test);   // true
 ```
 ```javascript
 for (var i = 0; i < 10; i++) {
-  // ...
+    // ...
 }
 alert(i);   // 10
 ```
@@ -54,8 +54,6 @@ function f() {
         var tmp = "...";
     }
     // tmp still exists here
-    
-    
 }
 ```
 
