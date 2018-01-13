@@ -124,16 +124,16 @@ JS is a *single-threaded* programming language, which means it has a single Call
 *Stack Frame*: every entry in the Call Stack.  
 
 ```javascript
- STACK      Web API
-|     |    |       |
-|     |    |       |
-|     |    |       |
- -----      -------
+ _STACK_      _WebAPIs_
+|       |    |         |
+|       |    |         |
+|       |    |         |
+ -------      ---------
  
- Event Loop
-            -> --
-            |     |
-             -----
+              -> -- 
+ Event Loop  |     |
+              -----
+
  Task    ----------
  Queue  |          |
          ----------
