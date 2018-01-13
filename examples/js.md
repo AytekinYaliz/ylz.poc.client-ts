@@ -1,3 +1,5 @@
+JS is a prototype-based language: there are no classes and objects are created using a cloning process.  
+JS is a dynamic language: properties can be added or removed from an object after instantiation.  
 *Coercion* is converting a value from one type to another (ex: console.log(1 + 'ankara')).  
 *Expression*: A unit of code that results a value.  
 *Decleration*: When it is executed it doesn't do anything.  
@@ -114,9 +116,9 @@ Google's V8 engine is used in Chrome and Node.js.  The engine consists of two ma
 - *Memory Heap*: this is where memory allocation happens.
 - *Call Stack*: this is where your stack frames are, as your code executes.  
 
-DOM        \  
-AJAX       - Web APIs which are provided by browsers, not by the Engine.  
-setTimeout /  
+DOM.........\  
+AJAX........- Web APIs which are provided by browsers, not by the Engine.  
+setTimeout../  
 
 *Call Stack* is a data structure which records basically where in the program we are.   
 JS is a *single-threaded* programming language, which means it has a single Call Stack. Therefore it can do one thing at a time.  
