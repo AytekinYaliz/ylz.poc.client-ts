@@ -22,9 +22,9 @@ Values passed to a function as parameters are copied to its local variables (pas
 
 ```javascript
 function func(val1, val2) { console.log(this.name); }
-var obj = {name: 'abc'};
-var funcDel = func.bind( obj );
+var obj = { name: 'abc' };
 
+var funcDel = func.bind( obj );
 funcDel('aa', 123);
 func.call( obj, 'aa', 123 );
 func.apply( obj, ['aa', 123] );
@@ -194,7 +194,8 @@ d.__proto__.__proto__ /
 
 ### BUILDING OBJECT ###
 
-*new* operator: First creates a new empty object. Then, calls the Person function with *this* variable is pointing to that empty object.   
+*new* operator: First creates a new empty object. Then, calls the Person function with *this* variable is pointing to that empty object. At the end, it is like *return*ing that object from the function.    
+*Constructor*: A normal function that is used to construct objects.  
 
 ```javascript
 function Person() {
@@ -204,7 +205,8 @@ function Person() {
 var ali = new Person('ali', 'veli');
 var ali2 = Person.call({}, 'ali', 'veli');
 ```
-  
+
+
 - - - -
 - - - -
   
