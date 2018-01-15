@@ -16,9 +16,9 @@ var func = function() { /\* ... \*/ };
 The function has full access to the outer variable. It can modify it as well.  
 If a same-named variable is declared inside the function then it *shadows* the outer one.  
 Values passed to a function as parameters are copied to its local variables (pass-by-value). If the parameter is an object, you can update its properties.  
-- *.bind()*:   
-*.call(context, param1, param2)*: takes any function arguments separately.__
-*.apply(context, [param1, param2])*: takes any function arguments as an array.  
+- *.bind(thisArg, param1, param2 ...)*: creates a new function that, when called, has its *this* keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.  
+*.call(thisArg, param1, param2 ...)*: calls a function with a given *this* value and arguments provided individually.  
+*.apply(thisArg, [param1, param2 ...])*: calls a function with a given *this* value, and arguments provided as an array (or an array-like object).  
 
 ```javascript
 function func(val1, val2) { console.log(this.name); }
@@ -191,7 +191,19 @@ b.__proto__.__proto__ -  Object {}
 c.__proto__.__proto__ -
 d.__proto__.__proto__ /
 ```
-  
+
+### BUILDING OBJECT ###
+
+*new* operator: First creates a new empty object. Then, calls the Person function with *this* variable is pointing to that empty object.   
+
+```javascript
+function Person() {
+    this.fname = fname;
+    this.lname = lname;
+}
+var ali = new Person('ali', 'veli');
+var ali2 = Person.call({}, 'ali', 'veli');
+```
   
 - - - -
 - - - -
