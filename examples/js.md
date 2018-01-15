@@ -16,7 +16,9 @@ var func = function() { /\* ... \*/ };
 The function has full access to the outer variable. It can modify it as well.  
 If a same-named variable is declared inside the function then it *shadows* the outer one.  
 Values passed to a function as parameters are copied to its local variables (pass-by-value). If the parameter is an object, you can update its properties.  
-
+- *.bind()*: __
+- *.call(context, param1, param2)*: takes any function arguments separately.  
+- *.apply(context, [param1, param2])*: takes any function arguments as an array.  
 
 ```javascript
 function func(val1, val2) { console.log(this.name); }
