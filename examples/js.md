@@ -170,7 +170,10 @@ Execution Stack will be like:
 
 ### PROTOTYPE ###
 
-*Inheritance*: One object gets access to the properties and methods of another object.   
+*Inheritance*: One object gets access to the properties and methods of another object.  
+- *Prototype*: Is a property that belongs to only functions. It is used to build *__proto__* when the function happens to be used as a constructor with the *new* keywoard.  
+- *__proto__*: Is the actual object that is used in the lookup chain to resolve methods. It is a property that all objects have. This is the property which is used by the JS engine for inheritance. 
+
 All objects have a *prototype* property which reference to another object.  
 Objects created using an object literal, or with new Object(), inherit from a prototype called *Object.prototype*. The Object.prototype is on the top of the prototype chain. All JS objects (Date, Array, Function, RegExp, ...) inherit from the Object.prototype.  
 *Prototype chain*: If a property or method is not in an object JS engine looks at its prototype.  
