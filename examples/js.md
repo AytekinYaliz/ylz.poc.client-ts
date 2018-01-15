@@ -5,7 +5,7 @@ JS is a dynamic language: properties can be added or removed from an object afte
 *Decleration*: When it is executed it doesn't do anything.  
 
 ### FUNCTIONS ###
-Functions are objects {name, code, call(), apply(), bind()}. Name is optional (anonymous functions). Bind returns a function.  
+Functions are objects {name, code, call(), apply(), bind(), prototype}. Name is optional (anonymous functions). Bind returns a function. Protototype is used only by the *new* operator.  
 *Invocation* is running a function by ().  
 A function that is the property of an object is called its *method*.  
 To create a function we can use:  
