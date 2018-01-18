@@ -123,15 +123,16 @@ setTimeout.../
 
 *Call Stack* is a data structure which records basically where in the program we are.   
 JS is a *single-threaded* programming language, which means it has a single Call Stack. Therefore it can do one thing at a time.  
+*Heap*: used for memory allocation.  
 *Stack Frame*: every entry in the Call Stack.  
 *Event Loop*: It pushes the first item in the queue into the stack if the stack is empty.  
 
 ```javascript
- _STACK_      _WebAPIs_
-|       |    |         |
-|       |    |         |
-|       |    |         |
- -------      ---------
+ _HEAP__       _STACK_      _WebAPIs_
+|       |     |       |    |         |
+|       |     |       |    |         |
+|       |     |       |    |         |
+ -------       -------      ---------
  
               -> -- 
  Event Loop  |     |
@@ -200,12 +201,14 @@ d.__proto__.__proto__ /
 *Constructor*: A normal function that is used to construct objects.  
 
 ```javascript
-function Person() {
-    this.fname = fname;
-    this.lname = lname;
-}
+function Person(fname, lname) { | function PersonWithoutNew(fname, lname) {
+    this.fname = fname;         |    this.fname = fname;
+    this.lname = lname;         |    this.lname = lname;
+}                               |    return this.
+                                | }
+
 var ali = new Person('ali', 'veli');
-var ali2 = Person.call({}, 'ali', 'veli');
+var ali2 = PersonWithoutNew.call({}, 'ali', 'veli');
 ```
 
 
