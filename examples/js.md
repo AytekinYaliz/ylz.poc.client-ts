@@ -171,8 +171,9 @@ Execution Stack will be like:
 
 ### PROTOTYPE ###
 
-*Inheritance*: One object gets access to the properties and methods of another object.  
-- *Prototype*: Is an object property that is automatically created belongs to only functions. It is used to build *__proto__* when the function happens to be used as a constructor with the *new* keywoard.  
+- *Inheritance*: One object gets access to the properties and methods of another object.  
+- *Prototype*: Is an object property that is automatically created for to only functions. It is used to build *__proto__* when the function happens to be used as a function constructor with the *new* keyword.  
+prototype property of the function is not the prototype of the function. It is the prototype of the objects created by function contructor.  
 - *__proto__*: Is the actual object that is used in the lookup chain to resolve methods. It is a property that all objects have. This is the property which is used by the JS engine for inheritance. 
 
 
@@ -197,18 +198,21 @@ d.__proto__.__proto__ /
 
 ### BUILDING OBJECT ###
 
-*new* operator: First creates a new empty object. Then, calls the Person function with *this* variable is pointing to that empty object. At the end, it is like *return*ing that object from the function.    
+*Function constructor*: When the function is used by *new* operator.  
+*new* operator: First creates a new empty object. Then, *this* variable points to that empty object. At the end, that object is returned from the function automatically.  
 *Constructor*: A normal function that is used to construct objects.  
 
 ```javascript
-function Person(fname, lname) { | function PersonWithoutNew(fname, lname) {
-    this.fname = fname;         |    this.fname = fname;
-    this.lname = lname;         |    this.lname = lname;
-}                               |    return this.
-                                | }
+function Person() {
+    console.log( this );
+    this.fname = 'fname';
+    this.lname = 'lname';
+}
 
-var ali = new Person('ali', 'veli');
-var ali2 = PersonWithoutNew.call({}, 'ali', 'veli');
+var glob = Person();        // window object
+var ali = new Person();     // {}
+
+var ali2 = Person.call({}); // and plus returning the object at the end of the function
 ```
 
 
