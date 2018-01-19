@@ -172,13 +172,25 @@ Execution Stack will be like:
 ### PROTOTYPE ###
 
 - *Inheritance*: One object gets access to the properties and methods of another object.  
-- *Prototype*: Is an object property that is automatically created for to only functions. It is used to build *__proto__* when the function happens to be used as a function constructor with the *new* keyword.  
-prototype property of the function is not the prototype of the function. It is the prototype of the objects created by function contructor.  
+- *Prototype*: Is an object property that is automatically created for to only *functions*. It is used to build *__proto__* when the function happens to be used as a function constructor with the *new* keyword. There will be only one prototype for each object that is created from same function.  
+Prototype property of the function is not the prototype of the function. It is the prototype of the objects created by function contructor.  
 - *__proto__*: Is the actual object that is used in the lookup chain to resolve methods. It is a property that all objects have. This is the property which is used by the JS engine for inheritance. 
-
+*Why prototype*: Because functions are objects if we define getFullname() in Person every object will have it and this means more memory space. We don't need this for methods. But if we use it in prototype there will be only one definition.   
 
 Objects created using an object literal, or with new Object(), inherit from a prototype called *Object.prototype*. The Object.prototype is on the top of the prototype chain. All JS objects (Date, Array, Function, RegExp, ...) inherit from the Object.prototype.  
 *Prototype chain*: If a property or method is not in an object JS engine looks at its prototype.  
+
+```javascript
+function Person(fname, lname) {
+    this.fname = fname;
+    this.lname = lnamae;
+}
+Person.prototype.getFullname = function() {
+    return this.fname + ' ' + this.lname;
+}
+var john = new Person('John', 'Doe');
+console.log( john.getFullname() );
+```
 
 ```javascript
 var a = {};
@@ -194,6 +206,14 @@ d.__proto__ = Date.prototype
 b.__proto__.__proto__ \
 c.__proto__.__proto__ -  === Object.prototype
 d.__proto__.__proto__ /
+```
+
+```javascript
+var a = new Number(3);
+var b = Number(4);
+console.log( a );   // Number {[[PrimitiveValue]]: 3}
+console.log( b );   // 4
+Number.prototype will be common for all Number objects.
 ```
 
 ### BUILDING OBJECT ###
