@@ -234,7 +234,13 @@ var ali = new Person();     // {}
 
 var ali2 = Person.call({}); // and plus returning the object at the end of the function
 ```
-
+```javascript
+var person = {
+    fname: 'default';
+};
+var john = Object.create( person );     // => john.__proto__ === person
+person.city = 'london';                 // => john.city === 'london'
+```
 
 - - - -
 - - - -
