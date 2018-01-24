@@ -218,9 +218,14 @@ Number.prototype will be common for all Number objects.
 
 ### BUILDING OBJECT ###
 
-*Function constructor*: When the function is used by *new* operator.  
-*new* operator: First creates a new empty object. Then, *this* variable points to that empty object. At the end, that object is returned from the function automatically.  
+*Function constructor*: They are just functions. They are used to construct objects when the function is used by *new* operator.  
 *Constructor*: A normal function that is used to construct objects.  
+*new* operator: 
+- JS engine creates a new empty object.
+- It invokes the function.
+- When function is called Exec.Context creates a variable *this*.  
+It changes what the 'this' variable points to. 'this' variable points to that new empty object.
+- JS engine will return that object at the end of the function.
 
 ```javascript
 function Person() {
@@ -229,17 +234,29 @@ function Person() {
     this.lname = 'lname';
 }
 
-var glob = Person();        // window object
-var ali = new Person();     // {}
-
-var ali2 = Person.call({}); // and plus returning the object at the end of the function
+var glob = Person();        //-> window object
+var ali = new Person();     //-> {}
 ```
 ```javascript
+function Shape() {
+    this.name = 'Shape 1';
+}
+Shape.prototype.getName = function() {
+    return this.name;
+}
+var o = new Shape();
+var o2 = Object.create( o );
+var o3 = Object.create( {} );
+
+console.log( o );       //-> Shape { name:'Shape 1', __proto__: Object }
+console.log( o2 );      //-> Shape { __proto__: Shape }
+console.log( o3 );      //-> { __proto__: Object }
+
 var person = {
     fname: 'default';
 };
-var john = Object.create( person );     // => john.__proto__ === person
-person.city = 'london';                 // => john.city === 'london'
+var john = Object.create( person );     //-> john.__proto__ === person
+person.city = 'london';                 //-> john.city === 'london'
 ```
 
 - - - -
