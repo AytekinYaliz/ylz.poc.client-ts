@@ -257,6 +257,15 @@ var person = {
 };
 var john = Object.create( person );     //-> john.__proto__ === person
 person.city = 'london';                 //-> john.city === 'london'
+
+// polyfill for Obj.create
+if(!Object.create) {
+    Object.create = function(o) {
+        function F() {}
+        F.prototype = o;
+        return new F();
+    }
+}
 ```
 
 - - - -
