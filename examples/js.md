@@ -5,20 +5,21 @@ JS is a dynamic language: properties can be added or removed from an object afte
 *Decleration*: When it is executed it doesn't do anything.  
 
 ### FUNCTIONS ###
-Functions are objects {name, code, call(), apply(), bind(), prototype}. Name is optional (anonymous functions). Bind returns a function. Protototype is used only by the *new* operator.  
-*Invocation* is running a function by ().  
-A function that is the property of an object is called its *method*.  
-To create a function we can use:  
-- *Function Declaration*: Can only exist as a *statement* and should start with the keyword. When it is executed it doesn't do anything. They are *hoisted*.  
+* Functions are objects {name, code, call(), apply(), bind(), prototype}. Name is optional (anonymous functions). Bind returns a function. Protototype is used only by the *new* operator.  
+* *Invocation* is running a function by ().
+* A function that is the property of an object is called its *method*.
+* *First Class Function*: You can use functions like strings, numbers etc. (ie. assign as a value to a variable, passed as an argument to other function or return by another function).
+* To create a function we can use:
+    * *Function Declaration*: Can only exist as a *statement* and should start with the keyword. When it is executed it doesn't do anything. They are *hoisted*.  
 function func() { /\* ... \*/ }  
-- *Function Expression*: When it is executed it returns an object, as other expressions. They are *not hoisted*.  
+    * *Function Expression*: When it is executed it returns an object, as other expressions. They are *not hoisted* but their variables are hoisted.  
 var func = function() { /\* ... \*/ };  
-The function has full access to the outer variable. It can modify it as well.  
+* The function has full access to the outer variable. It can modify it as well.  
 If a same-named variable is declared inside the function then it *shadows* the outer one.  
-Values passed to a function as parameters are copied to its local variables (pass-by-value). If the parameter is an object, you can update its properties.  
-- *.bind(thisArg, param1, param2 ...)*: creates a new function that, when called, has its *this* keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.  
-*.call(thisArg, param1, param2 ...)*: calls a function with a given *this* value and arguments provided individually.  
-*.apply(thisArg, [param1, param2 ...])*: calls a function with a given *this* value, and arguments provided as an array (or an array-like object).  
+* Values passed to a function as parameters are copied to its local variables (pass-by-value). If the parameter is an object, you can update its properties.  
+    * *.bind(thisArg, param1, param2 ...)*: creates a new function that, when called, has its *this* keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+    * *.call(thisArg, param1, param2 ...)*: calls a function with a given *this* value and arguments provided individually.
+    * *.apply(thisArg, [param1, param2 ...])*: calls a function with a given *this* value, and arguments provided as an array (or an array-like object).
 
 ```javascript
 function func(val1, val2) { console.log(this.name); }
