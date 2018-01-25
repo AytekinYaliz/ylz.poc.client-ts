@@ -8,15 +8,15 @@ JS is a dynamic language: properties can be added or removed from an object afte
 - Functions are objects {name, code, call(), apply(), bind(), prototype}. Name is optional (anonymous functions). Bind returns a function. Protototype is used only by the *new* operator.  
 - *Invocation* is running a function by ().
 - A function that is the property of an object is called its *method*.
-* *First Class Function*: You can use functions like strings, numbers etc. (ie. assign as a value to a variable, passed as an argument to other function or return by another function).
-* To create a function we can use:
+- *First Class Function*: You can use functions like strings, numbers etc. (ie. assign as a value to a variable, passed as an argument to other function or return by another function).
+- To create a function we can use:
     * *Function Declaration*: Can only exist as a *statement* and should start with the keyword. When it is executed it doesn't do anything. They are *hoisted*.  
 function func() { /\* ... \*/ }  
     * *Function Expression*: When it is executed it returns an object, as other expressions. They are *not hoisted* but their variables are hoisted.  
 var func = function() { /\* ... \*/ };  
-* The function has full access to the outer variable. It can modify it as well.  
+- The function has full access to the outer variable. It can modify it as well.  
 If a same-named variable is declared inside the function then it *shadows* the outer one.  
-* Values passed to a function as parameters are copied to its local variables (pass-by-value). If the parameter is an object, you can update its properties.  
+- Values passed to a function as parameters are copied to its local variables (pass-by-value). If the parameter is an object, you can update its properties.  
     * *.bind(thisArg, param1, param2 ...)*: creates a new function that, when called, has its *this* keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
     * *.call(thisArg, param1, param2 ...)*: calls a function with a given *this* value and arguments provided individually.
     * *.apply(thisArg, [param1, param2 ...])*: calls a function with a given *this* value, and arguments provided as an array (or an array-like object).
@@ -67,8 +67,8 @@ In JS, declerations (variable and function) are hoisted but assignment are not.
 
 ### CLOSURE ###
 
-A *closure* is a function that remembers its outer variables and can access them.  
-If a function leaves the scope in which it was created, it stays connected to the variables of that scope (and of the surrounding scopes). For example:
+- A *closure* is a function that remembers its outer variables and can access them.
+- If a function leaves the scope in which it was created, it stays connected to the variables of that scope (and of the surrounding scopes). For example:
 ```javascript
 function createInc(startValue) {
     return function (step) {
@@ -77,7 +77,7 @@ function createInc(startValue) {
     };
 }
 ```
-The function returned by createInc() does not lose its connection to startValue—the variable provides the function with state that persists across function calls:
+- The function returned by createInc() does not loose its connection to startValue—the variable provides the function with state that persists across function calls:
 ```
 > var inc = createInc(5);
 > inc(1)
@@ -114,19 +114,20 @@ sayHiLater();
 ```
 
 ### JS ENGINE ###
-Google's V8 engine is used in Chrome and Node.js.  The engine consists of two main components:
-- *Memory Heap*: this is where memory allocation happens.
-- *Call Stack*: this is where your stack frames are, as your code executes.  
 
-DOM.........\  
-AJAX.........- Web APIs which are provided by browsers, not by the Engine.  
-setTimeout.../  
+- Google's V8 engine is used in Chrome and Node.js.  The engine consists of two main components:
+    - *Memory Heap*: this is where memory allocation happens.
+    - *Call Stack*: this is where your stack frames are, as your code executes.  
 
-*Call Stack* is a data structure which records basically where in the program we are.   
-JS is a *single-threaded* programming language, which means it has a single Call Stack. Therefore it can do one thing at a time.  
-*Heap*: used for memory allocation.  
-*Stack Frame*: every entry in the Call Stack.  
-*Event Loop*: It pushes the first item in the queue into the stack if the stack is empty.  
+DOM_________\  
+AJAX_________- Web APIs which are provided by browsers, not by the Engine.  
+setTimeout__/  
+
+- *Call Stack* is a data structure which records basically where in the program we are. 
+- JS is a *single-threaded* programming language, which means it has a single Call Stack. Therefore it can do one thing at a time.
+- *Heap*: used for memory allocation.
+- *Stack Frame*: every entry in the Call Stack.
+- *Event Loop*: It pushes the first item in the queue into the stack if the stack is empty.
 
 ```javascript
  _HEAP__       _STACK_      _WebAPIs_
