@@ -22,6 +22,34 @@ If a same-named variable is declared inside the function then it *shadows* the o
     * *.apply(thisArg, [param1, param2 ...])*: calls a function with a given *this* value, and arguments provided as an array (or an array-like object).
 
 ```javascript
+// function statement
+function greet() {
+   console.log( 'hi' );
+}
+greet();
+
+// functions are first-class
+function logGreeting(fn) {
+   fn();
+}
+logGreeting( greet );
+
+// function expression
+var greetMe = function() {
+   console.log( 'hi tony' );
+};
+greetMe();
+
+// it's first-class.
+logGreeting( greetMe );
+
+// use a function expression on the fly
+logGreeting(function() {
+   console.log('hello tony');
+});
+```
+
+```javascript
 function func(val1, val2) { console.log(this.name); }
 var obj = { name: 'abc' };
 
