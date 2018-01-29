@@ -2,7 +2,7 @@ JS is a prototype-based language: there are no classes and objects are created u
 JS is a dynamic language: properties can be added or removed from an object after instantiation.  
 *Coercion* is converting a value from one type to another (ex: console.log(1 + 'ankara')).  
 *Expression*: A unit of code that results a value.  
-*Decleration*: When it is executed it doesn't do anything.  
+*Decleration (statement)*: When it is executed it doesn't do anything. Starts with keywords var or function.  
 
 ### FUNCTIONS ###
 - Functions are objects {name, code, call(), apply(), bind(), prototype}. Name is optional (anonymous functions). Bind returns a function. Protototype is used only by the *new* operator.  
@@ -22,31 +22,17 @@ If a same-named variable is declared inside the function then it *shadows* the o
     * *.apply(thisArg, [param1, param2 ...])*: calls a function with a given *this* value, and arguments provided as an array (or an array-like object).
 
 ```javascript
-// function statement
-function greet() {
-   console.log( 'hi' );
-}
-greet();
+// function statement           |   // function expression
+function greet() {              |   var greetMe = function() {
+   console.log( 'hi' );         |       console.log( 'hi tony' );
+}                               |   }
+greet();                        |   greetMe();
 
 // functions are first-class
 function logGreeting(fn) {
    fn();
 }
 logGreeting( greet );
-
-// function expression
-var greetMe = function() {
-   console.log( 'hi tony' );
-};
-greetMe();
-
-// it's first-class.
-logGreeting( greetMe );
-
-// use a function expression on the fly
-logGreeting(function() {
-   console.log('hello tony');
-});
 ```
 
 ```javascript
