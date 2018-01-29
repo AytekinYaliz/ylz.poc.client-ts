@@ -234,14 +234,14 @@ Number.prototype will be common for all Number objects.
 
 ### BUILDING OBJECT ###
 
-*Function constructor*: They are just functions. They are used to construct objects when the function is used by *new* operator.  
-*Constructor*: A normal function that is used to construct objects.  
-*new* operator: 
-- JS engine creates a new empty object.
-- It invokes the function.
-- When function is called Exec.Context creates a variable *this*.  
-It changes what the 'this' variable points to. 'this' variable points to that new empty object.
-- JS engine will return that object at the end of the function.
+- *Function constructor*: They are just functions. They are used to construct objects when the function is used by *new* operator.  
+- *Constructor*: A normal function that is used to construct objects.  
+- *new* operator: 
+    - JS engine creates a new empty object.
+    - It invokes the function.
+    - When function is called Exec.Context creates a variable *this*.  
+    It changes what the 'this' variable points to. 'this' variable points to that new empty object.
+    - JS engine will return that object at the end of the function.
 
 ```javascript
 function Person() {
