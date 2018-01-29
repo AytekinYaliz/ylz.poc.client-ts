@@ -144,15 +144,15 @@ setTimeout__/
 - *Event Loop*: It pushes the first item in the queue into the stack if the stack is empty.
 
 ```javascript
- _HEAP__       _STACK_      _WebAPIs_
-|       |     |       |    |         |
-|       |     |       |    |         |
-|       |     |       |    |         |
- -------       -------      ---------
+ _HEAP__       _STACK_      _WebAPIs____
+|       |     |       |    |    DOM     |
+|       |     |       |    |    AJAX    |
+|       |     |       |    | setTimeout |
+ -------       -------      ------------
  
-              -> -- 
- Event Loop  |     |
-              -----
+              -> - 
+ Event Loop  |    |
+              ----
 
  Task    ----------
  Queue  |          |
