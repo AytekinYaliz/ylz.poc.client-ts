@@ -1,4 +1,9 @@
 
+- Stateful components are always class components.
+Stateful components have a state that gets initialized in the constructor.  
+You can use either a function or a class for creating stateless components.  
+
+
 ### Presentational vs. Container Components (@Dan Abramov) ###
 My presentational components:
 - Are concerned with how things look.
