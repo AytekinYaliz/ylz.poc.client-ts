@@ -261,12 +261,14 @@ Shape.prototype.getName = function() {
     return this.name;
 }
 var o = new Shape();
-var o2 = Object.create( o );
-var o3 = Object.create( {} );
+var o2 = Object.create( {} );
+var o3 = Object.create( o );
+var o3 = Object.assign( o, {town: 'london'} );
 
 console.log( o );       //-> Shape { name:'Shape 1', __proto__: Object }
-console.log( o2 );      //-> Shape { __proto__: Shape }
-console.log( o3 );      //-> { __proto__: Object }
+console.log( o2 );      //-> { __proto__: Object }
+console.log( o3 );      //-> Shape { __proto__: Shape }
+console.log( o4 );      //-> 
 
 var person = {
     fname: 'default';
