@@ -242,7 +242,14 @@ Number.prototype will be common for all Number objects.
     - When function is called Exec.Context creates a variable *this*.  
     It changes what the 'this' variable points to. 'this' variable points to that new empty object.
     - JS engine will return that object at the end of the function.
-
+- Few important methods:
+   - Object.assign(): Copies the values of all enumerable own properties from one or more source objects to a target object.
+   - Object.create(): Creates a new object with the specified prototype object and properties.
+   - Object.defineProperty(): Adds the named property described by a given descriptor to an object.
+   - Object.defineProperties(): Adds the named properties described by the given descriptors to an object.
+   - Object.entries(): Returns an array of a given object’s own enumerable property [key, value] pairs.
+   - Object.freeze(): Freezes an object: other code can’t delete or change any properties.
+   
 ```javascript
 function Person() {
     console.log( this );
