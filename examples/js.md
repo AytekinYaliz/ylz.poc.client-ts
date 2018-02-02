@@ -248,7 +248,7 @@ Number.prototype will be common for all Number objects.
    - Object.defineProperty(): Adds the named property described by a given descriptor to an object.
    - Object.defineProperties(): Adds the named properties described by the given descriptors to an object.
    - Object.entries(): Returns an array of a given object’s own enumerable property [key, value] pairs.
-   - Object.freeze(): Freezes an object: other code can’t delete or change any properties.
+   - Object.freeze(): Freezes an object. Can’t delete or update any properties but can update its properties of object properties.
    
 ```javascript
 function Person() {
