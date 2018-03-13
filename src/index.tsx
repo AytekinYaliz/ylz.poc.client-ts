@@ -29,3 +29,7 @@ ReactDOM.render(
 );
 
 registerServiceWorker();
+
+declare module 'react' {
+    class Fragment extends React.Component {}
+}
