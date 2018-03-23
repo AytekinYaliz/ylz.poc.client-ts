@@ -1,5 +1,5 @@
 {
-   "name": "lh.accountancy.client",
+   "name": "lh.accountancy.client-ts",
    "version": "0.1.0",
    "private": true,
    "scripts": {
